@@ -1,3 +1,5 @@
+HTML
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,26 +10,19 @@
   <!-- Fuente de Google para darle un toque más limpio -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* --- Variables de Paleta Cálida Marrón --- */
+    /* --- Variables de Paleta Cyber-Pop (Viva y Juvenil) --- */
     :root {
-      --bg-color: #fdfaf6;
-      /* Arena extra claro */
-      --card-bg: #ffffff;
-      /* Blanco puro para contraste */
-      --primary: #5c3d2e;
-      /* Marrón café profundo */
-      --secondary: #865439;
-      /* Marrón arcilla */
-      --accent: #c68b59;
-      /* Marrón dorado / Caramelo */
-      --text-dark: #2d2420;
-      /* Café oscuro para texto */
-      --text-light: #f4ebe1;
-      /* Crema claro */
-      --shadow: rgba(92, 61, 46, 0.08);
+      --bg-color: #0b0f17;     
+      --card-bg: #141b2b;      
+      --primary: #ffffff;        
+      --secondary: #a0aec0;     
+      --accent: #ff007f;        
+      --text-dark: #00f2fe;      
+      --text-light: #0b0f17;     
+      --shadow: rgba(0, 242, 254, 0.15); 
     }
 
     /* --- Resets y Estilos Generales --- */
@@ -40,23 +35,14 @@
     body {
       font-family: 'Poppins', sans-serif;
       background-color: var(--bg-color);
-      color: var(--text-dark);
+      color: var(--primary);
       line-height: 1.6;
-      padding: 2rem 1rem;
+      padding: 3rem 1.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-    }
-
-    /* --- Contenedor Principal (Grid) --- */
-    main {
-      width: 100%;
-      max-width: 900px;
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      position: relative; 
     }
 
     /* --- Encabezado Principal --- */
@@ -68,9 +54,11 @@
       position: relative;
       padding-bottom: 0.75rem;
       margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    /* Línea decorativa debajo del título */
+    /* Línea decorativa con degradado neón dinámico debajo del título */
     h1::after {
       content: '';
       position: absolute;
@@ -79,24 +67,36 @@
       transform: translateX(-50%);
       width: 80px;
       height: 4px;
-      background-color: var(--accent);
+      background: linear-gradient(90deg, var(--accent), var(--text-dark));
       border-radius: 2px;
+    }
+
+    /* --- Contenedor Principal (Grid) --- */
+    main {
+      width: 100%;
+      max-width: 900px;
+      margin-top: 2rem;
+      margin-bottom: 16rem; 
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      z-index: 2;
     }
 
     /* --- Tarjetas de Asignaturas / Módulos --- */
     .category-card {
       background-color: var(--card-bg);
-      border-left: 5px solid var(--secondary);
-      border-radius: 8px;
+      border-left: 5px solid var(--accent); /* Línea lateral rosa vibrante */
+      border-radius: 12px;
       padding: 1.5rem;
-      box-shadow: 0 4px 15px var(--shadow);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
       transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
 
     .category-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(92, 61, 46, 0.15);
-      border-color: var(--accent);
+      box-shadow: 0 15px 30px var(--shadow); 
+      border-color: var(--text-dark);
     }
 
     h2 {
@@ -106,6 +106,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      letter-spacing: 0.5px;
     }
 
     /* --- Listas y Enlaces (Flexbox) --- */
@@ -125,35 +126,53 @@
       display: flex;
       align-items: center;
       text-decoration: none;
-      color: var(--text-dark);
-      background-color: var(--bg-color);
+      color: var(--text-dark); /* Texto Cian Eléctrico */
+      background-color: rgba(0, 242, 254, 0.04); 
       padding: 0.75rem 1rem;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: 600;
       font-size: 0.95rem;
-      border: 1px solid transparent;
+      border: 1px solid rgba(0, 242, 254, 0.15);
 
-      /* Transición suave para todos los estados de hover */
-      transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
     }
 
     .resource-link:hover {
-      background-color: var(--primary);
+      background: linear-gradient(90deg, var(--text-dark), #00b4d8);
       color: var(--text-light);
-      border-color: var(--primary);
-      transform: translateX(5px);
+      border-color: var(--text-dark);
+      transform: translateX(6px);
     }
 
-    /* Icono simulado antes del texto del enlace */
+    /* Icono de código dinámico antes del texto */
     .resource-link::before {
-      content: '📄';
+      content: '</>';
       margin-right: 0.75rem;
-      font-size: 1.1rem;
-      transition: transform 0.25s ease;
+      font-family: monospace;
+      font-size: 0.95rem;
+      opacity: 0.8;
+      transition: transform 0.25s ease, opacity 0.25s ease;
     }
 
     .resource-link:hover::before {
       transform: scale(1.2);
+      opacity: 1;
+    }
+
+    /* --- El Pie de Página Fijo con la Ilustración --- */
+    footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 220px;
+     
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 300' width='100%25' height='100%25'><path d='M80 300C85 240 100 180 120 120M120 120C110 110 100 115 95 110M120 120C115 100 125 95 120 90M120 120C130 105 140 110 145 105' stroke='%231f293d' stroke-width='2' fill='none'/><circle cx='85' cy='108' r='2' fill='%231f293d'/><circle cx='120' cy='76' r='2' fill='%231f293d'/><circle cx='158' cy='105' r='2' fill='%231f293d'/><path d='M250 300C245 220 235 160 230 110M230 110C220 75 185 85 190 110C192 125 215 120 222 116M230 102C245 70 280 75 275 105C272 120 250 120 238 116M222 116C210 135 225 160 245 150' stroke='%231f293d' stroke-width='2' fill='none'/><circle cx='230' cy='110' r='6' fill='%231f293d'/><path d='M380 300C375 250 380 200 390 160M390 150C380 145 385 135 390 130C395 135 400 145 390 150' stroke='%231f293d' stroke-width='2' fill='none'/><path d='M378 240C360 240 355 255 368 260C375 255 378 248 378 240Z' stroke='%231f293d' fill='none'/><path d='M580 300C575 210 565 130 560 60' stroke='%231f293d' stroke-width='2' fill='none'/><circle cx='560' cy='60' r='5' fill='%231f293d'/><path d='M560 60L520 40M560 60L515 65M560 60L525 90M560 60L540 20M560 60L575 15M560 60L600 30M560 60L605 60M560 60L595 90' stroke='%231f293d' stroke-width='1' fill='none'/><path d='M760 300C755 240 745 180 735 120M735 114C740 90 765 95 755 115C750 122 742 122 735 120' stroke='%231f293d' stroke-width='2' fill='none'/><circle cx='735' cy='120' r='5' fill='%231f293d'/><path d='M920 300C910 220 905 140 915 70M915 70C925 90 930 120 922 150M950 300C955 230 970 160 990 100' stroke='%231f293d' stroke-width='2' fill='none'/><path d='M20 300C30 270 45 265 50 300M150 300C155 280 170 275 180 300M310 300C315 260 325 265 340 300M450 300C460 270 480 280 490 300M660 300C670 250 685 260 700 300M820 300C825 275 840 270 850 300M1050 300C1060 260 1080 270 1100 300' stroke='%231f293d' stroke-width='1.5' fill='none'/></svg>");
+      background-repeat: repeat-x;
+      background-position: bottom center;
+      background-size: contain;
+      z-index: 1;
+      pointer-events: none;
     }
 
     /* --- Ajustes Responsivos Extras --- */
@@ -166,8 +185,16 @@
         padding: 1rem 0.5rem;
       }
 
+      main {
+        margin-bottom: 10rem;
+      }
+
       .category-card {
         padding: 1.25rem;
+      }
+
+      footer {
+        height: 120px;
       }
     }
   </style>
@@ -193,7 +220,6 @@
     </section>
 
     <!-- Puse este bloque extra de ejemplo para que veas cómo el Grid acomoda las tarjetas automáticamente -->
-    <!-- Puedes borrarlo o duplicarlo para añadir más materias (Web, Bases de Datos, etc.) -->
     <section class="category-card">
       <h2>Otros Recursos</h2>
       <ul>
@@ -207,6 +233,10 @@
 
   </main>
 
+  <!-- Contenedor dedicado al pie de página -->
+  <footer></footer>
+
 </body>
 
+</html>
 </html>
