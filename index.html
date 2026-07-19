@@ -1,19 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Material de Estudio</title>
+  <!-- Fuente de Google para darle un toque más limpio -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- Variables de Paleta Cálida Marrón --- */
+    :root {
+      --bg-color: #fdfaf6;
+      /* Arena extra claro */
+      --card-bg: #ffffff;
+      /* Blanco puro para contraste */
+      --primary: #5c3d2e;
+      /* Marrón café profundo */
+      --secondary: #865439;
+      /* Marrón arcilla */
+      --accent: #c68b59;
+      /* Marrón dorado / Caramelo */
+      --text-dark: #2d2420;
+      /* Café oscuro para texto */
+      --text-light: #f4ebe1;
+      /* Crema claro */
+      --shadow: rgba(92, 61, 46, 0.08);
+    }
+
+    /* --- Resets y Estilos Generales --- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* --- Contenedor Principal (Grid) --- */
+    main {
+      width: 100%;
+      max-width: 900px;
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    /* --- Encabezado Principal --- */
+    h1 {
+      text-align: center;
+      color: var(--primary);
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Línea decorativa debajo del título */
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* --- Tarjetas de Asignaturas / Módulos --- */
+    .category-card {
+      background-color: var(--card-bg);
+      border-left: 5px solid var(--secondary);
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(92, 61, 46, 0.15);
+      border-color: var(--accent);
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* --- Listas y Enlaces (Flexbox) --- */
+    ul {
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 0.75rem;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+
+    .resource-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--text-dark);
+      background-color: var(--bg-color);
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+
+      /* Transición suave para todos los estados de hover */
+      transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
+    }
+
+    .resource-link:hover {
+      background-color: var(--primary);
+      color: var(--text-light);
+      border-color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    /* Icono simulado antes del texto del enlace */
+    .resource-link::before {
+      content: '📄';
+      margin-right: 0.75rem;
+      font-size: 1.1rem;
+      transition: transform 0.25s ease;
+    }
+
+    .resource-link:hover::before {
+      transform: scale(1.2);
+    }
+
+    /* --- Ajustes Responsivos Extras --- */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      body {
+        padding: 1rem 0.5rem;
+      }
+
+      .category-card {
+        padding: 1.25rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
+
   <h1>Material de Estudio Simplificado</h1>
 
-  <h2>Lenguaje C</h2>
-  <ul>
-    <li><a href="./lenguajec/archivos">Guía didáctica sobre Manejo de Archivos en Lenguaje C</a></li>
-  </ul>
+  <!-- Contenedor grid para organizar las materias dinámicamente -->
+  <main>
+
+    <!-- Bloque de Lenguaje C -->
+    <section class="category-card">
+      <h2>Lenguaje C</h2>
+      <ul>
+        <li>
+          <a class="resource-link" href="./lenguajec/archivos">
+            Guía didáctica: Manejo de Archivos
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Puse este bloque extra de ejemplo para que veas cómo el Grid acomoda las tarjetas automáticamente -->
+    <!-- Puedes borrarlo o duplicarlo para añadir más materias (Web, Bases de Datos, etc.) -->
+    <section class="category-card">
+      <h2>Otros Recursos</h2>
+      <ul>
+        <li>
+          <a class="resource-link" href="#">
+            Próximamente más material...
+          </a>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
 </body>
 
 </html>
