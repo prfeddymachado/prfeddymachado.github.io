@@ -67,11 +67,9 @@
             margin-top: 1.5rem;
         }
 
-        /* --- Botón Volver al Inicio --- */
+        /* --- Botón Volver al Inicio (Compacto) --- */
         .btn-back {
             align-self: flex-start;
-            width: 100%;
-            max-width: 900px;
             display: inline-flex;
             align-items: center;
             text-decoration: none;
@@ -83,6 +81,8 @@
             font-size: 0.95rem;
             border: 1px solid var(--text-light);
             box-shadow: 0 2px 8px var(--shadow);
+            margin-bottom: 0.5rem;
+            /* Espacio con la guía de abajo */
             transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
         }
 
@@ -329,7 +329,8 @@
         <p>En el lenguaje C, el manejo de estos archivos se realiza a través de la librería estándar
             <code>&lt;stdio.h&gt;</code> mediante el concepto de <strong>flujo de datos (stream)</strong>. Un flujo es
             simplemente un canal abstracto por donde viaja la información desde el almacenamiento hacia tu programa, o
-            viceversa.</p>
+            viceversa.
+        </p>
 
         <div class="note-box">
             <strong>La analogía del archivero físico:</strong> Imagina que necesitas trabajar con un expediente físico
@@ -348,7 +349,8 @@
         <h3>El identificador del flujo: FILE*</h3>
         <p>Para manipular un archivo desde el código, necesitamos declarar una estructura especial denominada
             <code>FILE</code> (definida internamente en <code>stdio.h</code>). Nunca manejamos el archivo de forma
-            directa; lo hacemos siempre a través de una dirección de memoria, es decir, un puntero:</p>
+            directa; lo hacemos siempre a través de una dirección de memoria, es decir, un puntero:
+        </p>
 
         <div class="code-block" id="base1">
             <button class="copy-btn" data-target="base1">Copiar</button>
