@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
     <title>Diagnóstico Estratégico de Marca</title>
 
     <meta name="description"
-          content="Material académico sobre investigación de mercado, nicho, competencia, briefing, propuesta de valor y matriz DOFA.">
+        content="Material académico sobre investigación de mercado, nicho, competencia, briefing, propuesta de valor y matriz DOFA.">
 
     <style>
         /* =========================================================
@@ -87,7 +88,7 @@
             top: 0;
             z-index: 1000;
 
-            background: rgba(255,255,255,0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
 
             border-bottom: 1px solid var(--border);
@@ -221,16 +222,32 @@
         }
 
         /* =========================================================
+           SVG ILLUSTRATIONS STYLES
+        ========================================================= */
+        .section-svg-illustration {
+            width: 100%;
+            max-height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .section-svg-illustration svg {
+            max-height: 200px;
+            width: auto;
+            filter: drop-shadow(0 4px 12px rgba(79, 70, 229, 0.08));
+        }
+
+        /* =========================================================
            HERO
         ========================================================= */
         .hero {
             background:
-                linear-gradient(
-                    135deg,
+                linear-gradient(135deg,
                     #eef2ff 0%,
                     #ffffff 55%,
-                    #ecfeff 100%
-                );
+                    #ecfeff 100%);
 
             border: 1px solid var(--border);
             border-radius: 24px;
@@ -622,7 +639,7 @@
         input:focus,
         textarea:focus,
         select:focus {
-            outline: 3px solid rgba(79,70,229,0.12);
+            outline: 3px solid rgba(79, 70, 229, 0.12);
             border-color: var(--primary);
         }
 
@@ -668,7 +685,7 @@
             font-weight: 800;
         }
 
-        details > div {
+        details>div {
             padding: 0 16px 17px;
         }
 
@@ -864,1978 +881,2092 @@
 
 <body>
 
-<header class="topbar">
-    <div class="topbar-inner">
+    <header class="topbar">
+        <div class="topbar-inner">
 
-        <div class="brand">
-            <div class="brand-icon">DM</div>
+            <div class="brand">
+                <div class="brand-icon">DM</div>
 
-            <div>
-                Diagnóstico Estratégico
-                <small>Material académico · Gestión de Redes Sociales</small>
+                <div>
+                    Diagnóstico Estratégico
+                    <small>Material académico · Gestión de Redes Sociales</small>
+                </div>
             </div>
+
+            <button class="menu-button" id="menuButton" aria-label="Abrir menú">
+                ☰ Menú
+            </button>
+
         </div>
-
-        <button
-            class="menu-button"
-            id="menuButton"
-            aria-label="Abrir menú">
-            ☰ Menú
-        </button>
-
-    </div>
-</header>
+    </header>
 
 
-<div class="layout">
+    <div class="layout">
 
-    <!-- =====================================================
+        <!-- =====================================================
          SIDEBAR
     ====================================================== -->
 
-    <aside class="sidebar" id="sidebar">
+        <aside class="sidebar" id="sidebar">
 
-        <h3>Contenido</h3>
+            <h3>Contenido</h3>
 
-        <a href="#inicio">Inicio</a>
-        <a href="#ruta">Ruta de aprendizaje</a>
-        <a href="#mercado">1. Investigación de mercado</a>
-        <a href="#nicho">2. Nicho de mercado</a>
-        <a href="#competencia">3. Competencia</a>
-        <a href="#briefing">4. Briefing</a>
-        <a href="#propuesta">5. Propuesta de valor</a>
-        <a href="#dofa">6. Matriz DOFA</a>
-        <a href="#integracion">7. Integración</a>
-        <a href="#actividad">8. Actividad práctica</a>
-        <a href="#entrega">9. Producto final</a>
-        <a href="#autoevaluacion">10. Autoevaluación</a>
+            <a href="#inicio">Inicio</a>
+            <a href="#ruta">Ruta de aprendizaje</a>
+            <a href="#mercado">1. Investigación de mercado</a>
+            <a href="#nicho">2. Nicho de mercado</a>
+            <a href="#competencia">3. Competencia</a>
+            <a href="#briefing">4. Briefing</a>
+            <a href="#propuesta">5. Propuesta de valor</a>
+            <a href="#dofa">6. Matriz DOFA</a>
+            <a href="#integracion">7. Integración</a>
+            <a href="#actividad">8. Actividad práctica</a>
+            <a href="#entrega">9. Producto final</a>
+            <a href="#autoevaluacion">10. Autoevaluación</a>
 
-    </aside>
+        </aside>
 
 
-    <!-- =====================================================
+        <!-- =====================================================
          MAIN
     ====================================================== -->
 
-    <main>
+        <main>
 
-        <!-- =================================================
+            <!-- =================================================
              HERO
         ================================================== -->
 
-        <section id="inicio">
+            <section id="inicio">
 
-            <div class="hero">
+                <div class="hero">
 
-                <span class="eyebrow">
-                    Gestión de Redes Sociales
-                </span>
+                    <span class="eyebrow">
+                        Gestión de Redes Sociales
+                    </span>
 
-                <h1>
-                    Del mercado a la estrategia de marca
-                </h1>
+                    <h1>
+                        Del mercado a la estrategia de marca
+                    </h1>
 
-                <p>
-                    Material académico para aprender a investigar el mercado,
-                    identificar un nicho, analizar la competencia, elaborar
-                    un briefing, construir una propuesta de valor y utilizar
-                    la matriz DOFA para tomar decisiones estratégicas.
-                </p>
+                    <p>
+                        Material académico para aprender a investigar el mercado,
+                        identificar un nicho, analizar la competencia, elaborar
+                        un briefing, construir una propuesta de valor y utilizar
+                        la matriz DOFA para tomar decisiones estratégicas.
+                    </p>
 
-                <div class="hero-actions no-print">
+                    <!-- SVG Ilustración Hero -->
+                    <div class="section-svg-illustration">
+                        <svg viewBox="0 0 500 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="20" width="130" height="110" rx="14" fill="#E0E7FF" stroke="#4F46E5"
+                                stroke-width="3" />
+                            <circle cx="85" cy="65" r="22" fill="#4F46E5" fill-opacity="0.2" />
+                            <path d="M55 100h60M65 115h40" stroke="#4F46E5" stroke-width="3" stroke-linecap="round" />
+                            <path d="M175 80l40-30 45 40 50-60 65 50" stroke="#0F766E" stroke-width="4"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="375" cy="80" r="8" fill="#F59E0B" />
+                            <circle cx="215" cy="50" r="6" fill="#4F46E5" />
+                            <circle cx="260" cy="90" r="6" fill="#0F766E" />
+                            <rect x="390" y="30" width="80" height="90" rx="10" fill="#ECFEFF" stroke="#0F766E"
+                                stroke-width="3" />
+                            <path d="M410 55h40M410 75h40M410 95h25" stroke="#0F766E" stroke-width="3"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
 
-                    <a class="btn btn-primary" href="#actividad">
-                        Ir a la actividad
-                    </a>
+                    <div class="hero-actions no-print">
 
-                    <button
-                        class="btn btn-secondary"
-                        onclick="window.print()">
-                        🖨 Imprimir / PDF
-                    </button>
+                        <a class="btn btn-primary" href="#actividad">
+                            Ir a la actividad
+                        </a>
+
+                        <button class="btn btn-secondary" onclick="window.print()">
+                            🖨 Imprimir / PDF
+                        </button>
+
+                    </div>
 
                 </div>
 
-            </div>
-
-        </section>
+            </section>
 
 
-        <!-- =================================================
+            <!-- =================================================
              OBJETIVO
         ================================================== -->
 
-        <section>
+            <section>
 
-            <h2>¿Qué aprenderás?</h2>
+                <h2>¿Qué aprenderás?</h2>
 
-            <p class="section-intro">
-                Al finalizar este material podrás analizar el entorno de
-                una marca y convertir la información obtenida en decisiones
-                estratégicas.
-            </p>
+                <p class="section-intro">
+                    Al finalizar este material podrás analizar el entorno de
+                    una marca y convertir la información obtenida en decisiones
+                    estratégicas.
+                </p>
 
-            <div class="grid">
+                <div class="grid">
 
-                <article class="card">
-                    <div class="card-number">1</div>
-                    <h3>Investigar</h3>
-                    <p>
-                        Comprender el mercado, sus necesidades, tendencias
-                        y oportunidades.
-                    </p>
-                </article>
+                    <article class="card">
+                        <div class="card-number">1</div>
+                        <h3>Investigar</h3>
+                        <p>
+                            Comprender el mercado, sus necesidades, tendencias
+                            y oportunidades.
+                        </p>
+                    </article>
 
-                <article class="card">
-                    <div class="card-number">2</div>
-                    <h3>Identificar</h3>
-                    <p>
-                        Definir un segmento y un nicho específico al que
-                        la marca pueda dirigirse.
-                    </p>
-                </article>
+                    <article class="card">
+                        <div class="card-number">2</div>
+                        <h3>Identificar</h3>
+                        <p>
+                            Definir un segmento y un nicho específico al que
+                            la marca pueda dirigirse.
+                        </p>
+                    </article>
 
-                <article class="card">
-                    <div class="card-number">3</div>
-                    <h3>Comparar</h3>
-                    <p>
-                        Analizar a los competidores para detectar fortalezas,
-                        debilidades y oportunidades.
-                    </p>
-                </article>
+                    <article class="card">
+                        <div class="card-number">3</div>
+                        <h3>Comparar</h3>
+                        <p>
+                            Analizar a los competidores para detectar fortalezas,
+                            debilidades y oportunidades.
+                        </p>
+                    </article>
 
-                <article class="card">
-                    <div class="card-number">4</div>
-                    <h3>Organizar</h3>
-                    <p>
-                        Utilizar el briefing para reunir la información
-                        esencial del proyecto.
-                    </p>
-                </article>
+                    <article class="card">
+                        <div class="card-number">4</div>
+                        <h3>Organizar</h3>
+                        <p>
+                            Utilizar el briefing para reunir la información
+                            esencial del proyecto.
+                        </p>
+                    </article>
 
-                <article class="card">
-                    <div class="card-number">5</div>
-                    <h3>Diferenciar</h3>
-                    <p>
-                        Construir una propuesta de valor clara y relevante.
-                    </p>
-                </article>
+                    <article class="card">
+                        <div class="card-number">5</div>
+                        <h3>Diferenciar</h3>
+                        <p>
+                            Construir una propuesta de valor clara y relevante.
+                        </p>
+                    </article>
 
-                <article class="card">
-                    <div class="card-number">6</div>
-                    <h3>Decidir</h3>
-                    <p>
-                        Transformar el análisis DOFA en acciones estratégicas.
-                    </p>
-                </article>
+                    <article class="card">
+                        <div class="card-number">6</div>
+                        <h3>Decidir</h3>
+                        <p>
+                            Transformar el análisis DOFA en acciones estratégicas.
+                        </p>
+                    </article>
 
-            </div>
+                </div>
 
-        </section>
+            </section>
 
 
-        <!-- =================================================
+            <!-- =================================================
              RUTA
         ================================================== -->
 
-        <section id="ruta">
+            <section id="ruta">
 
-            <h2>La ruta estratégica</h2>
+                <h2>La ruta estratégica</h2>
 
-            <p class="section-intro">
-                Estos conceptos no deben estudiarse como temas aislados.
-                Cada uno aporta información para el siguiente.
-            </p>
-
-            <div class="flow">
-
-                <div class="flow-item">Mercado</div>
-                <div class="flow-item">Nicho</div>
-                <div class="flow-item">Competencia</div>
-                <div class="flow-item">Briefing</div>
-                <div class="flow-item">Propuesta de valor</div>
-                <div class="flow-item">DOFA</div>
-
-            </div>
-
-            <div class="info">
-
-                <strong>Idea clave:</strong>
-
-                Investigar no significa acumular información.
-                Significa obtener información que permita
-                <strong>tomar mejores decisiones</strong>.
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             MERCADO
-        ================================================== -->
-
-        <section id="mercado">
-
-            <h2>1. Investigación de mercado</h2>
-
-            <p class="section-intro">
-                La investigación de mercado permite conocer el entorno
-                en el que competirá una marca antes de tomar decisiones.
-            </p>
-
-            <div class="info">
-
-                <strong>Definición:</strong>
-
-                La investigación de mercado es el proceso de recopilar,
-                analizar e interpretar información sobre consumidores,
-                necesidades, tendencias, competidores y oportunidades.
-
-            </div>
-
-            <h3>¿Qué debemos investigar?</h3>
-
-            <div class="grid">
-
-                <article class="card">
-                    <h3>Sector</h3>
-                    <p>
-                        ¿A qué actividad pertenece la marca?
-                    </p>
-                    <p>
-                        Ejemplo: gastronomía, educación, tecnología,
-                        belleza, moda, turismo.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <h3>Necesidades</h3>
-                    <p>
-                        ¿Qué necesita resolver el consumidor?
-                    </p>
-                    <p>
-                        Recuerda: producto y necesidad no son necesariamente
-                        lo mismo.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <h3>Tendencias</h3>
-                    <p>
-                        ¿Qué está cambiando en el mercado?
-                    </p>
-                    <p>
-                        Nuevos hábitos, productos, plataformas y formas
-                        de comprar.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <h3>Consumidores</h3>
-                    <p>
-                        ¿Quién compra? ¿Qué busca? ¿Qué valora?
-                    </p>
-                </article>
-
-                <article class="card">
-                    <h3>Oportunidades</h3>
-                    <p>
-                        ¿Existe una necesidad que no está siendo
-                        atendida adecuadamente?
-                    </p>
-                </article>
-
-                <article class="card">
-                    <h3>Amenazas</h3>
-                    <p>
-                        ¿Qué factores externos pueden afectar
-                        a la marca?
-                    </p>
-                </article>
-
-            </div>
-
-
-            <h3>Ejemplo práctico</h3>
-
-            <div class="example">
-
-                <div class="example-title">
-                    Caso: repostería artesanal
-                </div>
-
-                <p>
-                    Una estudiante desea crear una marca de tortas
-                    personalizadas.
+                <p class="section-intro">
+                    Estos conceptos no deben estudiarse como temas aislados.
+                    Cada uno aporta información para el siguiente.
                 </p>
 
-                <p>
-                    Al investigar descubre que existe interés por productos
-                    personalizados para cumpleaños, pero muchos negocios
-                    utilizan sus redes principalmente para mostrar productos
-                    y promociones.
-                </p>
-
-                <p class="good">
-                    <strong>Conclusión:</strong>
-                    existe una oportunidad para diferenciarse mediante
-                    contenido educativo e inspiracional relacionado con
-                    celebraciones y personalización.
-                </p>
-
-            </div>
-
-
-            <h3>Fuentes de información</h3>
-
-            <ul>
-                <li>Google y buscadores.</li>
-                <li>Redes sociales.</li>
-                <li>Comentarios y reseñas.</li>
-                <li>Encuestas.</li>
-                <li>Entrevistas.</li>
-                <li>Informes del sector.</li>
-                <li>Fuentes institucionales.</li>
-                <li>Páginas especializadas.</li>
-            </ul>
-
-            <div class="info warning">
-
-                <strong>Importante:</strong>
-
-                No toda información encontrada en Internet es válida.
-                Revisa siempre la fuente, fecha, autor o institución
-                y relación con el proyecto.
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             NICHO
-        ================================================== -->
-
-        <section id="nicho">
-
-            <h2>2. Conocer el nicho de mercado</h2>
-
-            <p class="section-intro">
-                Una marca no necesita hablarle a todo el mundo.
-                Necesita identificar a las personas para las que su
-                propuesta resulta especialmente relevante.
-            </p>
-
-            <div class="info">
-
-                <strong>Nicho:</strong>
-
-                Grupo específico dentro de un mercado que comparte
-                determinadas necesidades, características, intereses
-                o comportamientos.
-
-            </div>
-
-            <h3>De lo general a lo específico</h3>
-
-            <div class="flow">
-
-                <div class="flow-item">Alimentación</div>
-                <div class="flow-item">Saludable</div>
-                <div class="flow-item">Comida preparada</div>
-                <div class="flow-item">Profesionales</div>
-                <div class="flow-item">Almuerzo laboral</div>
-
-            </div>
-
-            <h3>Preguntas para descubrir el nicho</h3>
-
-            <div class="grid grid-2">
-
-                <div class="card">
-                    <h3>¿Quién?</h3>
-                    <p>
-                        ¿Quién tiene la necesidad que mi marca puede resolver?
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>¿Qué necesita?</h3>
-                    <p>
-                        ¿Cuál es su necesidad principal?
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>¿Qué problema tiene?</h3>
-                    <p>
-                        ¿Qué dificultad está intentando solucionar?
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>¿Qué desea?</h3>
-                    <p>
-                        ¿Qué resultado quiere conseguir?
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>¿Cómo se comporta?</h3>
-                    <p>
-                        ¿Cómo busca información y cómo compra?
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>¿Dónde está?</h3>
-                    <p>
-                        ¿Qué plataformas digitales utiliza?
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="example">
-
-                <div class="example-title">
-                    Ejemplo
-                </div>
-
-                <p class="bad">
-                    ❌ "Mi público son mujeres."
-                </p>
-
-                <p>
-                    Es demasiado amplio.
-                </p>
-
-                <p class="good">
-                    ✔ "Mujeres entre 25 y 40 años que buscan tortas
-                    personalizadas para cumpleaños y celebraciones
-                    familiares y utilizan Instagram para encontrar
-                    proveedores."
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             COMPETENCIA
-        ================================================== -->
-
-        <section id="competencia">
-
-            <h2>3. Análisis de la competencia</h2>
-
-            <p class="section-intro">
-                El análisis de competencia permite conocer qué hacen
-                otras marcas y detectar oportunidades de diferenciación.
-            </p>
-
-            <div class="info">
-
-                <strong>Pregunta central:</strong>
-
-                ¿Quiénes compiten conmigo y qué puedo aprender de ellos
-                sin copiar su estrategia?
-
-            </div>
-
-            <h3>Tipos de competencia</h3>
-
-            <div class="grid">
-
-                <article class="card">
-
-                    <h3>Directa</h3>
-
-                    <p>
-                        Ofrece productos o servicios similares al mismo
-                        público.
-                    </p>
-
-                    <p>
-                        <strong>Ejemplo:</strong>
-                        otra pastelería que vende tortas personalizadas.
-                    </p>
-
-                </article>
-
-                <article class="card">
-
-                    <h3>Indirecta</h3>
-
-                    <p>
-                        Satisface una necesidad similar mediante una
-                        solución diferente.
-                    </p>
-
-                    <p>
-                        <strong>Ejemplo:</strong>
-                        una empresa que vende cupcakes para celebraciones.
-                    </p>
-
-                </article>
-
-                <article class="card">
-
-                    <h3>Referente</h3>
-
-                    <p>
-                        Marca que podemos estudiar por sus buenas prácticas,
-                        aunque no sea competencia directa.
-                    </p>
-
-                </article>
-
-            </div>
-
-
-            <h3>¿Qué analizar?</h3>
-
-            <div class="table-wrapper">
-
-                <table>
-
-                    <thead>
-
-                        <tr>
-                            <th>Criterio</th>
-                            <th>Pregunta</th>
-                        </tr>
-
-                    </thead>
-
-                    <tbody>
-
-                        <tr>
-                            <td>Presencia digital</td>
-                            <td>¿En qué redes está?</td>
-                        </tr>
-
-                        <tr>
-                            <td>Perfil</td>
-                            <td>¿Está bien configurado?</td>
-                        </tr>
-
-                        <tr>
-                            <td>Identidad</td>
-                            <td>¿Cómo utiliza colores, logotipo y personalidad?</td>
-                        </tr>
-
-                        <tr>
-                            <td>Contenido</td>
-                            <td>¿Qué temas y formatos publica?</td>
-                        </tr>
-
-                        <tr>
-                            <td>Frecuencia</td>
-                            <td>¿Publica constantemente?</td>
-                        </tr>
-
-                        <tr>
-                            <td>Interacción</td>
-                            <td>¿Cómo responde a su comunidad?</td>
-                        </tr>
-
-                        <tr>
-                            <td>Diferenciación</td>
-                            <td>¿Qué hace diferente?</td>
-                        </tr>
-
-                        <tr>
-                            <td>Fortalezas</td>
-                            <td>¿Qué hace especialmente bien?</td>
-                        </tr>
-
-                        <tr>
-                            <td>Debilidades</td>
-                            <td>¿Qué podría mejorar?</td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-
-            <h3>Matriz básica de competencia</h3>
-
-            <div class="table-wrapper">
-
-                <table>
-
-                    <thead>
-
-                        <tr>
-                            <th>Criterio</th>
-                            <th>Mi marca</th>
-                            <th>Competidor A</th>
-                            <th>Competidor B</th>
-                            <th>Competidor C</th>
-                        </tr>
-
-                    </thead>
-
-                    <tbody>
-
-                        <tr>
-                            <td>Producto / servicio</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Público</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Redes utilizadas</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Tipo de contenido</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Identidad visual</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Interacción</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Diferenciación</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-
-            <div class="info success">
-
-                <strong>Recuerda:</strong>
-
-                Analizar a la competencia no significa copiarla.
-                Significa detectar qué funciona, qué falta y dónde
-                puede existir una oportunidad para nuestra marca.
-
-            </div>
-
-
-            <h3>Competencia vs. Benchmarking</h3>
-
-            <div class="grid grid-2">
-
-                <div class="card">
-
-                    <h3>Segundo corte</h3>
-
-                    <p>
-                        <strong>Análisis de competencia</strong>
-                    </p>
-
-                    <p>
-                        Identificamos competidores y analizamos sus
-                        características para alimentar nuestro diagnóstico
-                        y DOFA.
-                    </p>
+                <div class="flow">
+
+                    <div class="flow-item">Mercado</div>
+                    <div class="flow-item">Nicho</div>
+                    <div class="flow-item">Competencia</div>
+                    <div class="flow-item">Briefing</div>
+                    <div class="flow-item">Propuesta de valor</div>
+                    <div class="flow-item">DOFA</div>
 
                 </div>
 
-                <div class="card">
-
-                    <h3>Tercer corte</h3>
-
-                    <p>
-                        <strong>Benchmarking</strong>
-                    </p>
-
-                    <p>
-                        Realizamos una comparación más profunda para
-                        identificar buenas prácticas y oportunidades
-                        de mejora.
-                    </p>
-
+                <!-- SVG Ilustración Ruta -->
+                <div class="section-svg-illustration">
+                    <svg viewBox="0 0 500 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40 60h420" stroke="#E2E8F0" stroke-width="6" stroke-linecap="round" />
+                        <path d="M40 60h380" stroke="#4F46E5" stroke-width="6" stroke-linecap="round" />
+                        <circle cx="60" cy="60" r="16" fill="#4F46E5" />
+                        <circle cx="140" cy="60" r="16" fill="#4F46E5" />
+                        <circle cx="220" cy="60" r="16" fill="#4F46E5" />
+                        <circle cx="300" cy="60" r="16" fill="#4F46E5" />
+                        <circle cx="380" cy="60" r="16" fill="#4F46E5" />
+                        <circle cx="450" cy="60" r="16" fill="#0F766E" />
+                        <text x="60" y="65" fill="white" font-size="12" font-weight="bold" text-anchor="middle">1</text>
+                        <text x="140" y="65" fill="white" font-size="12" font-weight="bold"
+                            text-anchor="middle">2</text>
+                        <text x="220" y="65" fill="white" font-size="12" font-weight="bold"
+                            text-anchor="middle">3</text>
+                        <text x="300" y="65" fill="white" font-size="12" font-weight="bold"
+                            text-anchor="middle">4</text>
+                        <text x="380" y="65" fill="white" font-size="12" font-weight="bold"
+                            text-anchor="middle">5</text>
+                        <text x="450" y="65" fill="white" font-size="12" font-weight="bold"
+                            text-anchor="middle">6</text>
+                    </svg>
                 </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             BRIEFING
-        ================================================== -->
-
-        <section id="briefing">
-
-            <h2>4. Elaboración del briefing</h2>
-
-            <p class="section-intro">
-                El briefing organiza la información esencial del proyecto
-                para orientar las decisiones de la marca.
-            </p>
-
-            <div class="info">
-
-                <strong>En palabras sencillas:</strong>
-
-                El briefing es la "guía de instrucciones" de nuestro proyecto.
-
-            </div>
-
-            <h3>¿Qué debe contener?</h3>
-
-            <div class="grid">
-
-                <article class="card">
-                    <h3>Marca</h3>
-                    <p>Nombre, descripción y producto o servicio.</p>
-                </article>
-
-                <article class="card">
-                    <h3>Identidad</h3>
-                    <p>Misión, visión, valores, arquetipo y personalidad.</p>
-                </article>
-
-                <article class="card">
-                    <h3>Mercado</h3>
-                    <p>Sector, necesidades, tendencias y oportunidades.</p>
-                </article>
-
-                <article class="card">
-                    <h3>Público</h3>
-                    <p>Segmento, nicho y características del cliente.</p>
-                </article>
-
-                <article class="card">
-                    <h3>Problema</h3>
-                    <p>Necesidad que la marca pretende solucionar.</p>
-                </article>
-
-                <article class="card">
-                    <h3>Objetivo</h3>
-                    <p>Qué desea conseguir la marca.</p>
-                </article>
-
-                <article class="card">
-                    <h3>Competencia</h3>
-                    <p>Principales competidores y diferencias.</p>
-                </article>
-
-                <article class="card">
-                    <h3>Diferenciación</h3>
-                    <p>Qué hace especial a la marca.</p>
-                </article>
-
-                <article class="card">
-                    <h3>Plataformas</h3>
-                    <p>Dónde tendrá presencia digital y por qué.</p>
-                </article>
-
-            </div>
-
-            <div class="example">
-
-                <div class="example-title">
-                    Importante
-                </div>
-
-                <p>
-                    El briefing no sustituye la investigación de mercado.
-                    El briefing <strong>resume y organiza</strong> la
-                    información que necesitamos para orientar el proyecto.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             PROPUESTA DE VALOR
-        ================================================== -->
-
-        <section id="propuesta">
-
-            <h2>5. Propuesta de valor</h2>
-
-            <p class="section-intro">
-                La propuesta de valor explica por qué una persona debería
-                considerar nuestra marca frente a otras alternativas.
-            </p>
-
-            <div class="info">
-
-                <strong>Fórmula:</strong>
-
-                Ayudamos a <strong>[PÚBLICO]</strong> a
-                <strong>[RESOLVER PROBLEMA]</strong> mediante
-                <strong>[PRODUCTO/SERVICIO]</strong>, ofreciendo
-                <strong>[BENEFICIO/DIFERENCIACIÓN]</strong>.
-
-            </div>
-
-
-            <h3>Ejemplo</h3>
-
-            <div class="example">
-
-                <p class="bad">
-                    ❌ "Vendemos tortas deliciosas."
-                </p>
-
-                <p>
-                    Describe el producto, pero no explica claramente
-                    el valor para el cliente.
-                </p>
-
-                <hr style="margin:15px 0;border:0;border-top:1px solid #ddd;">
-
-                <p class="good">
-                    ✔ "Ayudamos a personas que desean celebrar ocasiones
-                    especiales a encontrar tortas personalizadas mediante
-                    diseños adaptados a cada evento, ofreciendo atención
-                    personalizada y productos elaborados según sus preferencias."
-                </p>
-
-            </div>
-
-
-            <h3>Una buena propuesta debe responder</h3>
-
-            <ul>
-
-                <li>¿Para quién es?</li>
-                <li>¿Qué problema resuelve?</li>
-                <li>¿Qué ofrece?</li>
-                <li>¿Qué beneficio proporciona?</li>
-                <li>¿Qué la diferencia?</li>
-
-            </ul>
-
-            <div class="info warning">
-
-                <strong>No confundir:</strong>
-
-                La propuesta de valor no es necesariamente un eslogan.
-                El eslogan puede ser una frase publicitaria; la propuesta
-                de valor explica el valor que la marca ofrece.
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             DOFA
-        ================================================== -->
-
-        <section id="dofa">
-
-            <h2>6. Matriz DOFA</h2>
-
-            <p class="section-intro">
-                La matriz DOFA permite analizar la situación interna y
-                externa de una marca para convertir el diagnóstico en
-                decisiones.
-            </p>
-
-            <div class="dofa-grid">
-
-                <article class="dofa-box dofa-f">
-
-                    <h3>🟢 F — Fortalezas</h3>
-
-                    <p>
-                        Factores internos positivos.
-                    </p>
-
-                    <p>
-                        Pregunta:
-                        <strong>¿Qué hacemos bien?</strong>
-                    </p>
-
-                    <ul>
-                        <li>Producto personalizado.</li>
-                        <li>Buena atención.</li>
-                        <li>Experiencia.</li>
-                        <li>Identidad visual definida.</li>
-                    </ul>
-
-                </article>
-
-
-                <article class="dofa-box dofa-d">
-
-                    <h3>🔴 D — Debilidades</h3>
-
-                    <p>
-                        Factores internos negativos.
-                    </p>
-
-                    <p>
-                        Pregunta:
-                        <strong>¿Qué necesitamos mejorar?</strong>
-                    </p>
-
-                    <ul>
-                        <li>Poca presencia digital.</li>
-                        <li>Poca experiencia.</li>
-                        <li>Baja frecuencia de publicación.</li>
-                        <li>Recursos limitados.</li>
-                    </ul>
-
-                </article>
-
-
-                <article class="dofa-box dofa-o">
-
-                    <h3>🔵 O — Oportunidades</h3>
-
-                    <p>
-                        Factores externos positivos.
-                    </p>
-
-                    <p>
-                        Pregunta:
-                        <strong>¿Qué podemos aprovechar?</strong>
-                    </p>
-
-                    <ul>
-                        <li>Nuevas tendencias.</li>
-                        <li>Crecimiento del mercado.</li>
-                        <li>Necesidades no atendidas.</li>
-                        <li>Nuevos hábitos digitales.</li>
-                    </ul>
-
-                </article>
-
-
-                <article class="dofa-box dofa-a">
-
-                    <h3>🟠 A — Amenazas</h3>
-
-                    <p>
-                        Factores externos negativos.
-                    </p>
-
-                    <p>
-                        Pregunta:
-                        <strong>¿Qué podría afectarnos?</strong>
-                    </p>
-
-                    <ul>
-                        <li>Muchos competidores.</li>
-                        <li>Precios agresivos.</li>
-                        <li>Cambios de tendencias.</li>
-                        <li>Cambios en plataformas.</li>
-                    </ul>
-
-                </article>
-
-            </div>
-
-
-            <div class="info warning">
-
-                <strong>Regla fundamental:</strong>
-
-                Fortalezas y debilidades son <strong>internas</strong>.
-                Oportunidades y amenazas son <strong>externas</strong>.
-
-            </div>
-
-
-            <h3>Ejemplo de clasificación</h3>
-
-            <div class="table-wrapper">
-
-                <table>
-
-                    <thead>
-
-                        <tr>
-                            <th>Situación</th>
-                            <th>Clasificación</th>
-                            <th>¿Por qué?</th>
-                        </tr>
-
-                    </thead>
-
-                    <tbody>
-
-                        <tr>
-                            <td>Tenemos productos personalizados.</td>
-                            <td>Fortaleza</td>
-                            <td>Depende de nuestra marca.</td>
-                        </tr>
-
-                        <tr>
-                            <td>Tenemos poca experiencia en redes.</td>
-                            <td>Debilidad</td>
-                            <td>Es una situación interna.</td>
-                        </tr>
-
-                        <tr>
-                            <td>Existe una tendencia favorable al producto.</td>
-                            <td>Oportunidad</td>
-                            <td>Es un factor externo favorable.</td>
-                        </tr>
-
-                        <tr>
-                            <td>Hay muchos competidores.</td>
-                            <td>Amenaza</td>
-                            <td>Proviene del entorno.</td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-
-            <h3>La DOFA debe producir estrategias</h3>
-
-            <div class="grid grid-2">
-
-                <div class="card">
-
-                    <h3>Fortaleza + Oportunidad</h3>
-
-                    <p>
-                        ¿Cómo utilizo una fortaleza para aprovechar
-                        una oportunidad?
-                    </p>
-
-                    <p class="good">
-                        Ejemplo: utilizar nuestro conocimiento especializado
-                        para crear contenido educativo.
-                    </p>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>Fortaleza + Amenaza</h3>
-
-                    <p>
-                        ¿Cómo utilizo una fortaleza para enfrentar
-                        una amenaza?
-                    </p>
-
-                    <p class="good">
-                        Ejemplo: utilizar la atención personalizada
-                        para diferenciarnos de competidores.
-                    </p>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>Debilidad + Oportunidad</h3>
-
-                    <p>
-                        ¿Cómo reduzco una debilidad aprovechando
-                        una oportunidad?
-                    </p>
-
-                    <p class="good">
-                        Ejemplo: mejorar la presencia digital aprovechando
-                        el crecimiento de una plataforma.
-                    </p>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>Debilidad + Amenaza</h3>
-
-                    <p>
-                        ¿Cómo reduzco una debilidad para disminuir
-                        una amenaza?
-                    </p>
-
-                    <p class="good">
-                        Ejemplo: mejorar la frecuencia de publicación
-                        para evitar perder visibilidad frente a competidores.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             INTEGRACIÓN
-        ================================================== -->
-
-        <section id="integracion">
-
-            <h2>7. ¿Cómo se relaciona todo?</h2>
-
-            <p class="section-intro">
-                Esta es la parte más importante. Los cinco temas deben
-                convertirse en una sola línea de razonamiento.
-            </p>
-
-            <div class="card">
-
-                <h3>Ejemplo completo</h3>
-
-                <p>
-                    <strong>1. Mercado:</strong>
-                    detectamos que existe interés por productos personalizados.
-                </p>
-
-                <p>
-                    <strong>2. Nicho:</strong>
-                    personas de 25 a 40 años que buscan regalos personalizados
-                    para celebraciones.
-                </p>
-
-                <p>
-                    <strong>3. Competencia:</strong>
-                    observamos que los competidores muestran principalmente
-                    productos y promociones.
-                </p>
-
-                <p>
-                    <strong>4. Briefing:</strong>
-                    nuestra marca quiere posicionarse como una opción
-                    personalizada y cercana.
-                </p>
-
-                <p>
-                    <strong>5. Propuesta de valor:</strong>
-                    ofrecemos productos personalizados adaptados a cada
-                    ocasión con atención cercana.
-                </p>
-
-                <p>
-                    <strong>6. DOFA:</strong>
-                    tenemos como fortaleza la personalización y como
-                    oportunidad la demanda creciente.
-                </p>
-
-                <p class="good">
-                    <strong>7. Decisión estratégica:</strong>
-                    crear contenido que muestre el proceso de personalización,
-                    ejemplos de ocasiones y consejos para elegir productos.
-                </p>
-
-            </div>
-
-            <div class="info success">
-
-                <strong>La idea central:</strong>
-
-                El análisis debe terminar en una decisión.
-                Si un dato no ayuda a tomar una decisión,
-                debemos preguntarnos para qué lo estamos investigando.
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             ACTIVIDAD
-        ================================================== -->
-
-        <section id="actividad">
-
-            <h2>8. Actividad práctica</h2>
-
-            <p class="section-intro">
-                Ahora aplica lo aprendido a tu propio proyecto de marca.
-            </p>
-
-
-            <div class="worksheet">
-
-                <h3>Parte A — Investigación de mercado</h3>
-
-                <div class="field">
-                    <label for="sector">
-                        ¿A qué sector pertenece mi marca?
-                    </label>
-
-                    <input id="sector"
-                           type="text"
-                           placeholder="Ej.: gastronomía, educación, moda...">
-                </div>
-
-                <div class="field">
-                    <label for="necesidades">
-                        ¿Qué necesidades encontré?
-                    </label>
-
-                    <textarea id="necesidades"
-                              placeholder="Escribe al menos tres necesidades..."></textarea>
-                </div>
-
-                <div class="field">
-                    <label for="tendencias">
-                        ¿Qué tendencias encontré?
-                    </label>
-
-                    <textarea id="tendencias"
-                              placeholder="Escribe las principales tendencias..."></textarea>
-                </div>
-
-                <div class="field">
-                    <label for="oportunidad">
-                        ¿Qué oportunidad encontré?
-                    </label>
-
-                    <textarea id="oportunidad"
-                              placeholder="Explica la oportunidad..."></textarea>
-                </div>
-
-            </div>
-
-
-            <div class="worksheet">
-
-                <h3>Parte B — Mi nicho</h3>
-
-                <div class="field">
-                    <label for="segmento">
-                        ¿Cuál es mi segmento?
-                    </label>
-
-                    <textarea id="segmento"></textarea>
-                </div>
-
-                <div class="field">
-                    <label for="nichoInput">
-                        ¿Cuál es mi nicho?
-                    </label>
-
-                    <textarea id="nichoInput"></textarea>
-                </div>
-
-                <div class="field">
-                    <label for="problema">
-                        ¿Cuál es su principal problema?
-                    </label>
-
-                    <textarea id="problema"></textarea>
-                </div>
-
-                <div class="field">
-                    <label for="deseo">
-                        ¿Qué desea conseguir?
-                    </label>
-
-                    <textarea id="deseo"></textarea>
-                </div>
-
-            </div>
-
-
-            <div class="worksheet">
-
-                <h3>Parte C — Competencia</h3>
-
-                <div class="field">
-                    <label for="comp1">
-                        Competidor 1
-                    </label>
-
-                    <input id="comp1">
-                </div>
-
-                <div class="field">
-                    <label for="comp2">
-                        Competidor 2
-                    </label>
-
-                    <input id="comp2">
-                </div>
-
-                <div class="field">
-                    <label for="comp3">
-                        Competidor 3
-                    </label>
-
-                    <input id="comp3">
-                </div>
-
-                <div class="field">
-                    <label for="competenciaFortaleza">
-                        ¿Qué hacen bien?
-                    </label>
-
-                    <textarea id="competenciaFortaleza"></textarea>
-                </div>
-
-                <div class="field">
-                    <label for="competenciaDebilidad">
-                        ¿Qué oportunidades de mejora encontraste?
-                    </label>
-
-                    <textarea id="competenciaDebilidad"></textarea>
-                </div>
-
-                <div class="field">
-                    <label for="diferenciacion">
-                        ¿Cómo podría diferenciarse mi marca?
-                    </label>
-
-                    <textarea id="diferenciacion"></textarea>
-                </div>
-
-            </div>
-
-
-            <div class="worksheet">
-
-                <h3>Parte D — Briefing</h3>
-
-                <div class="field">
-                    <label for="producto">
-                        ¿Qué ofrece mi marca?
-                    </label>
-
-                    <textarea id="producto"></textarea>
-                </div>
-
-                <div class="field">
-                    <label for="objetivo">
-                        ¿Qué quiero conseguir?
-                    </label>
-
-                    <textarea id="objetivo"></textarea>
-                </div>
-
-                <div class="field">
-                    <label for="diferencial">
-                        ¿Qué me diferencia?
-                    </label>
-
-                    <textarea id="diferencial"></textarea>
-                </div>
-
-                <div class="field">
-                    <label for="plataformas">
-                        ¿Qué plataformas utilizaré y por qué?
-                    </label>
-
-                    <textarea id="plataformas"></textarea>
-                </div>
-
-            </div>
-
-
-            <div class="worksheet">
-
-                <h3>Parte E — Propuesta de valor</h3>
-
-                <p>
-                    Completa la fórmula:
-                </p>
 
                 <div class="info">
 
-                    Ayudamos a
-                    <strong>[PÚBLICO]</strong>
-                    a
-                    <strong>[RESOLVER PROBLEMA]</strong>
-                    mediante
-                    <strong>[PRODUCTO/SERVICIO]</strong>,
-                    ofreciendo
+                    <strong>Idea clave:</strong>
+
+                    Investigar no significa acumular información.
+                    Significa obtener información que permita
+                    <strong>tomar mejores decisiones</strong>.
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+             MERCADO
+        ================================================== -->
+
+            <section id="mercado">
+
+                <h2>1. Investigación de mercado</h2>
+
+                <p class="section-intro">
+                    La investigación de mercado permite conocer el entorno
+                    en el que competirá una marca antes de tomar decisiones.
+                </p>
+
+                <!-- SVG Ilustración Investigación de Mercado -->
+                <div class="section-svg-illustration">
+                    <svg viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="50" y="30" width="300" height="90" rx="16" fill="#EEF2FF" stroke="#4F46E5"
+                            stroke-width="2" />
+                        <circle cx="120" cy="75" r="30" fill="white" stroke="#4F46E5" stroke-width="4" />
+                        <path d="M142 97l25 25" stroke="#4F46E5" stroke-width="5" stroke-linecap="round" />
+                        <path d="M185 60h95M185 80h75M185 100h50" stroke="#3730A3" stroke-width="4"
+                            stroke-linecap="round" />
+                    </svg>
+                </div>
+
+                <div class="info">
+
+                    <strong>Definición:</strong>
+
+                    La investigación de mercado es el proceso de recopilar,
+                    analizar e interpretar información sobre consumidores,
+                    necesidades, tendencias, competidores y oportunidades.
+
+                </div>
+
+                <h3>¿Qué debemos investigar?</h3>
+
+                <div class="grid">
+
+                    <article class="card">
+                        <h3>Sector</h3>
+                        <p>
+                            ¿A qué actividad pertenece la marca?
+                        </p>
+                        <p>
+                            Ejemplo: gastronomía, educación, tecnología,
+                            belleza, moda, turismo.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Necesidades</h3>
+                        <p>
+                            ¿Qué necesita resolver el consumidor?
+                        </p>
+                        <p>
+                            Recuerda: producto y necesidad no son necesariamente
+                            lo mismo.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Tendencias</h3>
+                        <p>
+                            ¿Qué está cambiando en el mercado?
+                        </p>
+                        <p>
+                            Nuevos hábitos, productos, plataformas y formas
+                            de comprar.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Consumidores</h3>
+                        <p>
+                            ¿Quién compra? ¿Qué busca? ¿Qué valora?
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Oportunidades</h3>
+                        <p>
+                            ¿Existe una necesidad que no está siendo
+                            atendida adecuadamente?
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Amenazas</h3>
+                        <p>
+                            ¿Qué factores externos pueden afectar
+                            a la marca?
+                        </p>
+                    </article>
+
+                </div>
+
+
+                <h3>Ejemplo práctico</h3>
+
+                <div class="example">
+
+                    <div class="example-title">
+                        Caso: repostería artesanal
+                    </div>
+
+                    <p>
+                        Una estudiante desea crear una marca de tortas
+                        personalizadas.
+                    </p>
+
+                    <p>
+                        Al investigar descubre que existe interés por productos
+                        personalizados para cumpleaños, pero muchos negocios
+                        utilizan sus redes principalmente para mostrar productos
+                        y promociones.
+                    </p>
+
+                    <p class="good">
+                        <strong>Conclusión:</strong>
+                        existe una oportunidad para diferenciarse mediante
+                        contenido educativo e inspiracional relacionado con
+                        celebraciones y personalización.
+                    </p>
+
+                </div>
+
+
+                <h3>Fuentes de información</h3>
+
+                <ul>
+                    <li>Google y buscadores.</li>
+                    <li>Redes sociales.</li>
+                    <li>Comentarios y reseñas.</li>
+                    <li>Encuestas.</li>
+                    <li>Entrevistas.</li>
+                    <li>Informes del sector.</li>
+                    <li>Fuentes institucionales.</li>
+                    <li>Páginas especializadas.</li>
+                </ul>
+
+                <div class="info warning">
+
+                    <strong>Importante:</strong>
+
+                    No toda información encontrada en Internet es válida.
+                    Revisa siempre la fuente, fecha, autor o institución
+                    y relación con el proyecto.
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+             NICHO
+        ================================================== -->
+
+            <section id="nicho">
+
+                <h2>2. Conocer el nicho de mercado</h2>
+
+                <p class="section-intro">
+                    Una marca no necesita hablarle a todo el mundo.
+                    Necesita identificar a las personas para las que su
+                    propuesta resulta especialmente relevante.
+                </p>
+
+                <!-- SVG Ilustración Nicho de Mercado -->
+                <div class="section-svg-illustration">
+                    <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="200" cy="70" r="55" fill="#ECFEFF" stroke="#0F766E" stroke-width="2"
+                            stroke-dasharray="6 6" />
+                        <circle cx="200" cy="70" r="35" fill="#0F766E" fill-opacity="0.1" stroke="#0F766E"
+                            stroke-width="2" />
+                        <circle cx="200" cy="70" r="14" fill="#0F766E" />
+                        <circle cx="160" cy="50" r="6" fill="#F59E0B" />
+                        <circle cx="245" cy="90" r="6" fill="#4F46E5" />
+                        <circle cx="215" cy="40" r="5" fill="#15803D" />
+                    </svg>
+                </div>
+
+                <div class="info">
+
+                    <strong>Nicho:</strong>
+
+                    Grupo específico dentro de un mercado que comparte
+                    determinadas necesidades, características, intereses
+                    o comportamientos.
+
+                </div>
+
+                <h3>De lo general a lo específico</h3>
+
+                <div class="flow">
+
+                    <div class="flow-item">Alimentación</div>
+                    <div class="flow-item">Saludable</div>
+                    <div class="flow-item">Comida preparada</div>
+                    <div class="flow-item">Profesionales</div>
+                    <div class="flow-item">Almuerzo laboral</div>
+
+                </div>
+
+                <h3>Preguntas para descubrir el nicho</h3>
+
+                <div class="grid grid-2">
+
+                    <div class="card">
+                        <h3>¿Quién?</h3>
+                        <p>
+                            ¿Quién tiene la necesidad que mi marca puede resolver?
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>¿Qué necesita?</h3>
+                        <p>
+                            ¿Cuál es su necesidad principal?
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>¿Qué problema tiene?</h3>
+                        <p>
+                            ¿Qué dificultad está intentando solucionar?
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>¿Qué desea?</h3>
+                        <p>
+                            ¿Qué resultado quiere conseguir?
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>¿Cómo se comporta?</h3>
+                        <p>
+                            ¿Cómo busca información y cómo compra?
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>¿Dónde está?</h3>
+                        <p>
+                            ¿Qué plataformas digitales utiliza?
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="example">
+
+                    <div class="example-title">
+                        Ejemplo
+                    </div>
+
+                    <p class="bad">
+                        ❌ "Mi público son mujeres."
+                    </p>
+
+                    <p>
+                        Es demasiado amplio.
+                    </p>
+
+                    <p class="good">
+                        ✔ "Mujeres entre 25 y 40 años que buscan tortas
+                        personalizadas para cumpleaños y celebraciones
+                        familiares y utilizan Instagram para encontrar
+                        proveedores."
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+             COMPETENCIA
+        ================================================== -->
+
+            <section id="competencia">
+
+                <h2>3. Análisis de la competencia</h2>
+
+                <p class="section-intro">
+                    El análisis de competencia permite conocer qué hacen
+                    otras marcas y detectar oportunidades de diferenciación.
+                </p>
+
+                <!-- SVG Ilustración Competencia -->
+                <div class="section-svg-illustration">
+                    <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="80" y="40" width="70" height="80" rx="10" fill="#FEF3C7" stroke="#F59E0B"
+                            stroke-width="2" />
+                        <circle cx="115" cy="70" r="15" fill="#F59E0B" />
+                        <rect x="165" y="20" width="70" height="100" rx="10" fill="#EEF2FF" stroke="#4F46E5"
+                            stroke-width="2" />
+                        <circle cx="200" cy="55" r="18" fill="#4F46E5" />
+                        <rect x="250" y="50" width="70" height="70" rx="10" fill="#F0FDF4" stroke="#15803D"
+                            stroke-width="2" />
+                        <circle cx="285" cy="75" r="12" fill="#15803D" />
+                    </svg>
+                </div>
+
+                <div class="info">
+
+                    <strong>Pregunta central:</strong>
+
+                    ¿Quiénes compiten conmigo y qué puedo aprender de ellos
+                    sin copiar su estrategia?
+
+                </div>
+
+                <h3>Tipos de competencia</h3>
+
+                <div class="grid">
+
+                    <article class="card">
+
+                        <h3>Directa</h3>
+
+                        <p>
+                            Ofrece productos o servicios similares al mismo
+                            público.
+                        </p>
+
+                        <p>
+                            <strong>Ejemplo:</strong>
+                            otra pastelería que vende tortas personalizadas.
+                        </p>
+
+                    </article>
+
+                    <article class="card">
+
+                        <h3>Indirecta</h3>
+
+                        <p>
+                            Satisface una necesidad similar mediante una
+                            solución diferente.
+                        </p>
+
+                        <p>
+                            <strong>Ejemplo:</strong>
+                            una empresa que vende cupcakes para celebraciones.
+                        </p>
+
+                    </article>
+
+                    <article class="card">
+
+                        <h3>Referente</h3>
+
+                        <p>
+                            Marca que podemos estudiar por sus buenas prácticas,
+                            aunque no sea competencia directa.
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <h3>¿Qué analizar?</h3>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Criterio</th>
+                                <th>Pregunta</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Presencia digital</td>
+                                <td>¿En qué redes está?</td>
+                            </tr>
+
+                            <tr>
+                                <td>Perfil</td>
+                                <td>¿Está bien configurado?</td>
+                            </tr>
+
+                            <tr>
+                                <td>Identidad</td>
+                                <td>¿Cómo utiliza colores, logotipo y personalidad?</td>
+                            </tr>
+
+                            <tr>
+                                <td>Contenido</td>
+                                <td>¿Qué temas y formatos publica?</td>
+                            </tr>
+
+                            <tr>
+                                <td>Frecuencia</td>
+                                <td>¿Publica constantemente?</td>
+                            </tr>
+
+                            <tr>
+                                <td>Interacción</td>
+                                <td>¿Cómo responde a su comunidad?</td>
+                            </tr>
+
+                            <tr>
+                                <td>Diferenciación</td>
+                                <td>¿Qué hace diferente?</td>
+                            </tr>
+
+                            <tr>
+                                <td>Fortalezas</td>
+                                <td>¿Qué hace especialmente bien?</td>
+                            </tr>
+
+                            <tr>
+                                <td>Debilidades</td>
+                                <td>¿Qué podría mejorar?</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <h3>Matriz básica de competencia</h3>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Criterio</th>
+                                <th>Mi marca</th>
+                                <th>Competidor A</th>
+                                <th>Competidor B</th>
+                                <th>Competidor C</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Producto / servicio</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>Público</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>Redes utilizadas</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>Tipo de contenido</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>Identidad visual</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>Interacción</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>Diferenciación</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="info success">
+
+                    <strong>Recuerda:</strong>
+
+                    Analizar a la competencia no significa copiarla.
+                    Significa detectar qué funciona, qué falta y dónde
+                    puede existir una oportunidad para nuestra marca.
+
+                </div>
+
+
+                <h3>Competencia vs. Benchmarking</h3>
+
+                <div class="grid grid-2">
+
+                    <div class="card">
+
+                        <h3>Segundo corte</h3>
+
+                        <p>
+                            <strong>Análisis de competencia</strong>
+                        </p>
+
+                        <p>
+                            Identificamos competidores y analizamos sus
+                            características para alimentar nuestro diagnóstico
+                            y DOFA.
+                        </p>
+
+                    </div>
+
+                    <div class="card">
+
+                        <h3>Tercer corte</h3>
+
+                        <p>
+                            <strong>Benchmarking</strong>
+                        </p>
+
+                        <p>
+                            Realizamos una comparación más profunda para
+                            identificar buenas prácticas y oportunidades
+                            de mejora.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+             BRIEFING
+        ================================================== -->
+
+            <section id="briefing">
+
+                <h2>4. Elaboración del briefing</h2>
+
+                <p class="section-intro">
+                    El briefing organiza la información esencial del proyecto
+                    para orientar las decisiones de la marca.
+                </p>
+
+                <!-- SVG Ilustración Briefing -->
+                <div class="section-svg-illustration">
+                    <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="120" y="20" width="160" height="100" rx="12" fill="white" stroke="#4F46E5"
+                            stroke-width="3" />
+                        <path d="M150 50h100M150 70h70M150 90h85" stroke="#94A3B8" stroke-width="3"
+                            stroke-linecap="round" />
+                        <circle cx="135" cy="50" r="5" fill="#4F46E5" />
+                        <circle cx="135" cy="70" r="5" fill="#4F46E5" />
+                        <circle cx="135" cy="90" r="5" fill="#4F46E5" />
+                        <path d="M250 85l15 15 25-30" stroke="#15803D" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+
+                <div class="info">
+
+                    <strong>En palabras sencillas:</strong>
+
+                    El briefing es la "guía de instrucciones" de nuestro proyecto.
+
+                </div>
+
+                <h3>¿Qué debe contener?</h3>
+
+                <div class="grid">
+
+                    <article class="card">
+                        <h3>Marca</h3>
+                        <p>Nombre, descripción y producto o servicio.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Identidad</h3>
+                        <p>Misión, visión, valores, arquetipo y personalidad.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Mercado</h3>
+                        <p>Sector, necesidades, tendencias y oportunidades.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Público</h3>
+                        <p>Segmento, nicho y características del cliente.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Problema</h3>
+                        <p>Necesidad que la marca pretende solucionar.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Objetivo</h3>
+                        <p>Qué desea conseguir la marca.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Competencia</h3>
+                        <p>Principales competidores y diferencias.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Diferenciación</h3>
+                        <p>Qué hace especial a la marca.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Plataformas</h3>
+                        <p>Dónde tendrá presencia digital y por qué.</p>
+                    </article>
+
+                </div>
+
+                <div class="example">
+
+                    <div class="example-title">
+                        Importante
+                    </div>
+
+                    <p>
+                        El briefing no sustituye la investigación de mercado.
+                        El briefing <strong>resume y organiza</strong> la
+                        información que necesitamos para orientar el proyecto.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+             PROPUESTA DE VALOR
+        ================================================== -->
+
+            <section id="propuesta">
+
+                <h2>5. Propuesta de valor</h2>
+
+                <p class="section-intro">
+                    La propuesta de valor explica por qué una persona debería
+                    considerar nuestra marca frente a otras alternativas.
+                </p>
+
+                <!-- SVG Ilustración Propuesta de Valor -->
+                <div class="section-svg-illustration">
+                    <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="150" y="25" width="100" height="90" rx="16" fill="#EEF2FF" stroke="#4F46E5"
+                            stroke-width="3" />
+                        <path d="M185 70l12 12 28-28" stroke="#15803D" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <circle cx="200" cy="25" r="14" fill="#F59E0B" />
+                        <path d="M195 25h10M200 20v10" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </div>
+
+                <div class="info">
+
+                    <strong>Fórmula:</strong>
+
+                    Ayudamos a <strong>[PÚBLICO]</strong> a
+                    <strong>[RESOLVER PROBLEMA]</strong> mediante
+                    <strong>[PRODUCTO/SERVICIO]</strong>, ofreciendo
                     <strong>[BENEFICIO/DIFERENCIACIÓN]</strong>.
 
                 </div>
 
-                <div class="field">
 
-                    <label for="propuesta">
-                        Mi propuesta de valor
-                    </label>
+                <h3>Ejemplo</h3>
 
-                    <textarea id="propuesta"
-                              placeholder="Escribe aquí tu propuesta de valor..."></textarea>
+                <div class="example">
+
+                    <p class="bad">
+                        ❌ "Vendemos tortas deliciosas."
+                    </p>
+
+                    <p>
+                        Describe el producto, pero no explica claramente
+                        el valor para el cliente.
+                    </p>
+
+                    <hr style="margin:15px 0;border:0;border-top:1px solid #ddd;">
+
+                    <p class="good">
+                        ✔ "Ayudamos a personas que desean celebrar ocasiones
+                        especiales a encontrar tortas personalizadas mediante
+                        diseños adaptados a cada evento, ofreciendo atención
+                        personalizada y productos elaborados según sus preferencias."
+                    </p>
 
                 </div>
 
-            </div>
+
+                <h3>Una buena propuesta debe responder</h3>
+
+                <ul>
+
+                    <li>¿Para quién es?</li>
+                    <li>¿Qué problema resuelve?</li>
+                    <li>¿Qué ofrece?</li>
+                    <li>¿Qué beneficio proporciona?</li>
+                    <li>¿Qué la diferencia?</li>
+
+                </ul>
+
+                <div class="info warning">
+
+                    <strong>No confundir:</strong>
+
+                    La propuesta de valor no es necesariamente un eslogan.
+                    El eslogan puede ser una frase publicitaria; la propuesta
+                    de valor explica el valor que la marca ofrece.
+
+                </div>
+
+            </section>
 
 
-            <div class="worksheet">
+            <!-- =================================================
+             DOFA
+        ================================================== -->
 
-                <h3>Parte F — Matriz DOFA</h3>
+            <section id="dofa">
+
+                <h2>6. Matriz DOFA</h2>
+
+                <p class="section-intro">
+                    La matriz DOFA permite analizar la situación interna y
+                    externa de una marca para convertir el diagnóstico en
+                    decisiones.
+                </p>
+
+                <!-- SVG Ilustración DOFA -->
+                <div class="section-svg-illustration">
+                    <svg viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="100" y="20" width="100" height="48" rx="8" fill="#F0FDF4" stroke="#16A34A"
+                            stroke-width="2" />
+                        <text x="150" y="49" fill="#16A34A" font-size="16" font-weight="bold"
+                            text-anchor="middle">F</text>
+                        <rect x="208" y="20" width="100" height="48" rx="8" fill="#FEF2F2" stroke="#DC2626"
+                            stroke-width="2" />
+                        <text x="258" y="49" fill="#DC2626" font-size="16" font-weight="bold"
+                            text-anchor="middle">D</text>
+                        <rect x="100" y="74" width="100" height="48" rx="8" fill="#EFF6FF" stroke="#2563EB"
+                            stroke-width="2" />
+                        <text x="150" y="103" fill="#2563EB" font-size="16" font-weight="bold"
+                            text-anchor="middle">O</text>
+                        <rect x="208" y="74" width="100" height="48" rx="8" fill="#FFFBEB" stroke="#F59E0B"
+                            stroke-width="2" />
+                        <text x="258" y="103" fill="#F59E0B" font-size="16" font-weight="bold"
+                            text-anchor="middle">A</text>
+                    </svg>
+                </div>
 
                 <div class="dofa-grid">
 
+                    <article class="dofa-box dofa-f">
+
+                        <h3>🟢 F — Fortalezas</h3>
+
+                        <p>
+                            Factores internos positivos.
+                        </p>
+
+                        <p>
+                            Pregunta:
+                            <strong>¿Qué hacemos bien?</strong>
+                        </p>
+
+                        <ul>
+                            <li>Producto personalizado.</li>
+                            <li>Buena atención.</li>
+                            <li>Experiencia.</li>
+                            <li>Identidad visual definida.</li>
+                        </ul>
+
+                    </article>
+
+
+                    <article class="dofa-box dofa-d">
+
+                        <h3>🔴 D — Debilidades</h3>
+
+                        <p>
+                            Factores internos negativos.
+                        </p>
+
+                        <p>
+                            Pregunta:
+                            <strong>¿Qué necesitamos mejorar?</strong>
+                        </p>
+
+                        <ul>
+                            <li>Poca presencia digital.</li>
+                            <li>Poca experiencia.</li>
+                            <li>Baja frecuencia de publicación.</li>
+                            <li>Recursos limitados.</li>
+                        </ul>
+
+                    </article>
+
+
+                    <article class="dofa-box dofa-o">
+
+                        <h3>🔵 O — Oportunidades</h3>
+
+                        <p>
+                            Factores externos positivos.
+                        </p>
+
+                        <p>
+                            Pregunta:
+                            <strong>¿Qué podemos aprovechar?</strong>
+                        </p>
+
+                        <ul>
+                            <li>Nuevas tendencias.</li>
+                            <li>Crecimiento del mercado.</li>
+                            <li>Necesidades no atendidas.</li>
+                            <li>Nuevos hábitos digitales.</li>
+                        </ul>
+
+                    </article>
+
+
+                    <article class="dofa-box dofa-a">
+
+                        <h3>🟠 A — Amenazas</h3>
+
+                        <p>
+                            Factores externos negativos.
+                        </p>
+
+                        <p>
+                            Pregunta:
+                            <strong>¿Qué podría afectarnos?</strong>
+                        </p>
+
+                        <ul>
+                            <li>Muchos competidores.</li>
+                            <li>Precios agresivos.</li>
+                            <li>Cambios de tendencias.</li>
+                            <li>Cambios en plataformas.</li>
+                        </ul>
+
+                    </article>
+
+                </div>
+
+
+                <div class="info warning">
+
+                    <strong>Regla fundamental:</strong>
+
+                    Fortalezas y debilidades son <strong>internas</strong>.
+                    Oportunidades y amenazas son <strong>externas</strong>.
+
+                </div>
+
+
+                <h3>Ejemplo de clasificación</h3>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Situación</th>
+                                <th>Clasificación</th>
+                                <th>¿Por qué?</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Tenemos productos personalizados.</td>
+                                <td>Fortaleza</td>
+                                <td>Depende de nuestra marca.</td>
+                            </tr>
+
+                            <tr>
+                                <td>Tenemos poca experiencia en redes.</td>
+                                <td>Debilidad</td>
+                                <td>Es una situación interna.</td>
+                            </tr>
+
+                            <tr>
+                                <td>Existe una tendencia favorable al producto.</td>
+                                <td>Oportunidad</td>
+                                <td>Es un factor externo favorable.</td>
+                            </tr>
+
+                            <tr>
+                                <td>Hay muchos competidores.</td>
+                                <td>Amenaza</td>
+                                <td>Proviene del entorno.</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <h3>La DOFA debe producir estrategias</h3>
+
+                <div class="grid grid-2">
+
+                    <div class="card">
+
+                        <h3>Fortaleza + Oportunidad</h3>
+
+                        <p>
+                            ¿Cómo utilizo una fortaleza para aprovechar
+                            una oportunidad?
+                        </p>
+
+                        <p class="good">
+                            Ejemplo: utilizar nuestro conocimiento especializado
+                            para crear contenido educativo.
+                        </p>
+
+                    </div>
+
+                    <div class="card">
+
+                        <h3>Fortaleza + Amenaza</h3>
+
+                        <p>
+                            ¿Cómo utilizo una fortaleza para enfrentar
+                            una amenaza?
+                        </p>
+
+                        <p class="good">
+                            Ejemplo: utilizar la atención personalizada
+                            para diferenciarnos de competidores.
+                        </p>
+
+                    </div>
+
+                    <div class="card">
+
+                        <h3>Debilidad + Oportunidad</h3>
+
+                        <p>
+                            ¿Cómo reduzco una debilidad aprovechando
+                            una oportunidad?
+                        </p>
+
+                        <p class="good">
+                            Ejemplo: mejorar la presencia digital aprovechando
+                            el crecimiento de una plataforma.
+                        </p>
+
+                    </div>
+
+                    <div class="card">
+
+                        <h3>Debilidad + Amenaza</h3>
+
+                        <p>
+                            ¿Cómo reduzco una debilidad para disminuir
+                            una amenaza?
+                        </p>
+
+                        <p class="good">
+                            Ejemplo: mejorar la frecuencia de publicación
+                            para evitar perder visibilidad frente a competidores.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+             INTEGRACIÓN
+        ================================================== -->
+
+            <section id="integracion">
+
+                <h2>7. ¿Cómo se relaciona todo?</h2>
+
+                <p class="section-intro">
+                    Esta es la parte más importante. Los cinco temas deben
+                    convertirse en una sola línea de razonamiento.
+                </p>
+
+                <div class="card">
+
+                    <h3>Ejemplo completo</h3>
+
+                    <p>
+                        <strong>1. Mercado:</strong>
+                        detectamos que existe interés por productos personalizados.
+                    </p>
+
+                    <p>
+                        <strong>2. Nicho:</strong>
+                        personas de 25 a 40 años que buscan regalos personalizados
+                        para celebraciones.
+                    </p>
+
+                    <p>
+                        <strong>3. Competencia:</strong>
+                        observamos que los competidores muestran principalmente
+                        productos y promociones.
+                    </p>
+
+                    <p>
+                        <strong>4. Briefing:</strong>
+                        nuestra marca quiere posicionarse como una opción
+                        personalizada y cercana.
+                    </p>
+
+                    <p>
+                        <strong>5. Propuesta de valor:</strong>
+                        ofrecemos productos personalizados adaptados a cada
+                        ocasión con atención cercana.
+                    </p>
+
+                    <p>
+                        <strong>6. DOFA:</strong>
+                        tenemos como fortaleza la personalización y como
+                        oportunidad la demanda creciente.
+                    </p>
+
+                    <p class="good">
+                        <strong>7. Decisión estratégica:</strong>
+                        crear contenido que muestre el proceso de personalización,
+                        ejemplos de ocasiones y consejos para elegir productos.
+                    </p>
+
+                </div>
+
+                <div class="info success">
+
+                    <strong>La idea central:</strong>
+
+                    El análisis debe terminar en una decisión.
+                    Si un dato no ayuda a tomar una decisión,
+                    debemos preguntarnos para qué lo estamos investigando.
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+             ACTIVIDAD
+        ================================================== -->
+
+            <section id="actividad">
+
+                <h2>8. Actividad práctica</h2>
+
+                <p class="section-intro">
+                    Ahora aplica lo aprendido a tu propio proyecto de marca.
+                </p>
+
+
+                <div class="worksheet">
+
+                    <h3>Parte A — Investigación de mercado</h3>
+
                     <div class="field">
-                        <label for="fortalezas">
-                            Fortalezas
+                        <label for="sector">
+                            ¿A qué sector pertenece mi marca?
                         </label>
 
-                        <textarea id="fortalezas"
-                                  placeholder="¿Qué hacemos bien?"></textarea>
+                        <input id="sector" type="text" placeholder="Ej.: gastronomía, educación, moda...">
                     </div>
 
                     <div class="field">
-                        <label for="debilidades">
-                            Debilidades
+                        <label for="necesidades">
+                            ¿Qué necesidades encontré?
                         </label>
 
-                        <textarea id="debilidades"
-                                  placeholder="¿Qué debemos mejorar?"></textarea>
+                        <textarea id="necesidades" placeholder="Escribe al menos tres necesidades..."></textarea>
                     </div>
 
                     <div class="field">
-                        <label for="oportunidades">
-                            Oportunidades
+                        <label for="tendencias">
+                            ¿Qué tendencias encontré?
                         </label>
 
-                        <textarea id="oportunidades"
-                                  placeholder="¿Qué podemos aprovechar?"></textarea>
+                        <textarea id="tendencias" placeholder="Escribe las principales tendencias..."></textarea>
                     </div>
 
                     <div class="field">
-                        <label for="amenazas">
-                            Amenazas
+                        <label for="oportunidad">
+                            ¿Qué oportunidad encontré?
                         </label>
 
-                        <textarea id="amenazas"
-                                  placeholder="¿Qué puede afectarnos?"></textarea>
+                        <textarea id="oportunidad" placeholder="Explica la oportunidad..."></textarea>
                     </div>
 
                 </div>
 
-            </div>
 
+                <div class="worksheet">
 
-            <div class="worksheet">
+                    <h3>Parte B — Mi nicho</h3>
 
-                <h3>Parte G — Mis decisiones estratégicas</h3>
+                    <div class="field">
+                        <label for="segmento">
+                            ¿Cuál es mi segmento?
+                        </label>
 
-                <div class="field">
+                        <textarea id="segmento"></textarea>
+                    </div>
 
-                    <label for="decision1">
-                        1. Fortaleza + Oportunidad
-                    </label>
+                    <div class="field">
+                        <label for="nichoInput">
+                            ¿Cuál es mi nicho?
+                        </label>
 
-                    <textarea id="decision1"
-                              placeholder="Aprovecharé..."></textarea>
+                        <textarea id="nichoInput"></textarea>
+                    </div>
 
-                </div>
+                    <div class="field">
+                        <label for="problema">
+                            ¿Cuál es su principal problema?
+                        </label>
 
-                <div class="field">
+                        <textarea id="problema"></textarea>
+                    </div>
 
-                    <label for="decision2">
-                        2. Fortaleza + Amenaza
-                    </label>
+                    <div class="field">
+                        <label for="deseo">
+                            ¿Qué desea conseguir?
+                        </label>
 
-                    <textarea id="decision2"
-                              placeholder="Utilizaré..."></textarea>
-
-                </div>
-
-                <div class="field">
-
-                    <label for="decision3">
-                        3. Debilidad + Oportunidad
-                    </label>
-
-                    <textarea id="decision3"
-                              placeholder="Mejoraré..."></textarea>
-
-                </div>
-
-                <div class="field">
-
-                    <label for="decision4">
-                        4. Debilidad + Amenaza
-                    </label>
-
-                    <textarea id="decision4"
-                              placeholder="Reduciré..."></textarea>
+                        <textarea id="deseo"></textarea>
+                    </div>
 
                 </div>
 
-            </div>
 
-        </section>
+                <div class="worksheet">
+
+                    <h3>Parte C — Competencia</h3>
+
+                    <div class="field">
+                        <label for="comp1">
+                            Competidor 1
+                        </label>
+
+                        <input id="comp1">
+                    </div>
+
+                    <div class="field">
+                        <label for="comp2">
+                            Competidor 2
+                        </label>
+
+                        <input id="comp2">
+                    </div>
+
+                    <div class="field">
+                        <label for="comp3">
+                            Competidor 3
+                        </label>
+
+                        <input id="comp3">
+                    </div>
+
+                    <div class="field">
+                        <label for="competenciaFortaleza">
+                            ¿Qué hacen bien?
+                        </label>
+
+                        <textarea id="competenciaFortaleza"></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label for="competenciaDebilidad">
+                            ¿Qué oportunidades de mejora encontraste?
+                        </label>
+
+                        <textarea id="competenciaDebilidad"></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label for="diferenciacion">
+                            ¿Cómo podría diferenciarse mi marca?
+                        </label>
+
+                        <textarea id="diferenciacion"></textarea>
+                    </div>
+
+                </div>
 
 
-        <!-- =================================================
+                <div class="worksheet">
+
+                    <h3>Parte D — Briefing</h3>
+
+                    <div class="field">
+                        <label for="producto">
+                            ¿Qué ofrece mi marca?
+                        </label>
+
+                        <textarea id="producto"></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label for="objetivo">
+                            ¿Qué quiero conseguir?
+                        </label>
+
+                        <textarea id="objetivo"></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label for="diferencial">
+                            ¿Qué me diferencia?
+                        </label>
+
+                        <textarea id="diferencial"></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label for="plataformas">
+                            ¿Qué plataformas utilizaré y por qué?
+                        </label>
+
+                        <textarea id="plataformas"></textarea>
+                    </div>
+
+                </div>
+
+
+                <div class="worksheet">
+
+                    <h3>Parte E — Propuesta de valor</h3>
+
+                    <p>
+                        Completa la fórmula:
+                    </p>
+
+                    <div class="info">
+
+                        Ayudamos a
+                        <strong>[PÚBLICO]</strong>
+                        a
+                        <strong>[RESOLVER PROBLEMA]</strong>
+                        mediante
+                        <strong>[PRODUCTO/SERVICIO]</strong>,
+                        ofreciendo
+                        <strong>[BENEFICIO/DIFERENCIACIÓN]</strong>.
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="propuesta">
+                            Mi propuesta de valor
+                        </label>
+
+                        <textarea id="propuesta" placeholder="Escribe aquí tu propuesta de valor..."></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div class="worksheet">
+
+                    <h3>Parte F — Matriz DOFA</h3>
+
+                    <div class="dofa-grid">
+
+                        <div class="field">
+                            <label for="fortalezas">
+                                Fortalezas
+                            </label>
+
+                            <textarea id="fortalezas" placeholder="¿Qué hacemos bien?"></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label for="debilidades">
+                                Debilidades
+                            </label>
+
+                            <textarea id="debilidades" placeholder="¿Qué debemos mejorar?"></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label for="oportunidades">
+                                Oportunidades
+                            </label>
+
+                            <textarea id="oportunidades" placeholder="¿Qué podemos aprovechar?"></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label for="amenazas">
+                                Amenazas
+                            </label>
+
+                            <textarea id="amenazas" placeholder="¿Qué puede afectarnos?"></textarea>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="worksheet">
+
+                    <h3>Parte G — Mis decisiones estratégicas</h3>
+
+                    <div class="field">
+
+                        <label for="decision1">
+                            1. Fortaleza + Oportunidad
+                        </label>
+
+                        <textarea id="decision1" placeholder="Aprovecharé..."></textarea>
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="decision2">
+                            2. Fortaleza + Amenaza
+                        </label>
+
+                        <textarea id="decision2" placeholder="Utilizaré..."></textarea>
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="decision3">
+                            3. Debilidad + Oportunidad
+                        </label>
+
+                        <textarea id="decision3" placeholder="Mejoraré..."></textarea>
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="decision4">
+                            4. Debilidad + Amenaza
+                        </label>
+
+                        <textarea id="decision4" placeholder="Reduciré..."></textarea>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
              ENTREGA
         ================================================== -->
 
-        <section id="entrega">
+            <section id="entrega">
 
-            <h2>9. Producto final de la actividad</h2>
+                <h2>9. Producto final de la actividad</h2>
 
-            <p class="section-intro">
-                Esta actividad puede convertirse en parte del documento
-                correspondiente al segundo corte.
-            </p>
+                <p class="section-intro">
+                    Esta actividad puede convertirse en parte del documento
+                    correspondiente al segundo corte.
+                </p>
 
-            <div class="card">
+                <div class="card">
 
-                <h3>
-                    Diagnóstico Estratégico Inicial de mi Marca
-                </h3>
+                    <h3>
+                        Diagnóstico Estratégico Inicial de mi Marca
+                    </h3>
 
-                <ol>
+                    <ol>
+
+                        <li>
+                            Investigación de mercado.
+                        </li>
+
+                        <li>
+                            Identificación del nicho.
+                        </li>
+
+                        <li>
+                            Análisis de la competencia.
+                        </li>
+
+                        <li>
+                            Briefing.
+                        </li>
+
+                        <li>
+                            Propuesta de valor.
+                        </li>
+
+                        <li>
+                            Matriz DOFA.
+                        </li>
+
+                        <li>
+                            Estrategias derivadas del DOFA.
+                        </li>
+
+                    </ol>
+
+                </div>
+
+
+                <h3>Lista de comprobación</h3>
+
+                <ul class="checklist">
 
                     <li>
-                        Investigación de mercado.
+                        <input type="checkbox">
+                        <span>
+                            Identifiqué correctamente mi mercado.
+                        </span>
                     </li>
 
                     <li>
-                        Identificación del nicho.
+                        <input type="checkbox">
+                        <span>
+                            Identifiqué las principales necesidades.
+                        </span>
                     </li>
 
                     <li>
-                        Análisis de la competencia.
+                        <input type="checkbox">
+                        <span>
+                            Definí un nicho específico.
+                        </span>
                     </li>
 
                     <li>
-                        Briefing.
+                        <input type="checkbox">
+                        <span>
+                            Analicé al menos tres competidores.
+                        </span>
                     </li>
 
                     <li>
-                        Propuesta de valor.
+                        <input type="checkbox">
+                        <span>
+                            Identifiqué oportunidades de diferenciación.
+                        </span>
                     </li>
 
                     <li>
-                        Matriz DOFA.
+                        <input type="checkbox">
+                        <span>
+                            Elaboré el briefing.
+                        </span>
                     </li>
 
                     <li>
-                        Estrategias derivadas del DOFA.
+                        <input type="checkbox">
+                        <span>
+                            Construí mi propuesta de valor.
+                        </span>
                     </li>
 
-                </ol>
+                    <li>
+                        <input type="checkbox">
+                        <span>
+                            Elaboré correctamente la DOFA.
+                        </span>
+                    </li>
 
-            </div>
+                    <li>
+                        <input type="checkbox">
+                        <span>
+                            Convertí la DOFA en decisiones estratégicas.
+                        </span>
+                    </li>
 
+                </ul>
 
-            <h3>Lista de comprobación</h3>
-
-            <ul class="checklist">
-
-                <li>
-                    <input type="checkbox">
-                    <span>
-                        Identifiqué correctamente mi mercado.
-                    </span>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <span>
-                        Identifiqué las principales necesidades.
-                    </span>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <span>
-                        Definí un nicho específico.
-                    </span>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <span>
-                        Analicé al menos tres competidores.
-                    </span>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <span>
-                        Identifiqué oportunidades de diferenciación.
-                    </span>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <span>
-                        Elaboré el briefing.
-                    </span>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <span>
-                        Construí mi propuesta de valor.
-                    </span>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <span>
-                        Elaboré correctamente la DOFA.
-                    </span>
-                </li>
-
-                <li>
-                    <input type="checkbox">
-                    <span>
-                        Convertí la DOFA en decisiones estratégicas.
-                    </span>
-                </li>
-
-            </ul>
-
-        </section>
+            </section>
 
 
-        <!-- =================================================
+            <!-- =================================================
              AUTOEVALUACIÓN
         ================================================== -->
 
-        <section id="autoevaluacion">
+            <section id="autoevaluacion">
 
-            <h2>10. Autoevaluación</h2>
+                <h2>10. Autoevaluación</h2>
 
-            <p class="section-intro">
-                Antes de entregar tu trabajo, responde las siguientes
-                preguntas.
-            </p>
+                <p class="section-intro">
+                    Antes de entregar tu trabajo, responde las siguientes
+                    preguntas.
+                </p>
 
-            <details>
+                <details>
 
-                <summary>
-                    ¿Puedo explicar cuál es el mercado de mi marca?
-                </summary>
+                    <summary>
+                        ¿Puedo explicar cuál es el mercado de mi marca?
+                    </summary>
 
-                <div>
-                    Debes poder explicar el sector, sus características,
-                    necesidades y principales oportunidades.
+                    <div>
+                        Debes poder explicar el sector, sus características,
+                        necesidades y principales oportunidades.
+                    </div>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        ¿Puedo explicar cuál es mi nicho?
+                    </summary>
+
+                    <div>
+                        No basta con decir "jóvenes", "mujeres" o "personas".
+                        Debes definir un grupo específico con necesidades
+                        y características identificables.
+                    </div>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        ¿Conozco a mis competidores?
+                    </summary>
+
+                    <div>
+                        Debes conocer qué ofrecen, dónde están, cómo comunican,
+                        qué hacen bien y qué oportunidades existen.
+                    </div>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        ¿Mi propuesta de valor explica por qué deberían elegirme?
+                    </summary>
+
+                    <div>
+                        Si únicamente describe el producto, todavía no es
+                        suficientemente clara.
+                    </div>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        ¿Mi DOFA produce decisiones?
+                    </summary>
+
+                    <div>
+                        Una buena DOFA no termina en cuatro listas.
+                        Debe ayudarte a decidir qué hacer.
+                    </div>
+
+                </details>
+
+
+                <div class="info success">
+
+                    <strong>Pregunta final:</strong>
+
+                    Si mañana tuviera que explicarle a alguien por qué mi marca
+                    existe, a quién ayuda, qué problema resuelve, quién compite
+                    conmigo y qué haré para diferenciarme,
+                    ¿podría responderlo con claridad?
+
                 </div>
 
-            </details>
+            </section>
 
 
-            <details>
-
-                <summary>
-                    ¿Puedo explicar cuál es mi nicho?
-                </summary>
-
-                <div>
-                    No basta con decir "jóvenes", "mujeres" o "personas".
-                    Debes definir un grupo específico con necesidades
-                    y características identificables.
-                </div>
-
-            </details>
-
-
-            <details>
-
-                <summary>
-                    ¿Conozco a mis competidores?
-                </summary>
-
-                <div>
-                    Debes conocer qué ofrecen, dónde están, cómo comunican,
-                    qué hacen bien y qué oportunidades existen.
-                </div>
-
-            </details>
-
-
-            <details>
-
-                <summary>
-                    ¿Mi propuesta de valor explica por qué deberían elegirme?
-                </summary>
-
-                <div>
-                    Si únicamente describe el producto, todavía no es
-                    suficientemente clara.
-                </div>
-
-            </details>
-
-
-            <details>
-
-                <summary>
-                    ¿Mi DOFA produce decisiones?
-                </summary>
-
-                <div>
-                    Una buena DOFA no termina en cuatro listas.
-                    Debe ayudarte a decidir qué hacer.
-                </div>
-
-            </details>
-
-
-            <div class="info success">
-
-                <strong>Pregunta final:</strong>
-
-                Si mañana tuviera que explicarle a alguien por qué mi marca
-                existe, a quién ayuda, qué problema resuelve, quién compite
-                conmigo y qué haré para diferenciarme,
-                ¿podría responderlo con claridad?
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
+            <!-- =================================================
              PROGRESO
         ================================================== -->
 
-        <section class="no-print">
+            <section class="no-print">
 
-            <h2>Mi progreso</h2>
+                <h2>Mi progreso</h2>
 
-            <p class="section-intro">
-                Marca las actividades completadas para visualizar
-                tu avance.
-            </p>
+                <p class="section-intro">
+                    Marca las actividades completadas para visualizar
+                    tu avance.
+                </p>
 
-            <div class="progress-wrap">
+                <div class="progress-wrap">
 
-                <div class="progress-label">
+                    <div class="progress-label">
 
-                    <span>Progreso del diagnóstico</span>
+                        <span>Progreso del diagnóstico</span>
 
-                    <span id="progressText">0%</span>
+                        <span id="progressText">0%</span>
 
-                </div>
+                    </div>
 
-                <div class="progress">
+                    <div class="progress">
 
-                    <div
-                        class="progress-bar"
-                        id="progressBar">
+                        <div class="progress-bar" id="progressBar">
+                        </div>
+
                     </div>
 
                 </div>
 
-            </div>
+            </section>
 
-        </section>
+        </main>
 
-    </main>
-
-</div>
+    </div>
 
 
-<footer>
+    <footer>
 
-    <p>
-        Material académico — Gestión de Redes Sociales
-    </p>
+        <p>
+            Material académico — Gestión de Redes Sociales
+        </p>
 
-    <p>
-        Investigación de mercado · Nicho · Competencia · Briefing ·
-        Propuesta de valor · DOFA
-    </p>
+        <p>
+            Investigación de mercado · Nicho · Competencia · Briefing ·
+            Propuesta de valor · DOFA
+        </p>
 
-</footer>
-
-
-<script>
-    /* =========================================================
-       MENÚ RESPONSIVE
-    ========================================================= */
-
-    const menuButton = document.getElementById("menuButton");
-    const sidebar = document.getElementById("sidebar");
-
-    menuButton.addEventListener("click", function () {
-        sidebar.classList.toggle("open");
-    });
+    </footer>
 
 
-    /*
-       Cerrar el menú cuando se selecciona una sección
-       en dispositivos pequeños.
-    */
+    <script>
+        /* =========================================================
+           MENÚ RESPONSIVE
+        ========================================================= */
 
-    document.querySelectorAll(".sidebar a").forEach(function (link) {
+        const menuButton = document.getElementById("menuButton");
+        const sidebar = document.getElementById("sidebar");
 
-        link.addEventListener("click", function () {
+        menuButton.addEventListener("click", function () {
+            sidebar.classList.toggle("open");
+        });
 
-            if (window.innerWidth <= 800) {
-                sidebar.classList.remove("open");
-            }
+
+        /*
+           Cerrar el menú cuando se selecciona una sección
+           en dispositivos pequeños.
+        */
+
+        document.querySelectorAll(".sidebar a").forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                if (window.innerWidth <= 800) {
+                    sidebar.classList.remove("open");
+                }
+
+            });
 
         });
 
-    });
 
+        /* =========================================================
+           PROGRESO DE ACTIVIDADES
+        ========================================================= */
 
-    /* =========================================================
-       PROGRESO DE ACTIVIDADES
-    ========================================================= */
-
-    const checkboxes = document.querySelectorAll(
-        ".checklist input[type='checkbox']"
-    );
-
-    const progressBar = document.getElementById("progressBar");
-    const progressText = document.getElementById("progressText");
-
-
-    function updateProgress() {
-
-        const total = checkboxes.length;
-
-        const completed =
-            document.querySelectorAll(
-                ".checklist input[type='checkbox']:checked"
-            ).length;
-
-        const percentage =
-            total === 0
-                ? 0
-                : Math.round((completed / total) * 100);
-
-        progressBar.style.width = percentage + "%";
-
-        progressText.textContent =
-            percentage + "%";
-
-    }
-
-
-    checkboxes.forEach(function (checkbox) {
-
-        checkbox.addEventListener(
-            "change",
-            updateProgress
+        const checkboxes = document.querySelectorAll(
+            ".checklist input[type='checkbox']"
         );
 
-    });
+        const progressBar = document.getElementById("progressBar");
+        const progressText = document.getElementById("progressText");
 
 
-    /* =========================================================
-       GUARDAR PROGRESO LOCALMENTE
-    ========================================================= */
+        function updateProgress() {
 
-    const savedChecks =
-        JSON.parse(
-            localStorage.getItem(
-                "diagnosticoMarcaChecks"
-            ) || "[]"
-        );
+            const total = checkboxes.length;
+
+            const completed =
+                document.querySelectorAll(
+                    ".checklist input[type='checkbox']:checked"
+                ).length;
+
+            const percentage =
+                total === 0
+                    ? 0
+                    : Math.round((completed / total) * 100);
+
+            progressBar.style.width = percentage + "%";
+
+            progressText.textContent =
+                percentage + "%";
+
+        }
 
 
-    checkboxes.forEach(function (checkbox, index) {
+        checkboxes.forEach(function (checkbox) {
 
-        checkbox.checked =
-            savedChecks[index] === true;
-
-    });
-
-
-    updateProgress();
-
-
-    checkboxes.forEach(function (checkbox, index) {
-
-        checkbox.addEventListener("change", function () {
-
-            const current =
-                Array.from(checkboxes).map(
-                    item => item.checked
-                );
-
-            localStorage.setItem(
-                "diagnosticoMarcaChecks",
-                JSON.stringify(current)
+            checkbox.addEventListener(
+                "change",
+                updateProgress
             );
 
         });
 
-    });
+
+        /* =========================================================
+           GUARDAR PROGRESO LOCALMENTE
+        ========================================================= */
+
+        const savedChecks =
+            JSON.parse(
+                localStorage.getItem(
+                    "diagnosticoMarcaChecks"
+                ) || "[]"
+            );
 
 
-    /* =========================================================
-       GUARDAR RESPUESTAS DEL ESTUDIANTE
-    ========================================================= */
+        checkboxes.forEach(function (checkbox, index) {
 
-    const fields = document.querySelectorAll(
-        ".worksheet input, .worksheet textarea"
-    );
+            checkbox.checked =
+                savedChecks[index] === true;
 
-
-    fields.forEach(function (field) {
-
-        const key =
-            "diagnostico_" + field.id;
-
-        const saved =
-            localStorage.getItem(key);
-
-        if (saved !== null) {
-            field.value = saved;
-        }
+        });
 
 
-        field.addEventListener(
-            "input",
-            function () {
+        updateProgress();
+
+
+        checkboxes.forEach(function (checkbox, index) {
+
+            checkbox.addEventListener("change", function () {
+
+                const current =
+                    Array.from(checkboxes).map(
+                        item => item.checked
+                    );
 
                 localStorage.setItem(
-                    key,
-                    field.value
+                    "diagnosticoMarcaChecks",
+                    JSON.stringify(current)
                 );
 
-            }
+            });
+
+        });
+
+
+        /* =========================================================
+           GUARDAR RESPUESTAS DEL ESTUDIANTE
+        ========================================================= */
+
+        const fields = document.querySelectorAll(
+            ".worksheet input, .worksheet textarea"
         );
 
-    });
 
-</script>
+        fields.forEach(function (field) {
+
+            const key =
+                "diagnostico_" + field.id;
+
+            const saved =
+                localStorage.getItem(key);
+
+            if (saved !== null) {
+                field.value = saved;
+            }
+
+
+            field.addEventListener(
+                "input",
+                function () {
+
+                    localStorage.setItem(
+                        key,
+                        field.value
+                    );
+
+                }
+            );
+
+        });
+
+    </script>
 
 </body>
+
 </html>
