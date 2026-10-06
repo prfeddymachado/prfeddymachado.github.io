@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Pilares de la Marca - Material Académico - Profesora: Licen. Eddy Machado</title>
+    <style>
+        :root {
+            --color-primary: #0F4C5C;
+            --color-secondary: #E36414;
+            --color-bg: #F8F9FA;
+            --color-card-bg: #FFFFFF;
+            --color-text: #2B2D42;
+            --color-border: #D8D8D8;
+            --font-base: 1.125rem;
+            /* 18px base for great readability */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-size: var(--font-base);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background-color: var(--color-primary);
+            color: #FFFFFF;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-bottom: 6px solid var(--color-secondary);
+        }
+
+        header h1 {
+            font-size: 2.25rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        main {
+            padding: 2.5rem 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .intro-text {
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+            text-align: center;
+            border-left: 6px solid var(--color-secondary);
+        }
+
+        .pillar-section {
+            background-color: var(--color-card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            margin-bottom: 3rem;
+            overflow: hidden;
+            border: 2px solid var(--color-border);
+        }
+
+        .pillar-header {
+            background-color: var(--color-primary);
+            color: #FFFFFF;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .pillar-number {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            background-color: var(--color-secondary);
+            color: #FFFFFF;
+            font-weight: bold;
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            align-self: flex-start;
+        }
+
+        .pillar-title {
+            font-size: 1.85rem;
+            font-weight: 700;
+        }
+
+        .pillar-subtitle {
+            font-size: 1.25rem;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        .pillar-body {
+            padding: 2.25rem 1.75rem;
+        }
+
+        .pillar-body h3 {
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+            border-bottom: 2px solid #EAEAEA;
+            padding-bottom: 0.4rem;
+        }
+
+        .pillar-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .pillar-body p {
+            margin-bottom: 1.25rem;
+        }
+
+        .pillar-body ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar-body li {
+            margin-bottom: 0.7rem;
+        }
+
+        .practical-example {
+            background-color: #EBF3F5;
+            border-left: 6px solid var(--color-primary);
+            padding: 1.75rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .practical-example h4 {
+            color: var(--color-primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        footer {
+            background-color: var(--color-text);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 3rem;
+            font-size: 1.15rem;
+        }
+
+        @media (min-width: 768px) {
+            header h1 {
+                font-size: 2.85rem;
+            }
+
+            main {
+                padding: 3rem 2rem;
+            }
+
+            .pillar-header {
+                padding: 2.5rem;
+            }
+
+            .pillar-title {
+                font-size: 2.2rem;
+            }
+
+            .pillar-body {
+                padding: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Los Pilares Fundamentales de la Marca</h1>
+        <p>Módulo Académico: Estrategia, Identidad y Conexión en Redes Sociales</p>
+    </header>
+
+    <main>
+        <section class="intro-text">
+            <p>Para construir una presencia digital sólida y comercialmente exitosa, es fundamental comprender que una
+                marca no es solo un logotipo o una publicación al azar. Se compone de tres pilares que interactúan
+                perfectamente entre sí: <strong>A quién le hablas</strong>, <strong>cómo te ves</strong> y <strong>cómo
+                    actúas</strong>.</p>
+        </section>
+
+        <!-- PILAR 1 -->
+        <article class="pillar-section">
+            <div class="pillar-header">
+                <span class="pillar-number">Pilar 01</span>
+                <h2 class="pillar-title">1. Buyer Persona</h2>
+                <p class="pillar-subtitle">¿Quién recibe el mensaje? (El espejo o el cliente ideal)</p>
+            </div>
+            <div class="pillar-body">
+                <h3>¿Qué es y cuál es su función?</h3>
+                <p>El Buyer Persona es la representación semi-ficticia de tu cliente ideal basada en datos reales e
+                    investigación de mercado. Funciona como un <strong>espejo</strong> donde tu cliente se ve reflejado
+                    al sentir que entiendes perfectamente sus dolores y necesidades.</p>
+                <img src="./pictures/buyerPersona.png" alt="Ilustración de un Buyer Persona"
+                    style="width: 100%; max-width: 600px; display: block; margin: 1.5rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                <h3>Elementos clave que lo componen:</h3>
+                <ul>
+                    <li><strong>Datos sociodemográficos:</strong> Edad, ubicación geográfica, profesión y nivel
+                        socioeconómico.</li>
+                    <li><strong>Dolores y frustraciones:</strong> Qué problemas cotidianos le quitan el sueño y busca
+                        resolver desesperadamente.</li>
+                    <li><strong>Deseos y metas:</strong> Qué aspira lograr profesional o personalmente.</li>
+                    <li><strong>Canales de preferencia:</strong> Dónde pasa su tiempo digital (Instagram, WhatsApp,
+                        TikTok, LinkedIn).</li>
+                </ul>
+
+                <div class="practical-example">
+                    <h4>💡 Ejemplo Práctico:</h4>
+                    <p>Si vendes servicios de asesoría contable digital para pequeños negocios, tu Buyer Persona no es
+                        simplemente "empresas". Es <em>"Carlos, 42 años, dueño de una ferretería, estresado porque
+                            pierde horas haciendo facturas a mano y teme equivocarse con las declaraciones de impuestos
+                            mensuales"</em>. Saber esto te permite hablarle directo a su frustración en tus redes.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- PILAR 2 -->
+        <article class="pillar-section">
+            <div class="pillar-header"
+                style="background-color: #1D2D44; border-bottom: 4px solid var(--color-secondary);">
+                <span class="pillar-number" style="background-color: var(--color-secondary);">Pilar 02</span>
+                <h2 class="pillar-title">2. Identidad de Marca</h2>
+                <p class="pillar-subtitle">¿Qué y cómo se ve físicamente? (Su cuerpo y ropa)</p>
+                <img src="./pictures/identidadMarca.png" alt="Ilustración de Identidad de Marca"
+                    style="width: 100%; max-width: 600px; display: block; margin: 1.5rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+            </div>
+            <div class="pillar-body">
+                <h3>¿Qué es y cuál es su función?</h3>
+                <p>La identidad de marca abarca todo el universo visual y tangible. Es, metafóricamente hablando,
+                    <strong>el cuerpo y la ropa</strong> con la que se viste tu negocio para salir al mundo digital. Su
+                    objetivo principal es el reconocimiento instantáneo y la coherencia estética.
+                </p>
+
+                <h3>Elementos clave que lo componen:</h3>
+                <ul>
+                    <li><strong>Isologotipo:</strong> El símbolo gráfico y tipográfico principal de la marca.</li>
+                    <li><strong>Paleta de colores:</strong> Los códigos de color oficiales que transmiten emociones
+                        específicas (ej. azul para confianza, naranja para dinamismo).</li>
+                    <li><strong>Tipografías corporativas:</strong> Las fuentes de letra elegidas para títulos y textos
+                        que se usan de forma sistemática.</li>
+                    <li><strong>Plantillas y estilo visual:</strong> El diseño de los carruseles, la forma de editar
+                        fotos y los elementos gráficos recurrentes en el perfil.</li>
+                </ul>
+
+                <div class="practical-example">
+                    <h4>💡 Ejemplo Práctico:</h4>
+                    <p>Una marca de productos naturales utiliza siempre tonos verdes suaves, tipografías orgánicas de
+                        aspecto artesanal y fotografías con luz natural muy limpia. Cuando un seguidor ve un post en su
+                        muro, aunque no lea el nombre de la cuenta, reconoce de inmediato de quién es la publicación por
+                        su identidad visual.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- PILAR 3 -->
+        <article class="pillar-section">
+            <div class="pillar-header" style="background-color: #0F4C5C;">
+                <span class="pillar-number">Pilar 03</span>
+                <h2 class="pillar-title">3. Personalidad de Marca</h2>
+                <img src="./pictures/personalidadMarca.png" alt="Ilustración de Personalidad de Marca"
+                    style="width: 100%; max-width: 600px; display: block; margin: 1.5rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                <p class="pillar-subtitle">¿Cómo actúa y habla? (Su actitud y forma de expresarse)</p>
+            </div>
+            <div class="pillar-body">
+                <h3>¿Qué es y cuál es su función?</h3>
+                <p>La personalidad de marca es la dimensión psicológica y conductual. Define <strong>cómo actúa, cómo
+                        piensa y cómo se expresa</strong> ante la audiencia. Humaniza el negocio permitiendo que los
+                    clientes empaticen a un nivel emocional más profundo.</p>
+
+                <h3>Elementos clave que lo componen:</h3>
+                <ul>
+                    <li><strong>Arquetipo de marca:</strong> El rol humano que adopta (ej. el sabio, el héroe, el
+                        cuidador, el bufón).</li>
+                    <li><strong>Tono de voz:</strong> Si la marca habla de "tú" o de "usted", si es formal y técnica, o
+                        cercana, empática y con un toque de humor sutil.</li>
+                    <li><strong>Actitud de servicio:</strong> Cómo responde el Community Manager ante un comentario
+                        positivo, una duda compleja o un reclamo público.</li>
+                </ul>
+
+                <div class="practical-example">
+                    <h4>💡 Ejemplo Práctico:</h4>
+                    <p>Dos ópticas pueden tener el mismo público (Buyer Persona) y usar colores similares (Identidad),
+                        pero su personalidad cambia todo: la Óptica A es formal, seria y utiliza términos médicos
+                        estrictos en sus publicaciones; la Óptica B es cercana, usa expresiones cotidianas motivadoras y
+                        bromea en los comentarios sobre lo cansado que es usar pantallas todo el día.</p>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>Material Académico de Consulta • Diseñado con buenas prácticas de Accesibilidad, tipografía legible y diseño
+            Mobile-First.</p>
+    </footer>
+
+</body>
+
+</html>
