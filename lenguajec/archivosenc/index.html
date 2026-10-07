@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Didáctica: Archivos en C con Comentarios Explicativos</title>
+    <style>
+        :root {
+            --bg-deep: #020617;
+            --bg-card: #090d16;
+            --bg-code: #0b1120;
+            --border-color: #1e293b;
+            --accent-cyan: #22d3ee;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.6;
+            padding-bottom: 3rem;
+        }
+
+        header {
+            background-color: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 1rem;
+        }
+
+        .header-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .badge-group { display: flex; align-items: center; gap: 0.75rem; }
+        .badge {
+            background-color: var(--accent-cyan);
+            color: var(--bg-deep);
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+        }
+        .subtitle { font-family: monospace; font-size: 0.75rem; color: var(--text-muted); }
+        h1 { font-size: 1.15rem; font-weight: 600; color: #e2e8f0; }
+
+        main {
+            max-width: 900px;
+            margin: 2rem auto 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        section {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p { color: var(--text-muted); margin-bottom: 1rem; font-size: 0.95rem; }
+        p strong { color: var(--text-main); }
+
+        .code-inline {
+            font-family: monospace;
+            color: var(--accent-cyan);
+            background-color: rgba(34, 211, 238, 0.08);
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .code-box {
+            background-color: var(--bg-code);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            margin-top: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .code-header {
+            background-color: rgba(2, 6, 23, 0.8);
+            padding: 0.5rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        pre {
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+
+        /* Sintaxis simulada */
+        .kw { color: #c678dd; }
+        .type { color: #61afef; }
+        .func { color: #e5c07b; }
+        .str { color: #98c379; }
+        .num { color: #d19a66; }
+        .com { color: #5c6370; font-style: italic; }
+
+        .lab-box {
+            background-color: rgba(34, 211, 238, 0.03);
+            border: 1px dashed rgba(34, 211, 238, 0.4);
+            border-radius: 1rem;
+            padding: 1.5rem;
+        }
+
+        ul { margin-left: 1.5rem; color: var(--text-muted); margin-bottom: 1rem; font-size: 0.9rem; }
+        li { margin-bottom: 0.4rem; }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        @media (min-width: 640px) {
+            .header-container { flex-direction: row; justify-content: space-between; align-items: center; }
+            h1 { font-size: 1.25rem; }
+            pre { padding: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="badge-group">
+                <div class="badge">ZINJAI & C</div>
+                <span class="subtitle">Guía Comentada Paso a Paso</span>
+            </div>
+            <h1>Gestión de Archivos con Explicaciones en el Código</h1>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- SECCIÓN 1: EJEMPLOS INDIVIDUALES COMENTADOS -->
+        <section>
+            <h2><span>⚙️</span> 1. Ejemplos Individuales Comentados</h2>
+            <p>Cada fragmento incluye comentarios detallados sobre el uso del puntero <code class="code-inline">FILE *</code> y los modos de apertura.</p>
+
+            <h3>Modo "w" (Escritura destructiva)</h3>
+            <div class="code-box">
+                <div class="code-header"><span>modo_escritura.c</span><span style="color: var(--accent-cyan);">Modo "w"</span></div>
+                <pre><code><span class="kw">#include</span> <span class="str">&lt;stdio.h&gt;</span>
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="com">/* 
+      ¿POR QUÉ USAR PUNTEROS (FILE *)?
+      Los archivos están en el disco duro y el programa en la RAM. 
+      'FILE *f' crea un puntero (una dirección de memoria) que actúa 
+      como un "control remoto" o canal para conectar el programa 
+      con el archivo físico del sistema operativo.
+    */</span>
+    FILE *f = <span class="func">fopen</span>(<span class="str">"datos.txt"</span>, <span class="str">"w"</span>);
+
+    <span class="com">/* Validamos siempre si el puntero es NULL (si falló la apertura) */</span>
+    <span class="kw">if</span> (f == <span class="type">NULL</span>) {
+        <span class="func">printf</span>(<span class="str">"Error al crear el archivo.\n"</span>);
+        <span class="kw">return</span> <span class="num">1</span>;
+    }
+
+    <span class="com">/* Escribimos texto usando el puntero 'f' */</span>
+    <span class="func">fprintf</span>(f, <span class="str">"Modo escritura: reemplaza todo el contenido anterior.\n"</span>);
+
+    <span class="com">/* Cerramos el archivo para liberar el recurso en el disco */</span>
+    <span class="func">fclose</span>(f);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre>
+            </div>
+
+            <h3>Modo "r" (Lectura)</h3>
+            <div class="code-box">
+                <div class="code-header"><span>modo_lectura.c</span><span style="color: var(--accent-cyan);">Modo "r"</span></div>
+                <pre><code><span class="kw">#include</span> <span class="str">&lt;stdio.h&gt;</span>
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="com">/* Declaramos el puntero para abrir en modo lectura ("r") */</span>
+    FILE *f = <span class="func">fopen</span>(<span class="str">"datos.txt"</span>, <span class="str">"r"</span>);
+
+    <span class="com">/* Si el archivo no existe, fopen devuelve NULL obligatoriamente */</span>
+    <span class="kw">if</span> (f == <span class="type">NULL</span>) {
+        <span class="func">printf</span>(<span class="str">"El archivo no existe todavía.\n"</span>);
+        <span class="kw">return</span> <span class="num">1</span>;
+    }
+
+    <span class="type">char</span> linea[<span class="num">100</span>];
+    <span class="com">/* Leemos línea por línea hasta llegar al final (EOF - End Of File) */</span>
+    <span class="kw">while</span> (<span class="func">fgets</span>(linea, <span class="num">sizeof</span>(linea), f) != <span class="type">NULL</span>) {
+        <span class="func">printf</span>(<span class="str">"%s"</span>, linea);
+    }
+
+    <span class="func">fclose</span>(f); <span class="com">/* Siempre cerrar el canal */</span>
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre>
+            </div>
+
+            <h3>Modo "a" (Adición / Append)</h3>
+            <div class="code-box">
+                <div class="code-header"><span>modo_append.c</span><span style="color: var(--accent-cyan);">Modo "a"</span></div>
+                <pre><code><span class="kw">#include</span> <span class="str">&lt;stdio.h&gt;</span>
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="com">/* El modo "a" posiciona el cursor al final sin borrar lo previo */</span>
+    FILE *f = <span class="func">fopen</span>(<span class="str">"datos.txt"</span>, <span class="str">"a"</span>);
+    
+    <span class="kw">if</span> (f == <span class="type">NULL</span>) <span class="kw">return</span> <span class="num">1</span>;
+
+    <span class="com">/* Se agrega texto nuevo respetando lo que ya estaba escrito */</span>
+    <span class="func">fprintf</span>(f, <span class="str">"Modo append: esta línea se añade al final.\n"</span>);
+    
+    <span class="func">fclose</span>(f);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: EJEMPLO INTEGRADO COMENTADO -->
+        <section>
+            <h2><span>📦</span> 2. Ejemplo Integrado en ZinjaI (Comentado)</h2>
+            <p>Este script completo unifica los tres modos en un solo flujo de trabajo.</p>
+            
+            <div class="code-box">
+                <div class="code-header"><span>programa_integrado.c (ZinjaI)</span><span style="color: var(--accent-cyan);">Completo</span></div>
+                <pre><code><span class="kw">#include</span> <span class="str">&lt;stdio.h&gt;</span>
+<span class="kw">#include</span> <span class="str">&lt;stdlib.h&gt;</span>
+
+<span class="type">int</span> <span class="func">main</span>() {
+    <span class="com">/* Puntero único reutilizable para gestionar el archivo */</span>
+    FILE *archivo;
+    <span class="type">char</span> buffer[<span class="num">120</span>];
+
+    <span class="com">/* -------------------------------------------------- */</span>
+    <span class="com">/* PASO 1: Escritura inicial con Modo "w"             */</span>
+    <span class="com">/* -------------------------------------------------- */</span>
+    archivo = <span class="func">fopen</span>(<span class="str">"bitacora.txt"</span>, <span class="str">"w"</span>);
+    <span class="kw">if</span> (archivo == <span class="type">NULL</span>) {
+        <span class="func">printf</span>(<span class="str">"Error al abrir en modo 'w'.\n"</span>);
+        <span class="kw">return</span> <span class="num">1</span>;
+    }
+    <span class="func">fprintf</span>(archivo, <span class="str">"Registro 1: Sistema iniciado correctamente.\n"</span>);
+    <span class="func">fclose</span>(archivo); <span class="com">/* Cerramos para asegurar que se guarde en disco */</span>
+
+    <span class="com">/* -------------------------------------------------- */</span>
+    <span class="com">/* PASO 2: Añadir datos con Modo "a" (Sin borrar nada)*/</span>
+    <span class="com">/* -------------------------------------------------- */</span>
+    archivo = <span class="func">fopen</span>(<span class="str">"bitacora.txt"</span>, <span class="str">"a"</span>);
+    <span class="kw">if</span> (archivo == <span class="type">NULL</span>) { <span class="kw">return</span> <span class="num">1</span>; }
+    <span class="func">fprintf</span>(archivo, <span class="str">"Registro 2: Se adjunta nueva información.\n"</span>);
+    <span class="func">fclose</span>(archivo);
+
+    <span class="com">/* -------------------------------------------------- */</span>
+    <span class="com">/* PASO 3: Leer todo el contenido con Modo "r"        */</span>
+    <span class="com">/* -------------------------------------------------- */</span>
+    archivo = <span class="func">fopen</span>(<span class="str">"bitacora.txt"</span>, <span class="str">"r"</span>);
+    <span class="kw">if</span> (archivo == <span class="type">NULL</span>) { <span class="kw">return</span> <span class="num">1</span>; }
+
+    <span class="func">printf</span>(<span class="str">"--- CONTENIDO LEÍDO DEL ARCHIVO ---\n"</span>);
+    <span class="com">/* El ciclo lee línea por línea utilizando el puntero 'archivo' */</span>
+    <span class="kw">while</span> (<span class="func">fgets</span>(buffer, <span class="num">sizeof</span>(buffer), archivo) != <span class="type">NULL</span>) {
+        <span class="func">printf</span>(<span class="str">"%s"</span>, buffer);
+    }
+    
+    <span class="func">fclose</span>(archivo); <span class="com">/* Cierre final obligatorio */</span>
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: PRÁCTICA DE LABORATORIO -->
+        <section class="lab-box">
+            <h2><span>📋</span> 3. Práctica de Laboratorio Evaluativa</h2>
+            <p><strong>Objetivo:</strong> Aplicar los conceptos aprendidos creando un sistema de inventario interactivo en ZinjaI.</p>
+            
+            <h3>Instrucciones para el Estudiante:</h3>
+            <ul>
+                <li>Crea un programa en C estructurado con un menú <code class="code-inline">switch</code> en un ciclo <code class="code-inline">do-while</code>.</li>
+                <li>Implementa la opción de registrar artículos usando el modo <code class="code-inline">"a"</code>.</li>
+                <li>Implementa la opción de consultar el inventario usando el modo <code class="code-inline">"r"</code> con validación de puntero nulo (<code class="code-inline">NULL</code>).</li>
+                <li>Implementa una opción para reiniciar el archivo usando el modo <code class="code-inline">"w"</code>.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Material didáctico optimizado para laboratorios de computación.</p>
+    </footer>
+
+</body>
+</html>
