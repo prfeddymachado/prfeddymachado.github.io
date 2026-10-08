@@ -9,10 +9,10 @@
             --bg-color: #0d1117;
             --card-bg: #161b22;
             --border-color: #30363d;
-            --text-primary: #c9d1d9;
+            --text-primary: #f0f6fc;
             --text-secondary: #8b949e;
             --accent: #58a6ff;
-            --accent-glow: rgba(88, 166, 255, 0.15);
+            --accent-glow: rgba(88, 166, 255, 0.2);
             --code-bg: #010409;
             --success: #3fb950;
             --warning: #d29922;
@@ -30,48 +30,55 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.8; /* Mayor espaciado para lectura fluida */
             padding: 20px;
+            font-size: 1.05rem; /* Letra ligeramente más grande */
         }
 
         .container {
-            max-width: 950px;
+            max-width: 850px; /* Ancho controlado para evitar fatiga visual */
             margin: 0 auto;
         }
 
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             padding: 30px;
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
+            border: 2px solid var(--border-color);
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         }
 
         header h1 {
             color: var(--accent);
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
         }
 
         header p {
             color: var(--text-secondary);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
         }
 
         section {
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 30px;
+            border: 2px solid var(--border-color);
+            border-radius: 14px;
+            padding: 30px;
+            margin-bottom: 35px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: border-color 0.2s ease;
+        }
+
+        section:hover {
+            border-color: var(--accent); /* Resalta sutilmente al enfocar la vista */
         }
 
         h2 {
             color: var(--accent);
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
@@ -80,41 +87,54 @@
 
         h3 {
             color: var(--text-primary);
-            font-size: 1.1rem;
-            margin: 15px 0 10px 0;
+            font-size: 1.2rem;
+            margin: 20px 0 10px 0;
         }
 
         p {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
+        }
+
+        /* Píldoras visuales de conceptos clave (Ayuda a escanear rápido) */
+        .highlight-term {
+            background: rgba(88, 166, 255, 0.15);
+            color: var(--accent);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
         }
 
         .definition-box {
             background: rgba(88, 166, 255, 0.08);
-            border: 1px solid var(--accent);
+            border-left: 5px solid var(--accent);
             padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 25px;
         }
 
         .definition-box strong {
             color: var(--accent);
-            font-size: 1.05rem;
+            font-size: 1.1rem;
         }
 
         .analogy-box {
-            background: var(--accent-glow);
-            border-left: 4px solid var(--accent);
-            padding: 15px 20px;
-            border-radius: 0 8px 8px 0;
-            margin-bottom: 20px;
-            font-style: italic;
+            background: rgba(210, 153, 34, 0.08);
+            border-left: 5px solid var(--warning);
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 25px;
+            font-style: normal;
         }
 
-        /* Playground Styles */
+        .analogy-box strong {
+            color: var(--warning);
+        }
+
+        /* Playground Styles optimizados */
         .playground-box {
             background: #090d13;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
             padding: 20px;
             margin-top: 20px;
         }
@@ -123,15 +143,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
+            background: #161b22;
+            padding: 15px;
+            border-radius: 8px;
         }
 
         .state-indicator {
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: 700;
+            font-size: 1rem;
             color: var(--warning);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .state-indicator.normalized {
@@ -140,21 +166,25 @@
 
         button.interactive-btn {
             background-color: var(--accent);
-            color: #fff;
+            color: #0d1117;
             border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-weight: 600;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
             cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         button.interactive-btn:hover {
             background-color: var(--btn-hover);
+            color: #fff;
+            transform: translateY(-2px);
         }
 
         button.interactive-btn:active {
-            transform: scale(0.98);
+            transform: scale(0.97);
         }
 
         .table-container {
@@ -169,41 +199,47 @@
             width: 100%;
             border-collapse: collapse;
             text-align: left;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         th, td {
-            padding: 10px 12px;
+            padding: 14px 16px;
             border-bottom: 1px solid var(--border-color);
         }
 
         th {
             background-color: #21262d;
             color: var(--accent);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         tr:last-child td {
             border-bottom: none;
         }
 
+        tr:hover {
+            background-color: rgba(255,255,255,0.03);
+        }
+
         .badge {
             display: inline-block;
-            padding: 3px 6px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
             margin-right: 5px;
         }
 
         .badge-bad {
-            background-color: rgba(248, 81, 73, 0.2);
+            background-color: rgba(248, 81, 73, 0.25);
             color: var(--danger);
+            border: 1px solid rgba(248, 81, 73, 0.4);
         }
 
         .badge-good {
-            background-color: rgba(63, 185, 80, 0.2);
+            background-color: rgba(63, 185, 80, 0.25);
             color: var(--success);
+            border: 1px solid rgba(63, 185, 80, 0.4);
         }
 
         .view-container {
@@ -212,12 +248,18 @@
 
         .view-container.active {
             display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 15px;
+            gap: 20px;
         }
 
         @media (min-width: 768px) {
@@ -228,9 +270,11 @@
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -239,43 +283,41 @@
     <div class="container">
         <header>
             <h1>Playground Interactivo: Normalización de BD</h1>
-            <p>Comprende el concepto formal y prueba el antes y después de transformar datos caóticos en estructuras óptimas (1FN, 2FN y 3FN)</p>
+            <p>Un espacio visual y directo para dominar el orden de los datos paso a paso.</p>
         </header>
 
         <!-- Concepto e Introducción -->
         <section>
-            <h2>¿Qué es la Normalización de Bases de Datos?</h2>
+            <h2>¿Qué es la Normalización?</h2>
             
             <div class="definition-box">
-                <strong>Concepto Formal:</strong>
-                <p style="margin-top: 8px; margin-bottom: 0;">La normalización es el proceso sistemático de estructurar una base de datos relacional de acuerdo con una serie de reglas llamadas <strong>Formas Normales</strong>, con el objetivo principal de <strong>minimizar la redundancia de datos</strong> y <strong>evitar anomalías</strong> en las operaciones de inserción, actualización y borrado.</p>
+                <strong>En pocas palabras:</strong>
+                <p style="margin-top: 8px; margin-bottom: 0;">Es organizar una base de datos en tablas más pequeñas y conectadas para <span class="highlight-term">eliminar repeticiones</span> y evitar errores al guardar, cambiar o borrar información.</p>
             </div>
 
-            <p>En términos técnicos, busca organizar las tablas de manera que cada dato dependa exclusivamente de su clave principal y de nadie más, dividiendo las tablas grandes en tablas más pequeñas y relacionadas entre sí.</p>
-
             <div class="analogy-box">
-                <strong>La Analogía del Archivador:</strong> Imagina que organizas una oficina caótica donde los papeles están tirados en el suelo. En lugar de eso, creas archivadores específicos: uno para fichas de clientes, otro para inventario y otro para recibos. Cada cosa en su lugar y sin repetir información.
+                <strong>💡 Analogía rápida:</strong> Imagina una gaveta donde guardas ropa, comida y documentos mezclados. Encontrar algo toma tiempo y si se ensucia algo, se arruina todo. Normalizar es usar <span style="color:var(--warning); font-weight:700;">gavetas separadas y etiquetadas</span> para cada cosa.
             </div>
         </section>
 
         <!-- Primera Forma Normal (1FN) Playground -->
         <section>
-            <h2>1️⃣ Primera Forma Normal (1FN): Valores Atómicos</h2>
-            <p><strong>La Regla:</strong> Cada columna debe contener un único valor indivisible (atómico), y no se permiten grupos de datos repetitivos en una misma celda.</p>
+            <h2>1️⃣ Primera Forma Normal (1FN)</h2>
+            <p><strong>La Regla de Oro:</strong> Cada celda debe tener un <span class="highlight-term">solo valor</span>. No se permiten listas ni varios datos amontonados en un mismo espacio.</p>
             
             <div class="analogy-box">
-                <strong>Analogía:</strong> No puedes meter varios teléfonos en un solo casillero separados por comas. Cada dato debe tener su propia celda o fila independiente.
+                <strong>💡 Analogía:</strong> En la casilla de teléfonos no puedes escribir dos números juntos separados por comas. Cada número necesita su propio espacio individual.
             </div>
 
             <div class="playground-box">
                 <div class="playground-controls">
-                    <span id="indicator-1fn" class="state-indicator">Estado: Tabla Sin Normalizar (Con multivalores)</span>
-                    <button class="interactive-btn" onclick="togglePlayground('1fn')">✨ Normalizar a 1FN</button>
+                    <span id="indicator-1fn" class="state-indicator">⚠️ Estado: Datos amontonados (Sin 1FN)</span>
+                    <button class="interactive-btn" onclick="togglePlayground('1fn')">✨ Transformar a 1FN</button>
                 </div>
 
                 <!-- Vista Antes (1FN) -->
                 <div id="view-1fn-before" class="view-container active">
-                    <h3>Vista Inicial (No Normalizada)</h3>
+                    <h3>Antes (Datos con múltiples valores por celda)</h3>
                     <div class="table-container">
                         <table>
                             <tr>
@@ -299,8 +341,8 @@
 
                 <!-- Vista Después (1FN) -->
                 <div id="view-1fn-after" class="view-container">
-                    <h3>Vista Optimizada (1ª Forma Normal)</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary);">Cada teléfono cuenta con su propia fila independiente, garantizando atomicidad.</p>
+                    <h3>Después (Valores 100% atómicos e individuales)</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">Cada teléfono ahora vive en su propia fila independiente.</p>
                     <div class="table-container">
                         <table>
                             <tr>
@@ -331,29 +373,29 @@
 
         <!-- Segunda Forma Normal (2FN) Playground -->
         <section>
-            <h2>2️⃣ Segunda Forma Normal (2FN): Dependencia Funcional Completa</h2>
-            <p><strong>La Regla:</strong> Debe cumplir con la 1FN y todos los atributos que no son clave deben depender por completo de la clave primaria completa, eliminando dependencias parciales.</p>
+            <h2>2️⃣ Segunda Forma Normal (2FN)</h2>
+            <p><strong>La Regla de Oro:</strong> Todo en la tabla debe depender 100% de la <span class="highlight-term">clave principal completa</span>, no solo de una parte de ella.</p>
 
             <div class="analogy-box">
-                <strong>Analogía:</strong> En una tabla con clave compuesta (Pedido + Producto), el nombre del producto solo depende del producto, no del número de pedido. Evita duplicar su nombre en cada compra.
+                <strong>💡 Analogía:</strong> Si compras varios productos, el nombre del producto solo depende del producto en sí, no del número de tu pedido. ¡No repitas el nombre del producto en cada compra!
             </div>
 
             <div class="playground-box">
                 <div class="playground-controls">
-                    <span id="indicator-2fn" class="state-indicator">Estado: Tabla con Dependencia Parcial</span>
-                    <button class="interactive-btn" onclick="togglePlayground('2fn')">✨ Normalizar a 2FN</button>
+                    <span id="indicator-2fn" class="state-indicator">⚠️ Estado: Dependencia parcial detectada</span>
+                    <button class="interactive-btn" onclick="togglePlayground('2fn')">✨ Transformar a 2FN</button>
                 </div>
 
                 <!-- Vista Antes (2FN) -->
                 <div id="view-2fn-before" class="view-container active">
-                    <h3>Vista Inicial (Violando 2FN)</h3>
+                    <h3>Antes (Datos repetidos que dependen solo de una parte de la clave)</h3>
                     <div class="table-container">
                         <table>
                             <tr>
                                 <th>ID_Pedido (PK)</th>
                                 <th>ID_Producto (PK)</th>
                                 <th>Cantidad</th>
-                                <th>Nombre_Producto (Depende solo de ID_Producto)</th>
+                                <th>Nombre_Producto (Depende solo del producto)</th>
                             </tr>
                             <tr>
                                 <td>101</td>
@@ -373,16 +415,16 @@
 
                 <!-- Vista Después (2FN) -->
                 <div id="view-2fn-after" class="view-container">
-                    <h3>Vista Optimizada (2ª Forma Normal - Dos Tablas)</h3>
+                    <h3>Después (Separado en dos tablas limpias)</h3>
                     <div class="grid-2">
                         <div>
-                            <h4 style="font-size: 0.95rem; color: var(--accent);">Detalle_Pedido</h4>
+                            <h4 style="font-size: 0.95rem; color: var(--accent); margin-bottom: 8px;">Tabla: Detalle_Pedido</h4>
                             <div class="table-container">
                                 <table>
                                     <tr>
-                                        <th>ID_Pedido</th>
-                                        <th>ID_Producto</th>
-                                        <th>Cantidad</th>
+                                        <th>ID_Ped</th>
+                                        <th>ID_Prod</th>
+                                        <th>Cant</th>
                                     </tr>
                                     <tr>
                                         <td>101</td>
@@ -398,11 +440,11 @@
                             </div>
                         </div>
                         <div>
-                            <h4 style="font-size: 0.95rem; color: var(--accent);">Productos</h4>
+                            <h4 style="font-size: 0.95rem; color: var(--accent); margin-bottom: 8px;">Tabla: Productos</h4>
                             <div class="table-container">
                                 <table>
                                     <tr>
-                                        <th>ID_Producto</th>
+                                        <th>ID_Prod</th>
                                         <th>Nombre_Producto</th>
                                     </tr>
                                     <tr>
@@ -419,29 +461,29 @@
 
         <!-- Tercera Forma Normal (3FN) Playground -->
         <section>
-            <h2>3️⃣ Tercera Forma Normal (3FN): Independencia Transitiva</h2>
-            <p><strong>La Regla:</strong> Debe cumplir con la 2FN y no deben existir dependencias transitivas (campos no clave que dependen de otros campos no clave).</p>
+            <h2>3️⃣ Tercera Forma Normal (3FN)</h2>
+            <p><strong>La Regla de Oro:</strong> Cero dependencias indirectas. Ningún campo debe depender de otro campo que <span class="highlight-term">no sea la clave principal</span>.</p>
 
             <div class="analogy-box">
-                <strong>Analogía:</strong> El departamento de un empleado se define por su ID de departamento, no directamente por el empleado. Sepáralo en una tabla independiente.
+                <strong>💡 Analogía:</strong> El departamento de un empleado depende de su código de departamento, no directamente de la persona. Saca el departamento a su propia tablita.
             </div>
 
             <div class="playground-box">
                 <div class="playground-controls">
-                    <span id="indicator-3fn" class="state-indicator">Estado: Tabla con Dependencia Transitiva</span>
-                    <button class="interactive-btn" onclick="togglePlayground('3fn')">✨ Normalizar a 3FN</button>
+                    <span id="indicator-3fn" class="state-indicator">⚠️ Estado: Dependencia transitiva detectada</span>
+                    <button class="interactive-btn" onclick="togglePlayground('3fn')">✨ Transformar a 3FN</button>
                 </div>
 
                 <!-- Vista Antes (3FN) -->
                 <div id="view-3fn-before" class="view-container active">
-                    <h3>Vista Inicial (Violando 3FN)</h3>
+                    <h3>Antes (Datos indirectos mezclados)</h3>
                     <div class="table-container">
                         <table>
                             <tr>
-                                <th>ID_Empleado (PK)</th>
+                                <th>ID_Emp (PK)</th>
                                 <th>Nombre</th>
                                 <th>ID_Depto</th>
-                                <th>Nombre_Depto (Depende de ID_Depto)</th>
+                                <th>Nombre_Depto (Depende del Depto, no del Emp)</th>
                             </tr>
                             <tr>
                                 <td>1</td>
@@ -461,14 +503,14 @@
 
                 <!-- Vista Después (3FN) -->
                 <div id="view-3fn-after" class="view-container">
-                    <h3>Vista Optimizada (3ª Forma Normal - Dos Tablas)</h3>
+                    <h3>Después (Información indirecta aislada en su propia tabla)</h3>
                     <div class="grid-2">
                         <div>
-                            <h4 style="font-size: 0.95rem; color: var(--accent);">Empleados</h4>
+                            <h4 style="font-size: 0.95rem; color: var(--accent); margin-bottom: 8px;">Tabla: Empleados</h4>
                             <div class="table-container">
                                 <table>
                                     <tr>
-                                        <th>ID_Empleado</th>
+                                        <th>ID_Emp</th>
                                         <th>Nombre</th>
                                         <th>ID_Depto</th>
                                     </tr>
@@ -486,7 +528,7 @@
                             </div>
                         </div>
                         <div>
-                            <h4 style="font-size: 0.95rem; color: var(--accent);">Departamentos</h4>
+                            <h4 style="font-size: 0.95rem; color: var(--accent); margin-bottom: 8px;">Tabla: Departamentos</h4>
                             <div class="table-container">
                                 <table>
                                     <tr>
@@ -506,12 +548,11 @@
         </section>
 
         <footer>
-            <p>Playground interactivo diseñado para la enseñanza eficiente de bases de datos relacionales.</p>
+            <p>Diseñado para un aprendizaje ágil, visual y sin distracciones.</p>
         </footer>
     </div>
 
     <script>
-        // Objeto para llevar el estado de cada playground
         const playgroundStates = {
             '1fn': false,
             '2fn': false,
@@ -530,16 +571,16 @@
             if (isNormalized) {
                 beforeView.classList.remove('active');
                 afterView.classList.add('active');
-                indicator.textContent = `Estado: Correctamente en ${level.toUpperCase()}`;
+                indicator.textContent = `✅ Estado: Estructura optimizada en ${level.toUpperCase()}`;
                 indicator.classList.add('normalized');
                 btn.textContent = `🔄 Ver Estado Anterior`;
                 btn.style.backgroundColor = '#238636';
             } else {
                 afterView.classList.remove('active');
                 beforeView.classList.add('active');
-                indicator.textContent = `Estado: Tabla Sin Normalizar (${level.toUpperCase()})`;
+                indicator.textContent = `⚠️ Estado: Datos desordenados (Sin ${level.toUpperCase()})`;
                 indicator.classList.remove('normalized');
-                btn.textContent = `✨ Normalizar a ${level.toUpperCase()}`;
+                btn.textContent = `✨ Transformar a ${level.toUpperCase()}`;
                 btn.style.backgroundColor = '';
             }
         }
