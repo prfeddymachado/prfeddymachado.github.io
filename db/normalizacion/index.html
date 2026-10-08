@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground Interactivo: Normalización de Bases de Datos</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --accent: #58a6ff;
+            --accent-glow: rgba(88, 166, 255, 0.15);
+            --code-bg: #010409;
+            --success: #3fb950;
+            --warning: #d29922;
+            --danger: #f85149;
+            --btn-hover: #1f6feb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        header h1 {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .definition-box {
+            background: rgba(88, 166, 255, 0.08);
+            border: 1px solid var(--accent);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .definition-box strong {
+            color: var(--accent);
+            font-size: 1.05rem;
+        }
+
+        .analogy-box {
+            background: var(--accent-glow);
+            border-left: 4px solid var(--accent);
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        /* Playground Styles */
+        .playground-box {
+            background: #090d13;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .playground-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .state-indicator {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--warning);
+        }
+
+        .state-indicator.normalized {
+            color: var(--success);
+        }
+
+        button.interactive-btn {
+            background-color: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        button.interactive-btn:hover {
+            background-color: var(--btn-hover);
+        }
+
+        button.interactive-btn:active {
+            transform: scale(0.98);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #21262d;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        .badge-bad {
+            background-color: rgba(248, 81, 73, 0.2);
+            color: var(--danger);
+        }
+
+        .badge-good {
+            background-color: rgba(63, 185, 80, 0.2);
+            color: var(--success);
+        }
+
+        .view-container {
+            display: none;
+        }
+
+        .view-container.active {
+            display: block;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Playground Interactivo: Normalización de BD</h1>
+            <p>Comprende el concepto formal y prueba el antes y después de transformar datos caóticos en estructuras óptimas (1FN, 2FN y 3FN)</p>
+        </header>
+
+        <!-- Concepto e Introducción -->
+        <section>
+            <h2>¿Qué es la Normalización de Bases de Datos?</h2>
+            
+            <div class="definition-box">
+                <strong>Concepto Formal:</strong>
+                <p style="margin-top: 8px; margin-bottom: 0;">La normalización es el proceso sistemático de estructurar una base de datos relacional de acuerdo con una serie de reglas llamadas <strong>Formas Normales</strong>, con el objetivo principal de <strong>minimizar la redundancia de datos</strong> y <strong>evitar anomalías</strong> en las operaciones de inserción, actualización y borrado.</p>
+            </div>
+
+            <p>En términos técnicos, busca organizar las tablas de manera que cada dato dependa exclusivamente de su clave principal y de nadie más, dividiendo las tablas grandes en tablas más pequeñas y relacionadas entre sí.</p>
+
+            <div class="analogy-box">
+                <strong>La Analogía del Archivador:</strong> Imagina que organizas una oficina caótica donde los papeles están tirados en el suelo. En lugar de eso, creas archivadores específicos: uno para fichas de clientes, otro para inventario y otro para recibos. Cada cosa en su lugar y sin repetir información.
+            </div>
+        </section>
+
+        <!-- Primera Forma Normal (1FN) Playground -->
+        <section>
+            <h2>1️⃣ Primera Forma Normal (1FN): Valores Atómicos</h2>
+            <p><strong>La Regla:</strong> Cada columna debe contener un único valor indivisible (atómico), y no se permiten grupos de datos repetitivos en una misma celda.</p>
+            
+            <div class="analogy-box">
+                <strong>Analogía:</strong> No puedes meter varios teléfonos en un solo casillero separados por comas. Cada dato debe tener su propia celda o fila independiente.
+            </div>
+
+            <div class="playground-box">
+                <div class="playground-controls">
+                    <span id="indicator-1fn" class="state-indicator">Estado: Tabla Sin Normalizar (Con multivalores)</span>
+                    <button class="interactive-btn" onclick="togglePlayground('1fn')">✨ Normalizar a 1FN</button>
+                </div>
+
+                <!-- Vista Antes (1FN) -->
+                <div id="view-1fn-before" class="view-container active">
+                    <h3>Vista Inicial (No Normalizada)</h3>
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>ID_Cliente</th>
+                                <th>Nombre</th>
+                                <th>Telefonos</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Carlos Pérez</td>
+                                <td><span class="badge badge-bad">0414-1111111, 0424-2222222</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>María Gómez</td>
+                                <td><span class="badge badge-bad">0412-3333333</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Vista Después (1FN) -->
+                <div id="view-1fn-after" class="view-container">
+                    <h3>Vista Optimizada (1ª Forma Normal)</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">Cada teléfono cuenta con su propia fila independiente, garantizando atomicidad.</p>
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>ID_Cliente</th>
+                                <th>Nombre</th>
+                                <th>Telefono</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Carlos Pérez</td>
+                                <td><span class="badge badge-good">0414-1111111</span></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Carlos Pérez</td>
+                                <td><span class="badge badge-good">0424-2222222</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>María Gómez</td>
+                                <td><span class="badge badge-good">0412-3333333</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Segunda Forma Normal (2FN) Playground -->
+        <section>
+            <h2>2️⃣ Segunda Forma Normal (2FN): Dependencia Funcional Completa</h2>
+            <p><strong>La Regla:</strong> Debe cumplir con la 1FN y todos los atributos que no son clave deben depender por completo de la clave primaria completa, eliminando dependencias parciales.</p>
+
+            <div class="analogy-box">
+                <strong>Analogía:</strong> En una tabla con clave compuesta (Pedido + Producto), el nombre del producto solo depende del producto, no del número de pedido. Evita duplicar su nombre en cada compra.
+            </div>
+
+            <div class="playground-box">
+                <div class="playground-controls">
+                    <span id="indicator-2fn" class="state-indicator">Estado: Tabla con Dependencia Parcial</span>
+                    <button class="interactive-btn" onclick="togglePlayground('2fn')">✨ Normalizar a 2FN</button>
+                </div>
+
+                <!-- Vista Antes (2FN) -->
+                <div id="view-2fn-before" class="view-container active">
+                    <h3>Vista Inicial (Violando 2FN)</h3>
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>ID_Pedido (PK)</th>
+                                <th>ID_Producto (PK)</th>
+                                <th>Cantidad</th>
+                                <th>Nombre_Producto (Depende solo de ID_Producto)</th>
+                            </tr>
+                            <tr>
+                                <td>101</td>
+                                <td>5</td>
+                                <td>2</td>
+                                <td><span class="badge badge-bad">Teclado Mecánico</span></td>
+                            </tr>
+                            <tr>
+                                <td>102</td>
+                                <td>5</td>
+                                <td>1</td>
+                                <td><span class="badge badge-bad">Teclado Mecánico</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Vista Después (2FN) -->
+                <div id="view-2fn-after" class="view-container">
+                    <h3>Vista Optimizada (2ª Forma Normal - Dos Tablas)</h3>
+                    <div class="grid-2">
+                        <div>
+                            <h4 style="font-size: 0.95rem; color: var(--accent);">Detalle_Pedido</h4>
+                            <div class="table-container">
+                                <table>
+                                    <tr>
+                                        <th>ID_Pedido</th>
+                                        <th>ID_Producto</th>
+                                        <th>Cantidad</th>
+                                    </tr>
+                                    <tr>
+                                        <td>101</td>
+                                        <td>5</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>102</td>
+                                        <td>5</td>
+                                        <td>1</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 0.95rem; color: var(--accent);">Productos</h4>
+                            <div class="table-container">
+                                <table>
+                                    <tr>
+                                        <th>ID_Producto</th>
+                                        <th>Nombre_Producto</th>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td><span class="badge badge-good">Teclado Mecánico</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tercera Forma Normal (3FN) Playground -->
+        <section>
+            <h2>3️⃣ Tercera Forma Normal (3FN): Independencia Transitiva</h2>
+            <p><strong>La Regla:</strong> Debe cumplir con la 2FN y no deben existir dependencias transitivas (campos no clave que dependen de otros campos no clave).</p>
+
+            <div class="analogy-box">
+                <strong>Analogía:</strong> El departamento de un empleado se define por su ID de departamento, no directamente por el empleado. Sepáralo en una tabla independiente.
+            </div>
+
+            <div class="playground-box">
+                <div class="playground-controls">
+                    <span id="indicator-3fn" class="state-indicator">Estado: Tabla con Dependencia Transitiva</span>
+                    <button class="interactive-btn" onclick="togglePlayground('3fn')">✨ Normalizar a 3FN</button>
+                </div>
+
+                <!-- Vista Antes (3FN) -->
+                <div id="view-3fn-before" class="view-container active">
+                    <h3>Vista Inicial (Violando 3FN)</h3>
+                    <div class="table-container">
+                        <table>
+                            <tr>
+                                <th>ID_Empleado (PK)</th>
+                                <th>Nombre</th>
+                                <th>ID_Depto</th>
+                                <th>Nombre_Depto (Depende de ID_Depto)</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Ana Gómez</td>
+                                <td>10</td>
+                                <td><span class="badge badge-bad">Sistemas</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Luis Soto</td>
+                                <td>10</td>
+                                <td><span class="badge badge-bad">Sistemas</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Vista Después (3FN) -->
+                <div id="view-3fn-after" class="view-container">
+                    <h3>Vista Optimizada (3ª Forma Normal - Dos Tablas)</h3>
+                    <div class="grid-2">
+                        <div>
+                            <h4 style="font-size: 0.95rem; color: var(--accent);">Empleados</h4>
+                            <div class="table-container">
+                                <table>
+                                    <tr>
+                                        <th>ID_Empleado</th>
+                                        <th>Nombre</th>
+                                        <th>ID_Depto</th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Ana Gómez</td>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Luis Soto</td>
+                                        <td>10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 0.95rem; color: var(--accent);">Departamentos</h4>
+                            <div class="table-container">
+                                <table>
+                                    <tr>
+                                        <th>ID_Depto</th>
+                                        <th>Nombre_Depto</th>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td><span class="badge badge-good">Sistemas</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Playground interactivo diseñado para la enseñanza eficiente de bases de datos relacionales.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Objeto para llevar el estado de cada playground
+        const playgroundStates = {
+            '1fn': false,
+            '2fn': false,
+            '3fn': false
+        };
+
+        function togglePlayground(level) {
+            playgroundStates[level] = !playgroundStates[level];
+            const isNormalized = playgroundStates[level];
+
+            const beforeView = document.getElementById(`view-${level}-before`);
+            const afterView = document.getElementById(`view-${level}-after`);
+            const indicator = document.getElementById(`indicator-${level}`);
+            const btn = event.target;
+
+            if (isNormalized) {
+                beforeView.classList.remove('active');
+                afterView.classList.add('active');
+                indicator.textContent = `Estado: Correctamente en ${level.toUpperCase()}`;
+                indicator.classList.add('normalized');
+                btn.textContent = `🔄 Ver Estado Anterior`;
+                btn.style.backgroundColor = '#238636';
+            } else {
+                afterView.classList.remove('active');
+                beforeView.classList.add('active');
+                indicator.textContent = `Estado: Tabla Sin Normalizar (${level.toUpperCase()})`;
+                indicator.classList.remove('normalized');
+                btn.textContent = `✨ Normalizar a ${level.toUpperCase()}`;
+                btn.style.backgroundColor = '';
+            }
+        }
+    </script>
+
+</body>
+</html>
