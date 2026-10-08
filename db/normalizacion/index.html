@@ -24,26 +24,28 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-primary);
-            line-height: 1.8; /* Mayor espaciado para lectura fluida */
-            padding: 20px;
-            font-size: 1.05rem; /* Letra ligeramente más grande */
+            line-height: 1.7;
+            padding: 12px;
+            font-size: 1rem;
         }
 
         .container {
-            max-width: 850px; /* Ancho controlado para evitar fatiga visual */
+            width: 100%;
+            max-width: 850px;
             margin: 0 auto;
         }
 
         header {
             text-align: center;
-            margin-bottom: 35px;
-            padding: 30px;
+            margin-bottom: 25px;
+            padding: 20px 15px;
             background: var(--card-bg);
             border: 2px solid var(--border-color);
             border-radius: 12px;
@@ -52,50 +54,46 @@
 
         header h1 {
             color: var(--accent);
-            font-size: 2.2rem;
-            margin-bottom: 12px;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
             letter-spacing: -0.5px;
         }
 
         header p {
             color: var(--text-secondary);
-            font-size: 1.15rem;
+            font-size: 0.95rem;
         }
 
         section {
             background: var(--card-bg);
             border: 2px solid var(--border-color);
             border-radius: 14px;
-            padding: 30px;
-            margin-bottom: 35px;
+            padding: 18px 15px;
+            margin-bottom: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: border-color 0.2s ease;
-        }
-
-        section:hover {
-            border-color: var(--accent); /* Resalta sutilmente al enfocar la vista */
         }
 
         h2 {
             color: var(--accent);
-            font-size: 1.6rem;
-            margin-bottom: 15px;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
         h3 {
             color: var(--text-primary);
-            font-size: 1.2rem;
-            margin: 20px 0 10px 0;
+            font-size: 1.05rem;
+            margin: 15px 0 10px 0;
         }
 
         p {
-            margin-bottom: 18px;
+            margin-bottom: 14px;
+            font-size: 0.95rem;
         }
 
-        /* Píldoras visuales de conceptos clave (Ayuda a escanear rápido) */
         .highlight-term {
             background: rgba(88, 166, 255, 0.15);
             color: var(--accent);
@@ -106,58 +104,56 @@
 
         .definition-box {
             background: rgba(88, 166, 255, 0.08);
-            border-left: 5px solid var(--accent);
-            padding: 20px;
-            border-radius: 0 10px 10px 0;
-            margin-bottom: 25px;
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 20px;
         }
 
         .definition-box strong {
             color: var(--accent);
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .analogy-box {
             background: rgba(210, 153, 34, 0.08);
-            border-left: 5px solid var(--warning);
-            padding: 20px;
-            border-radius: 0 10px 10px 0;
-            margin-bottom: 25px;
-            font-style: normal;
+            border-left: 4px solid var(--warning);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 20px;
         }
 
         .analogy-box strong {
             color: var(--warning);
         }
 
-        /* Playground Styles optimizados */
+        /* Playground Styles optimizados para pantallas táctiles y móviles */
         .playground-box {
             background: #090d13;
             border: 2px solid var(--border-color);
             border-radius: 12px;
-            padding: 20px;
-            margin-top: 20px;
+            padding: 12px;
+            margin-top: 15px;
         }
 
         .playground-controls {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 15px;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 15px;
             background: #161b22;
-            padding: 15px;
+            padding: 12px;
             border-radius: 8px;
         }
 
         .state-indicator {
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--warning);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            line-height: 1.4;
         }
 
         .state-indicator.normalized {
@@ -168,28 +164,27 @@
             background-color: var(--accent);
             color: #0d1117;
             border: none;
-            padding: 12px 22px;
+            padding: 12px;
             border-radius: 8px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             cursor: pointer;
+            width: 100%;
+            text-align: center;
             transition: all 0.2s ease;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        button.interactive-btn:hover {
-            background-color: var(--btn-hover);
-            color: #fff;
-            transform: translateY(-2px);
-        }
-
         button.interactive-btn:active {
-            transform: scale(0.97);
+            transform: scale(0.98);
         }
 
+        /* Contenedor con scroll táctil nativo y diseño adaptable */
         .table-container {
+            width: 100%;
             overflow-x: auto;
-            margin: 15px 0;
+            -webkit-overflow-scrolling: touch;
+            margin: 12px 0;
             border-radius: 8px;
             border: 1px solid var(--border-color);
             background: var(--card-bg);
@@ -197,14 +192,16 @@
 
         table {
             width: 100%;
+            min-width: 320px; /* Asegura que no se comprima de más */
             border-collapse: collapse;
             text-align: left;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
 
         th, td {
-            padding: 14px 16px;
+            padding: 10px 10px;
             border-bottom: 1px solid var(--border-color);
+            white-space: nowrap; /* Evita saltos de línea feos en celdas móviles */
         }
 
         th {
@@ -217,17 +214,13 @@
             border-bottom: none;
         }
 
-        tr:hover {
-            background-color: rgba(255,255,255,0.03);
-        }
-
         .badge {
             display: inline-block;
-            padding: 4px 8px;
+            padding: 3px 6px;
             border-radius: 6px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            margin-right: 5px;
+            white-space: nowrap;
         }
 
         .badge-bad {
@@ -259,22 +252,50 @@
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 12px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 10px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 30px;
+        }
+
+        /* Ajustes para tablets y pantallas medianas en adelante */
+        @media (min-width: 600px) {
+            body {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 25px;
+            }
+            .playground-controls {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            button.interactive-btn {
+                width: auto;
+                padding: 10px 20px;
+            }
+            table {
+                font-size: 0.9rem;
+            }
+            th, td {
+                padding: 12px 14px;
+            }
         }
 
         @media (min-width: 768px) {
             .grid-2 {
                 grid-template-columns: 1fr 1fr;
             }
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            border-top: 1px solid var(--border-color);
-            margin-top: 40px;
         }
     </style>
 </head>
@@ -292,7 +313,7 @@
             
             <div class="definition-box">
                 <strong>En pocas palabras:</strong>
-                <p style="margin-top: 8px; margin-bottom: 0;">Es organizar una base de datos en tablas más pequeñas y conectadas para <span class="highlight-term">eliminar repeticiones</span> y evitar errores al guardar, cambiar o borrar información.</p>
+                <p style="margin-top: 6px; margin-bottom: 0;">Es organizar una base de datos en tablas más pequeñas y conectadas para <span class="highlight-term">eliminar repeticiones</span> y evitar errores al guardar, cambiar o borrar información.</p>
             </div>
 
             <div class="analogy-box">
@@ -321,7 +342,7 @@
                     <div class="table-container">
                         <table>
                             <tr>
-                                <th>ID_Cliente</th>
+                                <th>ID_Cli</th>
                                 <th>Nombre</th>
                                 <th>Telefonos</th>
                             </tr>
@@ -342,11 +363,11 @@
                 <!-- Vista Después (1FN) -->
                 <div id="view-1fn-after" class="view-container">
                     <h3>Después (Valores 100% atómicos e individuales)</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary);">Cada teléfono ahora vive en su propia fila independiente.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Cada teléfono ahora vive en su propia fila independiente.</p>
                     <div class="table-container">
                         <table>
                             <tr>
-                                <th>ID_Cliente</th>
+                                <th>ID_Cli</th>
                                 <th>Nombre</th>
                                 <th>Telefono</th>
                             </tr>
@@ -392,9 +413,9 @@
                     <div class="table-container">
                         <table>
                             <tr>
-                                <th>ID_Pedido (PK)</th>
-                                <th>ID_Producto (PK)</th>
-                                <th>Cantidad</th>
+                                <th>ID_Ped (PK)</th>
+                                <th>ID_Prod (PK)</th>
+                                <th>Cant</th>
                                 <th>Nombre_Producto (Depende solo del producto)</th>
                             </tr>
                             <tr>
@@ -418,7 +439,7 @@
                     <h3>Después (Separado en dos tablas limpias)</h3>
                     <div class="grid-2">
                         <div>
-                            <h4 style="font-size: 0.95rem; color: var(--accent); margin-bottom: 8px;">Tabla: Detalle_Pedido</h4>
+                            <h4 style="font-size: 0.9rem; color: var(--accent); margin-bottom: 6px;">Tabla: Detalle_Pedido</h4>
                             <div class="table-container">
                                 <table>
                                     <tr>
@@ -440,7 +461,7 @@
                             </div>
                         </div>
                         <div>
-                            <h4 style="font-size: 0.95rem; color: var(--accent); margin-bottom: 8px;">Tabla: Productos</h4>
+                            <h4 style="font-size: 0.9rem; color: var(--accent); margin-bottom: 6px;">Tabla: Productos</h4>
                             <div class="table-container">
                                 <table>
                                     <tr>
@@ -506,7 +527,7 @@
                     <h3>Después (Información indirecta aislada en su propia tabla)</h3>
                     <div class="grid-2">
                         <div>
-                            <h4 style="font-size: 0.95rem; color: var(--accent); margin-bottom: 8px;">Tabla: Empleados</h4>
+                            <h4 style="font-size: 0.9rem; color: var(--accent); margin-bottom: 6px;">Tabla: Empleados</h4>
                             <div class="table-container">
                                 <table>
                                     <tr>
@@ -528,7 +549,7 @@
                             </div>
                         </div>
                         <div>
-                            <h4 style="font-size: 0.95rem; color: var(--accent); margin-bottom: 8px;">Tabla: Departamentos</h4>
+                            <h4 style="font-size: 0.9rem; color: var(--accent); margin-bottom: 6px;">Tabla: Departamentos</h4>
                             <div class="table-container">
                                 <table>
                                     <tr>
@@ -548,7 +569,7 @@
         </section>
 
         <footer>
-            <p>Diseñado para un aprendizaje ágil, visual y sin distracciones.</p>
+            <p>Diseñado para un aprendizaje ágil, visual y adaptado a cualquier dispositivo.</p>
         </footer>
     </div>
 
@@ -575,6 +596,7 @@
                 indicator.classList.add('normalized');
                 btn.textContent = `🔄 Ver Estado Anterior`;
                 btn.style.backgroundColor = '#238636';
+                btn.style.color = '#fff';
             } else {
                 afterView.classList.remove('active');
                 beforeView.classList.add('active');
@@ -582,6 +604,7 @@
                 indicator.classList.remove('normalized');
                 btn.textContent = `✨ Transformar a ${level.toUpperCase()}`;
                 btn.style.backgroundColor = '';
+                btn.style.color = '';
             }
         }
     </script>
