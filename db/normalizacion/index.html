@@ -71,6 +71,7 @@
             padding: 18px 15px;
             margin-bottom: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            overflow: hidden; /* Evita que cualquier contenido interno se desborde del contenedor de sección */
         }
 
         h2 {
@@ -127,13 +128,13 @@
             color: var(--warning);
         }
 
-        /* Playground Styles optimizados para pantallas táctiles y móviles */
         .playground-box {
             background: #090d13;
             border: 2px solid var(--border-color);
             border-radius: 12px;
             padding: 12px;
             margin-top: 15px;
+            overflow: hidden;
         }
 
         .playground-controls {
@@ -179,7 +180,7 @@
             transform: scale(0.98);
         }
 
-        /* Contenedor con scroll táctil nativo y diseño adaptable */
+        /* Contenedor con scroll táctil nativo */
         .table-container {
             width: 100%;
             overflow-x: auto;
@@ -192,7 +193,7 @@
 
         table {
             width: 100%;
-            min-width: 320px; /* Asegura que no se comprima de más */
+            min-width: 320px;
             border-collapse: collapse;
             text-align: left;
             font-size: 0.85rem;
@@ -201,7 +202,7 @@
         th, td {
             padding: 10px 10px;
             border-bottom: 1px solid var(--border-color);
-            white-space: nowrap; /* Evita saltos de línea feos en celdas móviles */
+            white-space: nowrap;
         }
 
         th {
@@ -249,10 +250,11 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Por defecto se apilan verticalmente para evitar desbordes en móviles */
         .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
         footer {
@@ -264,8 +266,8 @@
             margin-top: 30px;
         }
 
-        /* Ajustes para tablets y pantallas medianas en adelante */
-        @media (min-width: 600px) {
+        /* Ajustes para tablets grandes y escritorios en adelante */
+        @media (min-width: 768px) {
             body {
                 padding: 20px;
             }
@@ -290,11 +292,11 @@
             th, td {
                 padding: 12px 14px;
             }
-        }
-
-        @media (min-width: 768px) {
+            /* En pantallas anchas se muestran lado a lado de forma fluida */
             .grid-2 {
+                display: grid;
                 grid-template-columns: 1fr 1fr;
+                gap: 15px;
             }
         }
     </style>
@@ -327,7 +329,7 @@
             <p><strong>La Regla de Oro:</strong> Cada celda debe tener un <span class="highlight-term">solo valor</span>. No se permiten listas ni varios datos amontonados en un mismo espacio.</p>
             
             <div class="analogy-box">
-                <strong>💡 Analogía:</strong> En la casilla de teléfonos no puedes escribir dos números juntos separados por comas. Cada número necesita su propio espacio individual.
+                <strong>💡 Analogía:</strong> En la casilla de teléfonos no puedes escribir two números juntos separados por comas. Cada número necesita su propio espacio individual.
             </div>
 
             <div class="playground-box">
