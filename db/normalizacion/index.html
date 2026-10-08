@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playground Interactivo: Normalización de Bases de Datos</title>
+    <title>Playground Interactivo: Normalización de BD (Estilo TodoCode)</title>
     <style>
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --border-color: #30363d;
-            --text-primary: #f0f6fc;
-            --text-secondary: #8b949e;
-            --accent: #58a6ff;
-            --accent-glow: rgba(88, 166, 255, 0.2);
-            --code-bg: #010409;
-            --success: #3fb950;
-            --warning: #d29922;
-            --danger: #f85149;
-            --btn-hover: #1f6feb;
+            --bg-color: #0b0f19;
+            --card-bg: #131c2e;
+            --border-color: #1f2d45;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --success-bg: rgba(34, 197, 94, 0.15);
+            --success-border: #22c55e;
+            --danger-bg: rgba(239, 68, 68, 0.15);
+            --danger-border: #ef4444;
+            --btn-bg: #0284c7;
+            --btn-hover: #0369a1;
         }
 
         * {
@@ -32,181 +32,152 @@
             background-color: var(--bg-color);
             color: var(--text-primary);
             line-height: 1.7;
-            padding: 12px;
-            font-size: 1rem;
+            padding: 15px;
+            font-size: 1.05rem;
         }
 
         .container {
             width: 100%;
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         header {
             text-align: center;
-            margin-bottom: 25px;
-            padding: 20px 15px;
+            margin-bottom: 30px;
+            padding: 25px 15px;
             background: var(--card-bg);
             border: 2px solid var(--border-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
 
         header h1 {
             color: var(--accent);
-            font-size: 1.6rem;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
         }
 
         header p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         section {
             background: var(--card-bg);
             border: 2px solid var(--border-color);
-            border-radius: 14px;
-            padding: 18px 15px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            overflow: hidden; /* Evita que cualquier contenido interno se desborde del contenedor de sección */
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
         }
 
         h2 {
             color: var(--accent);
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        h3 {
-            color: var(--text-primary);
-            font-size: 1.05rem;
-            margin: 15px 0 10px 0;
+            gap: 10px;
         }
 
         p {
-            margin-bottom: 14px;
+            margin-bottom: 15px;
+            color: #cbd5e1;
             font-size: 0.95rem;
         }
 
-        .highlight-term {
-            background: rgba(88, 166, 255, 0.15);
-            color: var(--accent);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .definition-box {
-            background: rgba(88, 166, 255, 0.08);
-            border-left: 4px solid var(--accent);
+        .story-card {
+            background: rgba(245, 158, 11, 0.08);
+            border-left: 5px solid #f59e0b;
             padding: 15px;
-            border-radius: 0 8px 8px 0;
+            border-radius: 0 12px 12px 0;
             margin-bottom: 20px;
+            font-size: 0.95rem;
         }
 
-        .definition-box strong {
-            color: var(--accent);
-            font-size: 1rem;
+        .story-card strong {
+            color: #f59e0b;
         }
 
-        .analogy-box {
-            background: rgba(210, 153, 34, 0.08);
-            border-left: 4px solid var(--warning);
-            padding: 15px;
-            border-radius: 0 8px 8px 0;
-            margin-bottom: 20px;
-        }
-
-        .analogy-box strong {
-            color: var(--warning);
-        }
-
-        .playground-box {
-            background: #090d13;
+        .interactive-box {
+            background: #070a12;
             border: 2px solid var(--border-color);
-            border-radius: 12px;
-            padding: 12px;
+            border-radius: 14px;
+            padding: 15px;
             margin-top: 15px;
-            overflow: hidden;
         }
 
-        .playground-controls {
+        .control-bar {
             display: flex;
             flex-direction: column;
             gap: 12px;
             margin-bottom: 15px;
-            background: #161b22;
-            padding: 12px;
-            border-radius: 8px;
+            background: #111827;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
         }
 
-        .state-indicator {
+        .status-text {
             font-weight: 700;
             font-size: 0.9rem;
-            color: var(--warning);
+            color: #f59e0b;
             display: flex;
             align-items: center;
-            gap: 6px;
-            line-height: 1.4;
+            gap: 8px;
         }
 
-        .state-indicator.normalized {
-            color: var(--success);
+        .status-text.fixed {
+            color: #22c55e;
         }
 
-        button.interactive-btn {
-            background-color: var(--accent);
-            color: #0d1117;
+        button.action-btn {
+            background-color: var(--btn-bg);
+            color: #fff;
             border: none;
-            padding: 12px;
-            border-radius: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
             font-weight: 700;
             font-size: 0.95rem;
             cursor: pointer;
             width: 100%;
-            text-align: center;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: background 0.2s, transform 0.1s;
         }
 
-        button.interactive-btn:active {
+        button.action-btn:hover {
+            background-color: var(--btn-hover);
+        }
+
+        button.action-btn:active {
             transform: scale(0.98);
         }
 
-        /* Contenedor con scroll táctil nativo */
-        .table-container {
+        .table-scroll {
             width: 100%;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            margin: 12px 0;
+            margin: 10px 0;
             border-radius: 8px;
             border: 1px solid var(--border-color);
-            background: var(--card-bg);
         }
 
         table {
             width: 100%;
-            min-width: 320px;
+            min-width: 400px;
             border-collapse: collapse;
             text-align: left;
             font-size: 0.85rem;
         }
 
         th, td {
-            padding: 10px 10px;
+            padding: 10px 12px;
             border-bottom: 1px solid var(--border-color);
             white-space: nowrap;
         }
 
         th {
-            background-color: #21262d;
+            background-color: #1e293b;
             color: var(--accent);
             font-weight: 700;
         }
@@ -215,32 +186,29 @@
             border-bottom: none;
         }
 
-        .badge {
-            display: inline-block;
+        .badge-bad {
+            background-color: var(--danger-bg);
+            color: #fca5a5;
             padding: 3px 6px;
             border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .badge-bad {
-            background-color: rgba(248, 81, 73, 0.25);
-            color: var(--danger);
-            border: 1px solid rgba(248, 81, 73, 0.4);
+            font-weight: 600;
+            border: 1px solid var(--danger-border);
         }
 
         .badge-good {
-            background-color: rgba(63, 185, 80, 0.25);
-            color: var(--success);
-            border: 1px solid rgba(63, 185, 80, 0.4);
+            background-color: var(--success-bg);
+            color: #86efac;
+            padding: 3px 6px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: 1px solid var(--success-border);
         }
 
-        .view-container {
+        .view-step {
             display: none;
         }
 
-        .view-container.active {
+        .view-step.active {
             display: block;
             animation: fadeIn 0.3s ease-in-out;
         }
@@ -250,8 +218,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Por defecto se apilan verticalmente para evitar desbordes en móviles */
-        .grid-2 {
+        .grid-tables {
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -259,41 +226,23 @@
 
         footer {
             text-align: center;
-            padding: 20px 10px;
+            padding: 25px 10px;
             color: var(--text-secondary);
             font-size: 0.85rem;
             border-top: 1px solid var(--border-color);
             margin-top: 30px;
         }
 
-        /* Ajustes para tablets grandes y escritorios en adelante */
         @media (min-width: 768px) {
-            body {
-                padding: 20px;
-            }
-            header h1 {
-                font-size: 2rem;
-            }
-            section {
-                padding: 25px;
-            }
-            .playground-controls {
+            header h1 { font-size: 2rem; }
+            section { padding: 25px; }
+            .control-bar {
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
             }
-            button.interactive-btn {
-                width: auto;
-                padding: 10px 20px;
-            }
-            table {
-                font-size: 0.9rem;
-            }
-            th, td {
-                padding: 12px 14px;
-            }
-            /* En pantallas anchas se muestran lado a lado de forma fluida */
-            .grid-2 {
+            button.action-btn { width: auto; }
+            .grid-tables {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 gap: 15px;
@@ -305,88 +254,101 @@
 
     <div class="container">
         <header>
-            <h1>Playground Interactivo: Normalización de BD</h1>
-            <p>Un espacio visual y directo para dominar el orden de los datos paso a paso.</p>
+            <h1>🏎️ Normalización de Bases de Datos</h1>
+            <p>Basado en la clase magistral de <strong>TodoCode</strong>: ¡Aprendiendo con pilotos de Fórmula 1!</p>
         </header>
 
-        <!-- Concepto e Introducción -->
+        <!-- Forma 0 -->
         <section>
-            <h2>¿Qué es la Normalización?</h2>
-            
-            <div class="definition-box">
-                <strong>En pocas palabras:</strong>
-                <p style="margin-top: 6px; margin-bottom: 0;">Es organizar una base de datos en tablas más pequeñas y conectadas para <span class="highlight-term">eliminar repeticiones</span> y evitar errores al guardar, cambiar o borrar información.</p>
-            </div>
-
-            <div class="analogy-box">
-                <strong>💡 Analogía rápida:</strong> Imagina una gaveta donde guardas ropa, comida y documentos mezclados. Encontrar algo toma tiempo y si se ensucia algo, se arruina todo. Normalizar es usar <span style="color:var(--warning); font-weight:700;">gavetas separadas y etiquetadas</span> para cada cosa.
+            <h2>🏁 Forma Normal 0 (La tabla desordenada)</h2>
+            <p>Imaginemos una tabla donde anotamos los pilotos de F1, los lenguajes que aprenden, su instructor y el aula de clases. Todo está mezclado y hay listas de datos dentro de una misma celda.</p>
+            <div class="table-scroll">
+                <table>
+                    <tr>
+                        <th>ID_Emp</th>
+                        <th>Piloto</th>
+                        <th>Departamento / Lenguajes (¡Listas!)</th>
+                        <th>Instructor</th>
+                        <th>Aula</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Max Verstappen</td>
+                        <td><span class="badge-bad">Java, Python</span></td>
+                        <td>García, Fernán</td>
+                        <td>A1, B2</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Charles Leclerc</td>
+                        <td><span class="badge-good">JavaScript</span></td>
+                        <td>López</td>
+                        <td>C3</td>
+                    </tr>
+                </table>
             </div>
         </section>
 
-        <!-- Primera Forma Normal (1FN) Playground -->
+        <!-- 1FN -->
         <section>
             <h2>1️⃣ Primera Forma Normal (1FN)</h2>
-            <p><strong>La Regla de Oro:</strong> Cada celda debe tener un <span class="highlight-term">solo valor</span>. No se permiten listas ni varios datos amontonados en un mismo espacio.</p>
-            
-            <div class="analogy-box">
-                <strong>💡 Analogía:</strong> En la casilla de teléfonos no puedes escribir two números juntos separados por comas. Cada número necesita su propio espacio individual.
+            <div class="story-card">
+                <p style="margin:0;"><strong>El objetivo:</strong> Lograr <strong>atomicidad</strong>. Cada celda debe tener un solo valor. ¡Adiós a las listas y múltiples datos amontonados!</p>
             </div>
 
-            <div class="playground-box">
-                <div class="playground-controls">
-                    <span id="indicator-1fn" class="state-indicator">⚠️ Estado: Datos amontonados (Sin 1FN)</span>
-                    <button class="interactive-btn" onclick="togglePlayground('1fn')">✨ Transformar a 1FN</button>
+            <div class="interactive-box">
+                <div class="control-bar">
+                    <span id="label-1fn" class="status-text">❌ Problema: Hay listas y varios valores mezclados en una sola línea.</span>
+                    <button class="action-btn" onclick="togglePlay('1fn')">✨ Ver Solución 1FN</button>
                 </div>
 
-                <!-- Vista Antes (1FN) -->
-                <div id="view-1fn-before" class="view-container active">
-                    <h3>Antes (Datos con múltiples valores por celda)</h3>
-                    <div class="table-container">
+                <!-- Antes 1FN -->
+                <div id="box-1fn-before" class="view-step active">
+                    <div class="table-scroll">
                         <table>
                             <tr>
-                                <th>ID_Cli</th>
-                                <th>Nombre</th>
-                                <th>Telefonos</th>
+                                <th>ID</th>
+                                <th>Piloto</th>
+                                <th>Lenguaje</th>
+                                <th>Instructor</th>
+                                <th>Aula</th>
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td>Carlos Pérez</td>
-                                <td><span class="badge badge-bad">0414-1111111, 0424-2222222</span></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>María Gómez</td>
-                                <td><span class="badge badge-bad">0412-3333333</span></td>
+                                <td>Max Verstappen</td>
+                                <td><span class="badge-bad">Java, Python</span></td>
+                                <td>García, Fernán</td>
+                                <td>A1, B2</td>
                             </tr>
                         </table>
                     </div>
                 </div>
 
-                <!-- Vista Después (1FN) -->
-                <div id="view-1fn-after" class="view-container">
-                    <h3>Después (Valores 100% atómicos e individuales)</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Cada teléfono ahora vive en su propia fila independiente.</p>
-                    <div class="table-container">
+                <!-- Después 1FN -->
+                <div id="box-1fn-after" class="view-step">
+                    <p style="font-size: 0.85rem; color: var(--success-border);">¡Solución aplicada! Cada lenguaje se separa en su propia fila independiente:</p>
+                    <div class="table-scroll">
                         <table>
                             <tr>
-                                <th>ID_Cli</th>
-                                <th>Nombre</th>
-                                <th>Telefono</th>
+                                <th>ID</th>
+                                <th>Piloto</th>
+                                <th>Lenguaje (Atómico)</th>
+                                <th>Instructor</th>
+                                <th>Aula</th>
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td>Carlos Pérez</td>
-                                <td><span class="badge badge-good">0414-1111111</span></td>
+                                <td>Max Verstappen</td>
+                                <td><span class="badge-good">Java</span></td>
+                                <td>García</td>
+                                <td>A1</td>
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td>Carlos Pérez</td>
-                                <td><span class="badge badge-good">0424-2222222</span></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>María Gómez</td>
-                                <td><span class="badge badge-good">0412-3333333</span></td>
+                                <td>Max Verstappen</td>
+                                <td><span class="badge-good">Python</span></td>
+                                <td>Fernán</td>
+                                <td>B2</td>
                             </tr>
                         </table>
                     </div>
@@ -394,85 +356,71 @@
             </div>
         </section>
 
-        <!-- Segunda Forma Normal (2FN) Playground -->
+        <!-- 2FN -->
         <section>
             <h2>2️⃣ Segunda Forma Normal (2FN)</h2>
-            <p><strong>La Regla de Oro:</strong> Todo en la tabla debe depender 100% de la <span class="highlight-term">clave principal completa</span>, no solo de una parte de ella.</p>
-
-            <div class="analogy-box">
-                <strong>💡 Analogía:</strong> Si compras varios productos, el nombre del producto solo depende del producto en sí, no del número de tu pedido. ¡No repitas el nombre del producto en cada compra!
+            <div class="story-card">
+                <p style="margin:0;"><strong>El objetivo:</strong> Eliminar dependencias parciales y claves compuestas repetitivas. Separamos los datos de los pilotos por un lado y los lenguajes/cursos por el otro.</p>
             </div>
 
-            <div class="playground-box">
-                <div class="playground-controls">
-                    <span id="indicator-2fn" class="state-indicator">⚠️ Estado: Dependencia parcial detectada</span>
-                    <button class="interactive-btn" onclick="togglePlayground('2fn')">✨ Transformar a 2FN</button>
+            <div class="interactive-box">
+                <div class="control-bar">
+                    <span id="label-2fn" class="status-text">❌ Problema: Nombres de pilotos y datos se repiten constantemente.</span>
+                    <button class="action-btn" onclick="togglePlay('2fn')">✨ Ver Solución 2FN</button>
                 </div>
 
-                <!-- Vista Antes (2FN) -->
-                <div id="view-2fn-before" class="view-container active">
-                    <h3>Antes (Datos repetidos que dependen solo de una parte de la clave)</h3>
-                    <div class="table-container">
+                <!-- Antes 2FN -->
+                <div id="box-2fn-before" class="view-step active">
+                    <div class="table-scroll">
                         <table>
                             <tr>
-                                <th>ID_Ped (PK)</th>
-                                <th>ID_Prod (PK)</th>
-                                <th>Cant</th>
-                                <th>Nombre_Producto (Depende solo del producto)</th>
+                                <th>ID_Piloto</th>
+                                <th>Piloto</th>
+                                <th>Lenguaje</th>
+                                <th>Instructor</th>
                             </tr>
                             <tr>
-                                <td>101</td>
-                                <td>5</td>
-                                <td>2</td>
-                                <td><span class="badge badge-bad">Teclado Mecánico</span></td>
-                            </tr>
-                            <tr>
-                                <td>102</td>
-                                <td>5</td>
                                 <td>1</td>
-                                <td><span class="badge badge-bad">Teclado Mecánico</span></td>
+                                <td>Max Verstappen</td>
+                                <td>Java</td>
+                                <td>García</td>
                             </tr>
                         </table>
                     </div>
                 </div>
 
-                <!-- Vista Después (2FN) -->
-                <div id="view-2fn-after" class="view-container">
-                    <h3>Después (Separado en dos tablas limpias)</h3>
-                    <div class="grid-2">
+                <!-- Después 2FN -->
+                <div id="box-2fn-after" class="view-step">
+                    <p style="font-size: 0.85rem; color: var(--success-border);">¡Solución! Dividimos en la tabla Pilotos y la tabla Lenguajes:</p>
+                    <div class="grid-tables">
                         <div>
-                            <h4 style="font-size: 0.9rem; color: var(--accent); margin-bottom: 6px;">Tabla: Detalle_Pedido</h4>
-                            <div class="table-container">
+                            <p style="font-size: 0.8rem; color: var(--accent); font-weight:700; margin-bottom: 4px;">Tabla: Pilotos</p>
+                            <div class="table-scroll">
                                 <table>
                                     <tr>
-                                        <th>ID_Ped</th>
-                                        <th>ID_Prod</th>
-                                        <th>Cant</th>
+                                        <th>ID</th>
+                                        <th>Piloto</th>
                                     </tr>
                                     <tr>
-                                        <td>101</td>
-                                        <td>5</td>
-                                        <td>2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>102</td>
-                                        <td>5</td>
                                         <td>1</td>
+                                        <td>Max Verstappen</td>
                                     </tr>
                                 </table>
                             </div>
                         </div>
                         <div>
-                            <h4 style="font-size: 0.9rem; color: var(--accent); margin-bottom: 6px;">Tabla: Productos</h4>
-                            <div class="table-container">
+                            <p style="font-size: 0.8rem; color: var(--accent); font-weight:700; margin-bottom: 4px;">Tabla: Lenguajes (con FK)</p>
+                            <div class="table-scroll">
                                 <table>
                                     <tr>
-                                        <th>ID_Prod</th>
-                                        <th>Nombre_Producto</th>
+                                        <th>ID_Piloto</th>
+                                        <th>Lenguaje</th>
+                                        <th>Instructor</th>
                                     </tr>
                                     <tr>
-                                        <td>5</td>
-                                        <td><span class="badge badge-good">Teclado Mecánico</span></td>
+                                        <td>1</td>
+                                        <td>Java</td>
+                                        <td>García</td>
                                     </tr>
                                 </table>
                             </div>
@@ -482,85 +430,71 @@
             </div>
         </section>
 
-        <!-- Tercera Forma Normal (3FN) Playground -->
+        <!-- 3FN -->
         <section>
             <h2>3️⃣ Tercera Forma Normal (3FN)</h2>
-            <p><strong>La Regla de Oro:</strong> Cero dependencias indirectas. Ningún campo debe depender de otro campo que <span class="highlight-term">no sea la clave principal</span>.</p>
-
-            <div class="analogy-box">
-                <strong>💡 Analogía:</strong> El departamento de un empleado depende de su código de departamento, no directamente de la persona. Saca el departamento a su propia tablita.
+            <div class="story-card">
+                <p style="margin:0;"><strong>El objetivo:</strong> Eliminar <strong>dependencias transitivas</strong> (cuando un campo depende de otro que no es la clave principal, como el instructor o el aula dependiendo del lenguaje).</p>
             </div>
 
-            <div class="playground-box">
-                <div class="playground-controls">
-                    <span id="indicator-3fn" class="state-indicator">⚠️ Estado: Dependencia transitiva detectada</span>
-                    <button class="interactive-btn" onclick="togglePlayground('3fn')">✨ Transformar a 3FN</button>
+            <div class="interactive-box">
+                <div class="control-bar">
+                    <span id="label-3fn" class="status-text">❌ Problema: El instructor y el aula dependen indirectamente del lenguaje.</span>
+                    <button class="action-btn" onclick="togglePlay('3fn')">✨ Ver Solución 3FN</button>
                 </div>
 
-                <!-- Vista Antes (3FN) -->
-                <div id="view-3fn-before" class="view-container active">
-                    <h3>Antes (Datos indirectos mezclados)</h3>
-                    <div class="table-container">
+                <!-- Antes 3FN -->
+                <div id="box-3fn-before" class="view-step active">
+                    <div class="table-scroll">
                         <table>
                             <tr>
-                                <th>ID_Emp (PK)</th>
-                                <th>Nombre</th>
-                                <th>ID_Depto</th>
-                                <th>Nombre_Depto (Depende del Depto, no del Emp)</th>
+                                <th>ID_Piloto</th>
+                                <th>Lenguaje</th>
+                                <th>Instructor (Indirecto)</th>
+                                <th>Aula (Indirecto)</th>
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td>Ana Gómez</td>
-                                <td>10</td>
-                                <td><span class="badge badge-bad">Sistemas</span></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Luis Soto</td>
-                                <td>10</td>
-                                <td><span class="badge badge-bad">Sistemas</span></td>
+                                <td>Java</td>
+                                <td>García</td>
+                                <td>A1</td>
                             </tr>
                         </table>
                     </div>
                 </div>
 
-                <!-- Vista Después (3FN) -->
-                <div id="view-3fn-after" class="view-container">
-                    <h3>Después (Información indirecta aislada en su propia tabla)</h3>
-                    <div class="grid-2">
+                <!-- Después 3FN -->
+                <div id="box-3fn-after" class="view-step">
+                    <p style="font-size: 0.85rem; color: var(--success-border);">¡Solución! Tabla independiente para los detalles de los cursos y profesores:</p>
+                    <div class="grid-tables">
                         <div>
-                            <h4 style="font-size: 0.9rem; color: var(--accent); margin-bottom: 6px;">Tabla: Empleados</h4>
-                            <div class="table-container">
+                            <p style="font-size: 0.8rem; color: var(--accent); font-weight:700; margin-bottom: 4px;">Tabla: Cursos / Lenguajes</p>
+                            <div class="table-scroll">
                                 <table>
                                     <tr>
-                                        <th>ID_Emp</th>
-                                        <th>Nombre</th>
-                                        <th>ID_Depto</th>
+                                        <th>Lenguaje</th>
+                                        <th>Instructor</th>
+                                        <th>Aula</th>
                                     </tr>
                                     <tr>
-                                        <td>1</td>
-                                        <td>Ana Gómez</td>
-                                        <td>10</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Luis Soto</td>
-                                        <td>10</td>
+                                        <td>Java</td>
+                                        <td>García</td>
+                                        <td>A1</td>
                                     </tr>
                                 </table>
                             </div>
                         </div>
                         <div>
-                            <h4 style="font-size: 0.9rem; color: var(--accent); margin-bottom: 6px;">Tabla: Departamentos</h4>
-                            <div class="table-container">
+                            <p style="font-size: 0.8rem; color: var(--accent); font-weight:700; margin-bottom: 4px;">Tabla: Relación Piloto-Lenguaje</p>
+                            <div class="table-scroll">
                                 <table>
                                     <tr>
-                                        <th>ID_Depto</th>
-                                        <th>Nombre_Depto</th>
+                                        <th>ID_Piloto</th>
+                                        <th>Lenguaje</th>
                                     </tr>
                                     <tr>
-                                        <td>10</td>
-                                        <td><span class="badge badge-good">Sistemas</span></td>
+                                        <td>1</td>
+                                        <td>Java</td>
                                     </tr>
                                 </table>
                             </div>
@@ -571,42 +505,36 @@
         </section>
 
         <footer>
-            <p>Diseñado para un aprendizaje ágil, visual y adaptado a cualquier dispositivo.</p>
+            <p>Basado en el estilo didáctico de TodoCode 🧡 - Adaptado para móviles y pantallas táctiles.</p>
         </footer>
     </div>
 
     <script>
-        const playgroundStates = {
-            '1fn': false,
-            '2fn': false,
-            '3fn': false
-        };
+        const states = { '1fn': false, '2fn': false, '3fn': false };
 
-        function togglePlayground(level) {
-            playgroundStates[level] = !playgroundStates[level];
-            const isNormalized = playgroundStates[level];
+        function togglePlay(id) {
+            states[id] = !states[id];
+            const active = states[id];
 
-            const beforeView = document.getElementById(`view-${level}-before`);
-            const afterView = document.getElementById(`view-${level}-after`);
-            const indicator = document.getElementById(`indicator-${level}`);
+            const before = document.getElementById(`box-${id}-before`);
+            const after = document.getElementById(`box-${id}-after`);
+            const label = document.getElementById(`label-${id}`);
             const btn = event.target;
 
-            if (isNormalized) {
-                beforeView.classList.remove('active');
-                afterView.classList.add('active');
-                indicator.textContent = `✅ Estado: Estructura optimizada en ${level.toUpperCase()}`;
-                indicator.classList.add('normalized');
-                btn.textContent = `🔄 Ver Estado Anterior`;
-                btn.style.backgroundColor = '#238636';
-                btn.style.color = '#fff';
+            if (active) {
+                before.classList.remove('active');
+                after.classList.add('active');
+                label.textContent = `✅ ¡Estructura perfecta en ${id.toUpperCase()}! Sin redundancias.`;
+                label.classList.add('fixed');
+                btn.textContent = `🔄 Ver Problema Inicial`;
+                btn.style.backgroundColor = '#16a34a';
             } else {
-                afterView.classList.remove('active');
-                beforeView.classList.add('active');
-                indicator.textContent = `⚠️ Estado: Datos desordenados (Sin ${level.toUpperCase()})`;
-                indicator.classList.remove('normalized');
-                btn.textContent = `✨ Transformar a ${level.toUpperCase()}`;
+                after.classList.remove('active');
+                before.classList.add('active');
+                label.textContent = `❌ Problema: Datos mal estructurados (Sin ${id.toUpperCase()})`;
+                label.classList.remove('fixed');
+                btn.textContent = `✨ Ver Solución ${id.toUpperCase()}`;
                 btn.style.backgroundColor = '';
-                btn.style.color = '';
             }
         }
     </script>
