@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playground Interactivo: Normalización de BD (Estilo TodoCode)</title>
+    <title>Playground Interactivo: Normalización de BD inspirado en el canal de TodoCode</title>
     <style>
+        .next-problem {
+            margin-top: 18px;
+            padding: 16px 18px;
+            border-left: 4px solid var(--accent);
+            background: rgba(59, 130, 246, 0.08);
+            border-radius: 10px;
+        }
+
+        .next-problem h3 {
+            margin: 0 0 8px;
+            color: var(--accent);
+            font-size: 1rem;
+        }
+
+        .next-problem p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
         :root {
             --bg-color: #0b0f19;
             --card-bg: #131c2e;
@@ -49,7 +69,7 @@
             background: var(--card-bg);
             border: 2px solid var(--border-color);
             border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
         }
 
         header h1 {
@@ -69,7 +89,7 @@
             border-radius: 16px;
             padding: 20px;
             margin-bottom: 30px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         h2 {
@@ -170,7 +190,8 @@
             font-size: 0.85rem;
         }
 
-        th, td {
+        th,
+        td {
             padding: 10px 12px;
             border-bottom: 1px solid var(--border-color);
             white-space: nowrap;
@@ -214,8 +235,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .grid-tables {
@@ -234,14 +262,24 @@
         }
 
         @media (min-width: 768px) {
-            header h1 { font-size: 2rem; }
-            section { padding: 25px; }
+            header h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 25px;
+            }
+
             .control-bar {
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
             }
-            button.action-btn { width: auto; }
+
+            button.action-btn {
+                width: auto;
+            }
+
             .grid-tables {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -250,251 +288,459 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
         <header>
             <h1>🏎️ Normalización de Bases de Datos</h1>
-            <p>Basado en la clase magistral de <strong>TodoCode</strong>: ¡Aprendiendo con pilotos de Fórmula 1!</p>
+            <p>Un solo viaje por la Fórmula 1: de una tabla desordenada a una estructura en 3FN.</p>
         </header>
 
-        <!-- Forma 0 -->
         <section>
-            <h2>🏁 Forma Normal 0 (La tabla desordenada)</h2>
-            <p>Imaginemos una tabla donde anotamos los pilotos de F1, los lenguajes que aprenden, su instructor y el aula de clases. Todo está mezclado y hay listas de datos dentro de una misma celda.</p>
+            <h2>🏁 El escenario: resultados de Fórmula 1</h2>
+            <div class="story-card">
+                <p style="margin:0;"><strong>Imaginemos una base de datos de F1.</strong>
+                    Queremos registrar qué piloto participó en cada Gran Premio, a qué escudería pertenece,
+                    en qué circuito se corrió y qué posición obtuvo. Partimos de una tabla donde todo está
+                    mezclado y, paso a paso, la vamos organizando.</p>
+            </div>
+            <p>La idea es que <strong>no cambiamos de ejemplo</strong>: seguimos hablando de los mismos
+                pilotos, Grandes Premios, escuderías y circuitos durante toda la explicación.</p>
+        </section>
+
+        <section>
+            <h2>🏁 Forma Normal 0 (todo está mezclado)</h2>
+            <p>En esta etapa todavía no exigimos una estructura normalizada. Una misma celda puede
+                contener varios valores: varios Grandes Premios, posiciones o circuitos.</p>
             <div class="table-scroll">
                 <table>
                     <tr>
-                        <th>ID_Emp</th>
+                        <th>ID_Piloto</th>
                         <th>Piloto</th>
-                        <th>Departamento / Lenguajes (¡Listas!)</th>
-                        <th>Instructor</th>
-                        <th>Aula</th>
+                        <th>Escudería</th>
+                        <th>Grandes Premios</th>
+                        <th>Circuitos</th>
+                        <th>Posiciones</th>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>Max Verstappen</td>
-                        <td><span class="badge-bad">Java, Python</span></td>
-                        <td>García, Fernán</td>
-                        <td>A1, B2</td>
+                        <td>Red Bull Racing</td>
+                        <td><span class="badge-bad">Mónaco, Italia</span></td>
+                        <td><span class="badge-bad">Monte Carlo, Monza</span></td>
+                        <td><span class="badge-bad">1, 3</span></td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Charles Leclerc</td>
-                        <td><span class="badge-good">JavaScript</span></td>
-                        <td>López</td>
-                        <td>C3</td>
+                        <td>Ferrari</td>
+                        <td>Italia</td>
+                        <td>Monza</td>
+                        <td>2</td>
                     </tr>
                 </table>
             </div>
+            <p style="margin-top:12px;">❌ <strong>Problema:</strong> una celda puede contener una lista de valores. No
+                podemos tratar cada dato de forma individual.</p>
         </section>
 
-        <!-- 1FN -->
         <section>
             <h2>1️⃣ Primera Forma Normal (1FN)</h2>
             <div class="story-card">
-                <p style="margin:0;"><strong>El objetivo:</strong> Lograr <strong>atomicidad</strong>. Cada celda debe tener un solo valor. ¡Adiós a las listas y múltiples datos amontonados!</p>
+                <p style="margin:0;"><strong>Objetivo:</strong> lograr <strong>atomicidad</strong>.
+                    Cada celda debe contener un solo valor y cada fila representa un registro identificable.</p>
             </div>
 
             <div class="interactive-box">
                 <div class="control-bar">
-                    <span id="label-1fn" class="status-text">❌ Problema: Hay listas y varios valores mezclados en una sola línea.</span>
-                    <button class="action-btn" onclick="togglePlay('1fn')">✨ Ver Solución 1FN</button>
+                    <span id="label-1fn" class="status-text">❌ Problema: hay listas de Grandes Premios, circuitos y
+                        posiciones.</span>
+                    <button class="action-btn" onclick="togglePlay('1fn', event)">✨ Ver Solución 1FN</button>
                 </div>
 
-                <!-- Antes 1FN -->
                 <div id="box-1fn-before" class="view-step active">
                     <div class="table-scroll">
                         <table>
                             <tr>
-                                <th>ID</th>
+                                <th>ID_Piloto</th>
                                 <th>Piloto</th>
-                                <th>Lenguaje</th>
-                                <th>Instructor</th>
-                                <th>Aula</th>
+                                <th>Escudería</th>
+                                <th>Gran Premio</th>
+                                <th>Circuito</th>
+                                <th>Posición</th>
                             </tr>
                             <tr>
                                 <td>1</td>
                                 <td>Max Verstappen</td>
-                                <td><span class="badge-bad">Java, Python</span></td>
-                                <td>García, Fernán</td>
-                                <td>A1, B2</td>
+                                <td>Red Bull Racing</td>
+                                <td><span class="badge-bad">Mónaco, Italia</span></td>
+                                <td><span class="badge-bad">Monte Carlo, Monza</span></td>
+                                <td><span class="badge-bad">1, 3</span></td>
                             </tr>
                         </table>
                     </div>
                 </div>
 
-                <!-- Después 1FN -->
                 <div id="box-1fn-after" class="view-step">
-                    <p style="font-size: 0.85rem; color: var(--success-border);">¡Solución aplicada! Cada lenguaje se separa en su propia fila independiente:</p>
+                    <p style="font-size:.85rem;color:var(--success-border);">¡Solución! Cada valor queda en su propia
+                        celda y cada participación del piloto ocupa una fila.</p>
                     <div class="table-scroll">
                         <table>
                             <tr>
-                                <th>ID</th>
+                                <th>ID_Piloto</th>
                                 <th>Piloto</th>
-                                <th>Lenguaje (Atómico)</th>
-                                <th>Instructor</th>
-                                <th>Aula</th>
+                                <th>Escudería</th>
+                                <th>Gran Premio</th>
+                                <th>Circuito</th>
+                                <th>Posición</th>
                             </tr>
                             <tr>
                                 <td>1</td>
                                 <td>Max Verstappen</td>
-                                <td><span class="badge-good">Java</span></td>
-                                <td>García</td>
-                                <td>A1</td>
+                                <td>Red Bull Racing</td>
+                                <td><span class="badge-good">Mónaco</span></td>
+                                <td>Monte Carlo</td>
+                                <td>1</td>
                             </tr>
                             <tr>
                                 <td>1</td>
                                 <td>Max Verstappen</td>
-                                <td><span class="badge-good">Python</span></td>
-                                <td>Fernán</td>
-                                <td>B2</td>
+                                <td>Red Bull Racing</td>
+                                <td><span class="badge-good">Italia</span></td>
+                                <td>Monza</td>
+                                <td>3</td>
                             </tr>
                         </table>
                     </div>
+                    <p style="margin-top:12px;">Ahora podemos identificar cada participación con la combinación
+                        <strong>ID_Piloto + ID_GP</strong>.
+                    </p>
+                </div>
+
+                <div class="next-problem">
+                    <h3>🔎 ¿Qué problema aparece ahora?</h3>
+                    <p>
+                        <strong>Ya eliminamos las listas y cada fila representa una participación.</strong>
+                        Sin embargo, la clave candidata es compuesta: <strong>(ID_Piloto, ID_GP)</strong>.
+                        <br><br>
+                        👉 Al examinar los atributos no clave, notamos que los datos del piloto (como su nombre y escudería) dependen funcionalmente solo de una parte de la clave (`ID_Piloto`), y no de toda la clave compuesta. Esto genera una <strong>dependencia parcial</strong> que resolveremos en la 2FN.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- 2FN -->
         <section>
             <h2>2️⃣ Segunda Forma Normal (2FN)</h2>
             <div class="story-card">
-                <p style="margin:0;"><strong>El objetivo:</strong> Eliminar dependencias parciales y claves compuestas repetitivas. Separamos los datos de los pilotos por un lado y los lenguajes/cursos por el otro.</p>
+                <p style="margin:0;"><strong>Objetivo:</strong> eliminar las <strong>dependencias parciales</strong>.
+                    Toda columna que no forme parte de la clave candidata debe depender funcionalmente de <strong>toda</strong> la clave primaria compuesta, y no solo de una parte de ella.</p>
             </div>
 
             <div class="interactive-box">
                 <div class="control-bar">
-                    <span id="label-2fn" class="status-text">❌ Problema: Nombres de pilotos y datos se repiten constantemente.</span>
-                    <button class="action-btn" onclick="togglePlay('2fn')">✨ Ver Solución 2FN</button>
+                    <span id="label-2fn" class="status-text">❌ Problema: hay dependencias parciales respecto a la clave compuesta (ID_Piloto, ID_GP).</span>
+                    <button class="action-btn" onclick="togglePlay('2fn', event)">✨ Ver Solución 2FN</button>
                 </div>
 
-                <!-- Antes 2FN -->
                 <div id="box-2fn-before" class="view-step active">
                     <div class="table-scroll">
                         <table>
                             <tr>
                                 <th>ID_Piloto</th>
+                                <th>ID_GP</th>
                                 <th>Piloto</th>
-                                <th>Lenguaje</th>
-                                <th>Instructor</th>
+                                <th>Escudería</th>
+                                <th>Gran Premio</th>
+                                <th>Circuito</th>
+                                <th>Posición</th>
                             </tr>
                             <tr>
                                 <td>1</td>
+                                <td>101</td>
                                 <td>Max Verstappen</td>
-                                <td>Java</td>
-                                <td>García</td>
+                                <td>Red Bull Racing</td>
+                                <td>Mónaco</td>
+                                <td>Monte Carlo</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>102</td>
+                                <td>Max Verstappen</td>
+                                <td>Red Bull Racing</td>
+                                <td>Italia</td>
+                                <td>Monza</td>
+                                <td>3</td>
                             </tr>
                         </table>
                     </div>
+                    <p style="margin-top:12px;"><span class="badge-bad">ID_Piloto → Piloto, Escudería</span> (dependencia parcial, ya que solo dependen de ID_Piloto y no de ID_GP).</p>
                 </div>
 
-                <!-- Después 2FN -->
                 <div id="box-2fn-after" class="view-step">
-                    <p style="font-size: 0.85rem; color: var(--success-border);">¡Solución! Dividimos en la tabla Pilotos y la tabla Lenguajes:</p>
+                    <p style="font-size:.85rem;color:var(--success-border);">¡Solución! Separamos los atributos que dependen exclusivamente de cada componente de la clave.</p>
                     <div class="grid-tables">
                         <div>
-                            <p style="font-size: 0.8rem; color: var(--accent); font-weight:700; margin-bottom: 4px;">Tabla: Pilotos</p>
-                            <div class="table-scroll">
-                                <table>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Piloto</th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Max Verstappen</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div>
-                            <p style="font-size: 0.8rem; color: var(--accent); font-weight:700; margin-bottom: 4px;">Tabla: Lenguajes (con FK)</p>
+                            <p style="font-size:.8rem;color:var(--accent);font-weight:700;margin-bottom:4px;">Tabla:
+                                Pilotos (Clave: ID_Piloto)</p>
                             <div class="table-scroll">
                                 <table>
                                     <tr>
                                         <th>ID_Piloto</th>
-                                        <th>Lenguaje</th>
-                                        <th>Instructor</th>
+                                        <th>Piloto</th>
+                                        <th>Escudería</th>
                                     </tr>
                                     <tr>
                                         <td>1</td>
-                                        <td>Java</td>
-                                        <td>García</td>
+                                        <td>Max Verstappen</td>
+                                        <td>Red Bull Racing</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Charles Leclerc</td>
+                                        <td>Ferrari</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p style="font-size:.8rem;color:var(--accent);font-weight:700;margin-bottom:4px;">Tabla:
+                                Grandes_Premios (Clave: ID_GP)</p>
+                            <div class="table-scroll">
+                                <table>
+                                    <tr>
+                                        <th>ID_GP</th>
+                                        <th>Gran Premio</th>
+                                        <th>Circuito</th>
+                                    </tr>
+                                    <tr>
+                                        <td>101</td>
+                                        <td>Mónaco</td>
+                                        <td>Monte Carlo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>102</td>
+                                        <td>Italia</td>
+                                        <td>Monza</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p style="font-size:.8rem;color:var(--accent);font-weight:700;margin-bottom:4px;">Tabla:
+                                Resultados (Clave: ID_Piloto, ID_GP)</p>
+                            <div class="table-scroll">
+                                <table>
+                                    <tr>
+                                        <th>ID_Piloto</th>
+                                        <th>ID_GP</th>
+                                        <th>Posición</th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>101</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>102</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>101</td>
+                                        <td>2</td>
                                     </tr>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="next-problem">
+                    <h3>🔎 ¿Qué problema aparece ahora?</h3>
+                    <p>
+                        <strong>Ya eliminamos las dependencias parciales.</strong>
+                        Sin embargo, dentro de la tabla <strong>Pilotos</strong>, un atributo no clave (`Nombre_Escudería`, `País`) depende funcionalmente de otro atributo no clave (`ID_Escudería`), el cual a su vez depende de la clave primaria (`ID_Piloto`).
+                        <br><br>
+                        Es decir, se cumple la dependencia transitiva:
+                        <strong>ID_Piloto → ID_Escudería → (Nombre_Escudería, País)</strong>.
+                        <br><br>
+                        👉 Esto provoca redundancia y anomalías de actualización, y lo resolveremos con la <strong>3FN</strong>.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- 3FN -->
         <section>
             <h2>3️⃣ Tercera Forma Normal (3FN)</h2>
             <div class="story-card">
-                <p style="margin:0;"><strong>El objetivo:</strong> Eliminar <strong>dependencias transitivas</strong> (cuando un campo depende de otro que no es la clave principal, como el instructor o el aula dependiendo del lenguaje).</p>
+                <p style="margin:0;"><strong>Objetivo:</strong> eliminar <strong>dependencias transitivas</strong>.
+                    Ningún atributo que no sea clave debe depender transitivamente de la clave primaria a través de otro atributo no clave.</p>
             </div>
 
             <div class="interactive-box">
                 <div class="control-bar">
-                    <span id="label-3fn" class="status-text">❌ Problema: El instructor y el aula dependen indirectamente del lenguaje.</span>
-                    <button class="action-btn" onclick="togglePlay('3fn')">✨ Ver Solución 3FN</button>
+                    <span id="label-3fn" class="status-text">❌ Problema: existe una dependencia transitiva en Pilotos (ID_Piloto → ID_Escudería → Nombre_Escudería, País).</span>
+                    <button class="action-btn" onclick="togglePlay('3fn', event)">✨ Ver Solución 3FN</button>
                 </div>
 
-                <!-- Antes 3FN -->
                 <div id="box-3fn-before" class="view-step active">
                     <div class="table-scroll">
                         <table>
                             <tr>
                                 <th>ID_Piloto</th>
-                                <th>Lenguaje</th>
-                                <th>Instructor (Indirecto)</th>
-                                <th>Aula (Indirecto)</th>
+                                <th>Piloto</th>
+                                <th>ID_Escudería</th>
+                                <th>Nombre_Escudería</th>
+                                <th>País</th>
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td>Java</td>
-                                <td>García</td>
-                                <td>A1</td>
+                                <td>Max Verstappen</td>
+                                <td>10</td>
+                                <td>Red Bull Racing</td>
+                                <td>Austria</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Charles Leclerc</td>
+                                <td>20</td>
+                                <td>Ferrari</td>
+                                <td>Italia</td>
                             </tr>
                         </table>
                     </div>
+                    <p style="margin-top:12px;"><span class="badge-bad">ID_Piloto → ID_Escudería → Nombre_Escudería / País</span><br>
+                        El nombre y país de la escudería dependen de la escudería misma, no directamente del piloto.</p>
                 </div>
 
-                <!-- Después 3FN -->
                 <div id="box-3fn-after" class="view-step">
-                    <p style="font-size: 0.85rem; color: var(--success-border);">¡Solución! Tabla independiente para los detalles de los cursos y profesores:</p>
+                    <p style="font-size:.85rem;color:var(--success-border);">¡Solución! Extraemos la entidad Escuderías y separamos Circuitos para asegurar un modelo plenamente coherente y normalizado.</p>
                     <div class="grid-tables">
                         <div>
-                            <p style="font-size: 0.8rem; color: var(--accent); font-weight:700; margin-bottom: 4px;">Tabla: Cursos / Lenguajes</p>
-                            <div class="table-scroll">
-                                <table>
-                                    <tr>
-                                        <th>Lenguaje</th>
-                                        <th>Instructor</th>
-                                        <th>Aula</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Java</td>
-                                        <td>García</td>
-                                        <td>A1</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div>
-                            <p style="font-size: 0.8rem; color: var(--accent); font-weight:700; margin-bottom: 4px;">Tabla: Relación Piloto-Lenguaje</p>
+                            <p style="font-size:.8rem;color:var(--accent);font-weight:700;margin-bottom:4px;">Tabla:
+                                Pilotos</p>
                             <div class="table-scroll">
                                 <table>
                                     <tr>
                                         <th>ID_Piloto</th>
-                                        <th>Lenguaje</th>
+                                        <th>Piloto</th>
+                                        <th>ID_Escudería</th>
                                     </tr>
                                     <tr>
                                         <td>1</td>
-                                        <td>Java</td>
+                                        <td>Max Verstappen</td>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Charles Leclerc</td>
+                                        <td>20</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p style="font-size:.8rem;color:var(--accent);font-weight:700;margin-bottom:4px;">Tabla:
+                                Escuderías</p>
+                            <div class="table-scroll">
+                                <table>
+                                    <tr>
+                                        <th>ID_Escudería</th>
+                                        <th>Nombre</th>
+                                        <th>País</th>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Red Bull Racing</td>
+                                        <td>Austria</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20</td>
+                                        <td>Ferrari</td>
+                                        <td>Italia</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p style="font-size:.8rem;color:var(--accent);font-weight:700;margin-bottom:4px;">Tabla:
+                                Resultados</p>
+                            <div class="table-scroll">
+                                <table>
+                                    <tr>
+                                        <th>ID_Piloto</th>
+                                        <th>ID_GP</th>
+                                        <th>Posición</th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>101</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>102</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>101</td>
+                                        <td>2</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p style="font-size:.8rem;color:var(--accent);font-weight:700;margin-bottom:4px;">Tabla:
+                                Grandes_Premios</p>
+                            <div class="table-scroll">
+                                <table>
+                                    <tr>
+                                        <th>ID_GP</th>
+                                        <th>Gran Premio</th>
+                                        <th>ID_Circuito</th>
+                                    </tr>
+                                    <tr>
+                                        <td>101</td>
+                                        <td>Mónaco</td>
+                                        <td>501</td>
+                                    </tr>
+                                    <tr>
+                                        <td>102</td>
+                                        <td>Italia</td>
+                                        <td>502</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p style="font-size:.8rem;color:var(--accent);font-weight:700;margin-bottom:4px;">Tabla:
+                                Circuitos</p>
+                            <div class="table-scroll">
+                                <table>
+                                    <tr>
+                                        <th>ID_Circuito</th>
+                                        <th>Circuito</th>
+                                        <th>País</th>
+                                    </tr>
+                                    <tr>
+                                        <td>501</td>
+                                        <td>Monte Carlo</td>
+                                        <td>Mónaco</td>
+                                    </tr>
+                                    <tr>
+                                        <td>502</td>
+                                        <td>Monza</td>
+                                        <td>Italia</td>
                                     </tr>
                                 </table>
                             </div>
@@ -504,40 +750,58 @@
             </div>
         </section>
 
+        <section>
+            <h2>🏆 El recorrido completo</h2>
+            <p><strong>Forma 0:</strong> datos mezclados y listas →
+                <strong>1FN:</strong> valores atómicos →
+                <strong>2FN:</strong> eliminamos dependencias parciales →
+                <strong>3FN:</strong> eliminamos dependencias transitivas.
+            </p>
+            <div class="story-card">
+                <p style="margin:0;">🏎️ <strong>La idea clave:</strong> no estamos “creando tablas porque sí”.
+                    En cada paso preguntamos: <em>“¿Este atributo depende funcionalmente de la clave de esta tabla?”</em>.
+                    Si no depende de ella de forma directa e independiente, se traslada a su entidad correspondiente.</p>
+            </div>
+        </section>
+
         <footer>
-            <p>Basado en el estilo didáctico de TodoCode 🧡 - Adaptado para móviles y pantallas táctiles.</p>
+            <p>🏎️ Normalización de BD con un único ejemplo de Fórmula 1 · Adaptado para móviles y pantallas táctiles.
+            </p>
         </footer>
     </div>
 
     <script>
         const states = { '1fn': false, '2fn': false, '3fn': false };
-
-        function togglePlay(id) {
+        function togglePlay(id, evt) {
             states[id] = !states[id];
             const active = states[id];
-
             const before = document.getElementById(`box-${id}-before`);
             const after = document.getElementById(`box-${id}-after`);
             const label = document.getElementById(`label-${id}`);
-            const btn = event.target;
-
+            const btn = evt.currentTarget;
             if (active) {
                 before.classList.remove('active');
                 after.classList.add('active');
-                label.textContent = `✅ ¡Estructura perfecta en ${id.toUpperCase()}! Sin redundancias.`;
+                label.textContent = `✅ ¡Solución ${id.toUpperCase()} aplicada!`;
                 label.classList.add('fixed');
-                btn.textContent = `🔄 Ver Problema Inicial`;
+                btn.textContent = '🔄 Ver Problema Inicial';
                 btn.style.backgroundColor = '#16a34a';
             } else {
                 after.classList.remove('active');
                 before.classList.add('active');
-                label.textContent = `❌ Problema: Datos mal estructurados (Sin ${id.toUpperCase()})`;
+                if (id === '1fn') {
+                    label.textContent = '❌ Problema: hay listas de Grandes Premios, circuitos y posiciones.';
+                } else if (id === '2fn') {
+                    label.textContent = '❌ Problema: hay dependencias parciales respecto a la clave compuesta (ID_Piloto, ID_GP).';
+                } else if (id === '3fn') {
+                    label.textContent = '❌ Problema: existe una dependencia transitiva en Pilotos (ID_Piloto → ID_Escudería → Nombre_Escudería, País).';
+                }
                 label.classList.remove('fixed');
                 btn.textContent = `✨ Ver Solución ${id.toUpperCase()}`;
-                btn.style.backgroundColor = '';
+                btn.style.backgroundColor = 'var(--btn-bg)';
             }
         }
     </script>
-
 </body>
+
 </html>
