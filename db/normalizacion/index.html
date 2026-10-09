@@ -56,6 +56,53 @@
             color: #fbbf24;
         }
 
+        .glossary {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 15px;
+        }
+
+        .glossary-item {
+            background: #070a12;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent);
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+
+        .glossary-item h4 {
+            color: var(--accent);
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .glossary-item p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .glossary-item.surrogate {
+            border-left-color: #f59e0b;
+        }
+
+        .glossary-item.surrogate h4 {
+            color: #f59e0b;
+        }
+
+        .glossary-item.danger {
+            border-left-color: #ef4444;
+        }
+
+        .glossary-item.danger h4 {
+            color: #f87171;
+        }
+
         :root {
             --bg-color: #0b0f19;
             --card-bg: #131c2e;
@@ -306,6 +353,10 @@
             margin-top: 30px;
         }
 
+        footer strong {
+            color: var(--accent);
+        }
+
         @media (min-width: 768px) {
             header h1 {
                 font-size: 2rem;
@@ -364,7 +415,6 @@
                         <th>ID_Piloto</th>
                         <th>Piloto</th>
                         <th>Escudería</th>
-                        <th>ID_GP</th>
                         <th>Gran Premio</th>
                         <th>Circuito</th>
                         <th>Posición</th>
@@ -373,7 +423,6 @@
                         <td>1</td>
                         <td>Max Verstappen</td>
                         <td>Red Bull Racing</td>
-                        <td><span class="badge-bad">101, 102</span></td>
                         <td><span class="badge-bad">Mónaco, Italia</span></td>
                         <td><span class="badge-bad">Monte Carlo, Monza</span></td>
                         <td><span class="badge-bad">1, 3</span></td>
@@ -382,7 +431,6 @@
                         <td>2</td>
                         <td>Charles Leclerc</td>
                         <td>Ferrari</td>
-                        <td>102</td>
                         <td>Italia</td>
                         <td>Monza</td>
                         <td>2</td>
@@ -416,7 +464,6 @@
                                 <th>ID_Piloto</th>
                                 <th>Piloto</th>
                                 <th>Escudería</th>
-                                <th>ID_GP</th>
                                 <th>Gran Premio</th>
                                 <th>Circuito</th>
                                 <th>Posición</th>
@@ -425,7 +472,6 @@
                                 <td>1</td>
                                 <td>Max Verstappen</td>
                                 <td>Red Bull Racing</td>
-                                <td><span class="badge-bad">101, 102</span></td>
                                 <td><span class="badge-bad">Mónaco, Italia</span></td>
                                 <td><span class="badge-bad">Monte Carlo, Monza</span></td>
                                 <td><span class="badge-bad">1, 3</span></td>
@@ -443,7 +489,6 @@
                                 <th>ID_Piloto</th>
                                 <th>Piloto</th>
                                 <th>Escudería</th>
-                                <th>ID_GP</th>
                                 <th>Gran Premio</th>
                                 <th>Circuito</th>
                                 <th>Posición</th>
@@ -452,7 +497,6 @@
                                 <td>1</td>
                                 <td>Max Verstappen</td>
                                 <td>Red Bull Racing</td>
-                                <td>101</td>
                                 <td><span class="badge-good">Mónaco</span></td>
                                 <td>Monte Carlo</td>
                                 <td>1</td>
@@ -461,7 +505,6 @@
                                 <td>1</td>
                                 <td>Max Verstappen</td>
                                 <td>Red Bull Racing</td>
-                                <td>102</td>
                                 <td><span class="badge-good">Italia</span></td>
                                 <td>Monza</td>
                                 <td>3</td>
@@ -469,7 +512,7 @@
                         </table>
                     </div>
                     <p style="margin-top:12px;">Ahora podemos identificar cada participación con la combinación
-                        <strong>ID_Piloto + ID_GP</strong>.
+                        <strong>(ID_Piloto, Gran Premio)</strong>, que actúa como <strong>clave natural</strong>.
                     </p>
                 </div>
 
@@ -477,7 +520,7 @@
                     <h3>🔎 ¿Qué problema aparece ahora?</h3>
                     <p>
                         <strong>Ya eliminamos las listas y cada fila representa una participación.</strong>
-                        Sin embargo, la clave candidata es compuesta: <strong>(ID_Piloto, ID_GP)</strong>.
+                        Sin embargo, la clave candidata es compuesta: <strong>(ID_Piloto, Gran Premio)</strong>.
                         <br><br>
                         👉 Al examinar los atributos no clave, notamos que los datos del piloto (como su nombre y
                         escudería) dependen funcionalmente solo de una parte de la clave (<code>ID_Piloto</code>), y no
@@ -493,14 +536,13 @@
             <div class="story-card">
                 <p style="margin:0;"><strong>Objetivo:</strong> eliminar las <strong>dependencias parciales</strong>.
                     Toda columna que no forme parte de la clave candidata debe depender funcionalmente de
-                    <strong>toda</strong> la clave primaria compuesta, y no solo de una parte de ella.
-                </p>
+                    <strong>toda</strong> la clave primaria compuesta, y no solo de una parte de ella.</p>
             </div>
 
             <div class="interactive-box">
                 <div class="control-bar">
                     <span id="label-2fn" class="status-text" aria-live="polite">❌ Problema: hay dependencias parciales
-                        respecto a la clave compuesta (ID_Piloto, ID_GP).</span>
+                        respecto a la clave compuesta (ID_Piloto, Gran Premio).</span>
                     <button class="action-btn" data-toggle="2fn" aria-expanded="false" aria-controls="box-2fn-after">
                         ✨ Ver Solución 2FN
                     </button>
@@ -511,7 +553,6 @@
                         <table>
                             <tr>
                                 <th>ID_Piloto</th>
-                                <th>ID_GP</th>
                                 <th>Piloto</th>
                                 <th>Escudería</th>
                                 <th>Gran Premio</th>
@@ -520,7 +561,6 @@
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td>101</td>
                                 <td>Max Verstappen</td>
                                 <td>Red Bull Racing</td>
                                 <td>Mónaco</td>
@@ -529,7 +569,6 @@
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td>102</td>
                                 <td>Max Verstappen</td>
                                 <td>Red Bull Racing</td>
                                 <td>Italia</td>
@@ -539,12 +578,14 @@
                         </table>
                     </div>
                     <p style="margin-top:12px;"><span class="badge-bad">ID_Piloto → Piloto, Escudería</span>
-                        (dependencia parcial, ya que solo dependen de ID_Piloto y no de ID_GP).</p>
+                        (dependencia parcial, ya que solo dependen de ID_Piloto y no de Gran Premio).</p>
                 </div>
 
                 <div id="box-2fn-after" class="view-step">
-                    <p style="font-size:.85rem;color:var(--success-border);">¡Solución! Separamos los atributos que
-                        dependen exclusivamente de cada componente de la clave.</p>
+                    <p style="font-size:.85rem;color:var(--success-border);">¡Solución! Antes de separar las tablas,
+                        introducimos una <strong>clave subrogada</strong> para los Grandes Premios (mira la aclaratoria
+                        naranja más abajo 👇) y luego separamos los atributos según de qué parte de la clave dependen.
+                    </p>
                     <div class="grid-tables">
                         <div>
                             <p style="font-size:.8rem;color:var(--accent);font-weight:700;margin-bottom:4px;">Tabla:
@@ -572,11 +613,11 @@
 
                         <div>
                             <p style="font-size:.8rem;color:var(--accent);font-weight:700;margin-bottom:4px;">Tabla:
-                                Grandes_Premios (Clave: ID_GP)</p>
+                                Grandes_Premios (Clave: <span class="badge-surrogate">ID_GP</span>)</p>
                             <div class="table-scroll">
                                 <table>
                                     <tr>
-                                        <th>ID_GP</th>
+                                        <th><span class="badge-surrogate">ID_GP</span></th>
                                         <th>Gran Premio</th>
                                         <th>Circuito</th>
                                     </tr>
@@ -596,12 +637,12 @@
 
                         <div>
                             <p style="font-size:.8rem;color:var(--accent);font-weight:700;margin-bottom:4px;">Tabla:
-                                Resultados (Clave: ID_Piloto, ID_GP)</p>
+                                Resultados (Clave: ID_Piloto, <span class="badge-surrogate">ID_GP</span>)</p>
                             <div class="table-scroll">
                                 <table>
                                     <tr>
                                         <th>ID_Piloto</th>
-                                        <th>ID_GP</th>
+                                        <th><span class="badge-surrogate">ID_GP</span></th>
                                         <th>Posición</th>
                                     </tr>
                                     <tr>
@@ -626,11 +667,15 @@
                 </div>
 
                 <div class="clarification">
-                    <h3>💡 Aclaratoria importante: ¿de dónde salió el <code>ID_GP</code>?</h3>
+                    <h3>💡 Aclaratoria importante: ¿de dónde salió el <span class="badge-surrogate">ID_GP</span>?</h3>
                     <p>
-                        Si venimos siguiendo el ejemplo, notamos que el <code>ID_GP</code> apareció por primera vez en
-                        la tabla de la 1FN. Es natural preguntarse: <em>¿la normalización inventa atributos nuevos?</em>
-                        <strong>No.</strong> La normalización formal (Codd, 1FN → 2FN → 3FN) es un proceso de
+                        Si venías siguiendo el ejemplo, te habrás dado cuenta de que <strong>hasta este punto el
+                        <code>ID_GP</code> no existía</strong>: en la Forma 0 y en la 1FN solo teníamos el
+                        <em>nombre</em> del Gran Premio (Mónaco, Italia…) como clave natural.
+                    </p>
+                    <p>
+                        Entonces, <strong>¿la normalización inventa atributos nuevos?</strong> <strong>No.</strong>
+                        La normalización formal (Codd, 1FN → 2FN → 3FN) es un proceso de
                         <strong>descomposición</strong>: solo divide tablas, mueve atributos y crea claves foráneas.
                         <strong>Nunca crea columnas que no existían.</strong>
                     </p>
@@ -639,20 +684,20 @@
                         <strong>clave subrogada</strong> (<em>surrogate key</em>): un identificador artificial
                         —típicamente numérico y sin significado de negocio— que se añade a una tabla para
                         <strong>identificar sus filas de forma más simple y estable</strong> que una clave natural
-                        (como podría ser el nombre del Gran Premio, que cambia de idioma, tiene tildes, etc.).
+                        (como el nombre del Gran Premio, que cambia de idioma, lleva tildes, o podría repetirse).
                     </p>
                     <p>
-                        Por eso, en este ejemplo, decidimos desde la <strong>Forma 0</strong> representar cada Gran
-                        Premio con un <span class="badge-surrogate">ID_GP</span> numérico (101, 102, …) en lugar de
-                        usar el nombre como identificador. Esa decisión <strong>no es un paso de la
-                            normalización</strong>:
-                        es una <strong>decisión de diseño</strong> que tomamos antes de empezar, y que después nos
-                        facilita hablar de claves compuestas como <code>(ID_Piloto, ID_GP)</code> sin ambigüedades.
+                        Por eso, <strong>al pasar a 2FN</strong> tomamos una <strong>decisión de diseño</strong>:
+                        reemplazar la clave natural <code>Gran Premio</code> por una clave subrogada
+                        <span class="badge-surrogate">ID_GP</span> (101, 102, …). Eso <strong>no es un paso de la
+                        normalización</strong>: es una decisión que tomamos nosotros para simplificar las claves y las
+                        relaciones entre tablas.
                     </p>
                     <p>
                         👉 Regla mental: si un atributo <strong>no estaba</strong> en la tabla original, no puede
                         "aparecer" mágicamente durante la 1FN, 2FN o 3FN. Si aparece, es porque alguien lo añadió como
-                        clave subrogada, y eso debe declararse <strong>explícitamente</strong>.
+                        clave subrogada, y eso debe declararse <strong>explícitamente</strong> —como estamos haciendo
+                        aquí—.
                     </p>
                 </div>
 
@@ -782,7 +827,7 @@
                                 <table>
                                     <tr>
                                         <th>ID_Piloto</th>
-                                        <th>ID_GP</th>
+                                        <th><span class="badge-surrogate">ID_GP</span></th>
                                         <th>Posición</th>
                                     </tr>
                                     <tr>
@@ -810,7 +855,7 @@
                             <div class="table-scroll">
                                 <table>
                                     <tr>
-                                        <th>ID_GP</th>
+                                        <th><span class="badge-surrogate">ID_GP</span></th>
                                         <th>Gran Premio</th>
                                         <th>ID_Circuito</th>
                                     </tr>
@@ -872,9 +917,83 @@
             </div>
         </section>
 
+        <section>
+            <h2>📚 Glosario de conceptos clave</h2>
+            <p>Antes de cerrar, repasemos los términos que fuimos usando. Tenerlos claros ayuda a no confundir
+                <strong>normalización</strong> con <strong>decisiones de diseño</strong>.</p>
+
+            <div class="glossary">
+                <div class="glossary-item">
+                    <h4>🔑 Clave natural</h4>
+                    <p>
+                        Atributo (o conjunto de atributos) que <strong>ya existe en el dominio del problema</strong>
+                        y sirve para identificar de forma única una fila. En nuestro ejemplo, la combinación
+                        <code>(ID_Piloto, Gran Premio)</code> es una clave natural de la tabla de participaciones,
+                        porque el nombre del Gran Premio ya estaba en los datos originales.
+                    </p>
+                </div>
+
+                <div class="glossary-item surrogate">
+                    <h4>🆔 Clave subrogada (<em>surrogate key</em>)</h4>
+                    <p>
+                        Identificador <strong>artificial</strong>, normalmente numérico y sin significado de negocio,
+                        que se añade a una tabla para identificar sus filas de forma <strong>más simple y
+                        estable</strong> que una clave natural. Es el caso del <span class="badge-surrogate">ID_GP</span>
+                        (101, 102, …) que introdujimos al pasar a 2FN. <strong>No es un paso de la normalización</strong>:
+                        es una <strong>decisión de diseño</strong> que tomamos para simplificar las claves.
+                    </p>
+                </div>
+
+                <div class="glossary-item">
+                    <h4>➡️ Dependencia funcional</h4>
+                    <p>
+                        Decimos que <code>X → Y</code> (X determina a Y) cuando <strong>conocido el valor de X
+                        podemos conocer el valor de Y</strong>. Por ejemplo, <code>ID_Piloto → Piloto</code>: si sé el
+                        ID del piloto, sé su nombre. Es la base sobre la que se construyen todas las formas normales.
+                    </p>
+                </div>
+
+                <div class="glossary-item danger">
+                    <h4>⚠️ Dependencia parcial</h4>
+                    <p>
+                        Ocurre cuando un atributo no clave depende <strong>solo de una parte</strong> de una clave
+                        primaria compuesta. Es el problema que resuelve la <strong>2FN</strong>. Ejemplo:
+                        <code>ID_Piloto → Piloto</code> cuando la clave es <code>(ID_Piloto, ID_GP)</code>: el nombre
+                        del piloto no necesita al ID del GP para conocerse.
+                    </p>
+                </div>
+
+                <div class="glossary-item danger">
+                    <h4>⚠️ Dependencia transitiva</h4>
+                    <p>
+                        Ocurre cuando un atributo no clave depende de otro atributo no clave, el cual a su vez depende
+                        de la clave primaria. Es el problema que resuelve la <strong>3FN</strong>. Ejemplo:
+                        <code>ID_Piloto → ID_Escudería → (Nombre_Escudería, País)</code>: el nombre de la escudería no
+                        depende del piloto, sino de la escudería.
+                    </p>
+                </div>
+
+                <div class="glossary-item">
+                    <h4>🔗 Clave foránea</h4>
+                    <p>
+                        Atributo de una tabla que <strong>referencia la clave primaria de otra tabla</strong>. Es el
+                        mecanismo que usamos para conectar las tablas que resultan de la normalización (por ejemplo,
+                        <code>ID_Escudería</code> en la tabla <em>Pilotos</em> apunta a la tabla <em>Escuderías</em>).
+                    </p>
+                </div>
+            </div>
+
+            <div class="story-card" style="margin-top: 20px;">
+                <p style="margin:0;">📌 <strong>Recuerda:</strong> la normalización es un proceso <em>formal</em> de
+                    descomposición. Las claves subrogadas, en cambio, son una <em>decisión de diseño</em>. Mezclar
+                    ambas cosas lleva a confusión —y a creer que la normalización “inventa” columnas, cuando en
+                    realidad no lo hace—.</p>
+            </div>
+        </section>
+
         <footer>
-            <p>🏎️ Normalización de BD con un único ejemplo de Fórmula 1 · Adaptado para móviles y pantallas táctiles.
-            </p>
+            <p><strong>Normalización de BD - Profesora: Licen. Eddy Machado</strong></p>
+            <p style="margin-top: 6px;">🏎️ Ejemplo único de Fórmula 1 · Adaptado para móviles y pantallas táctiles.</p>
         </footer>
     </div>
 
@@ -883,7 +1002,7 @@
 
         const initialLabels = {
             '1fn': '❌ Problema: hay listas de Grandes Premios, circuitos y posiciones.',
-            '2fn': '❌ Problema: hay dependencias parciales respecto a la clave compuesta (ID_Piloto, ID_GP).',
+            '2fn': '❌ Problema: hay dependencias parciales respecto a la clave compuesta (ID_Piloto, Gran Premio).',
             '3fn': '❌ Problema: existe una dependencia transitiva en Pilotos (ID_Piloto → ID_Escudería → Nombre_Escudería, País).'
         };
 
